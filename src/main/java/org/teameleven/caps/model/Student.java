@@ -6,6 +6,7 @@
 package org.teameleven.caps.model;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -20,6 +21,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -48,6 +50,15 @@ public class Student implements Serializable {
     private String nric;
     @Column(name = "citizenship")
     private String citizenship;
+    @Column(name="first_name")
+    private String firstName;
+    @Column(name="last_name")
+    private String lastName;
+    @Column(name="dob")
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date dob;
+    @Column(name="gender")
+    private String gender;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "student")
     private List<EnroledCourse> enroledCoursesList;
     @JoinColumn(name = "users_userId", referencedColumnName = "userId")
@@ -107,6 +118,39 @@ public class Student implements Serializable {
         this.usersuserId = usersuserId;
     }
 
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public Date getDob() {
+        return dob;
+    }
+
+    public void setDob(Date dob) {
+        this.dob = dob;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -129,7 +173,7 @@ public class Student implements Serializable {
 
     @Override
     public String toString() {
-        return "org.capse.entity.Students[ studentId=" + studentId + " ]";
+        return this.firstName + " " + this.lastName + " " + this.citizenship;
     }
     
 }

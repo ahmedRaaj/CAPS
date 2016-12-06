@@ -101,12 +101,17 @@ CREATE TABLE IF NOT EXISTS `CAPS`.`students` (
   `citizenship` VARCHAR(255) NULL DEFAULT NULL,
   `nric` VARCHAR(255) NULL DEFAULT NULL,
   `users_userId` INT(11) NULL DEFAULT NULL,
+  `first_name` VARCHAR(45) NULL DEFAULT NULL,
+  `last_name` VARCHAR(45) NULL DEFAULT NULL,
+  `dob` DATETIME NULL DEFAULT NULL,
+  `gender` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`studentId`),
   INDEX `FK_students_users_userId` (`users_userId` ASC),
   CONSTRAINT `FK_students_users_userId`
     FOREIGN KEY (`users_userId`)
     REFERENCES `CAPS`.`users` (`userId`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8;
 
 
