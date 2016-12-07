@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="caps@localhost [2]">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="caps">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="mysql"/>
+    <schema id="5" parent="1" name="performance_schema"/>
+    <schema id="6" parent="1" name="sakila"/>
+    <schema id="7" parent="1" name="sys"/>
+    <schema id="8" parent="1" name="world"/>
+    <table id="9" parent="2" name="admins"/>
+    <table id="10" parent="2" name="courses"/>
+    <table id="11" parent="2" name="enroled_courses"/>
+    <table id="12" parent="2" name="lecturers"/>
+    <table id="13" parent="2" name="students"/>
+    <table id="14" parent="2" name="users"/>
+    <column id="15" parent="9" name="adminId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="16" parent="9" name="position">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="17" parent="9" name="users_userId">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="18" parent="9" name="FK_admins_users_userId">
+      <ColNames>users_userId</ColNames>
+    </index>
+    <key id="19" parent="9" name="PRIMARY">
+      <ColNames>adminId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="20" parent="9" name="FK_admins_users_userId">
+      <ColNames>users_userId</ColNames>
+      <RefSchemaName>caps</RefSchemaName>
+      <RefTableName>users</RefTableName>
+      <RefColNames>userId</RefColNames>
+    </foreign-key>
+    <column id="21" parent="10" name="courseId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="22" parent="10" name="courseSize">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="23" parent="10" name="credits">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="24" parent="10" name="duration">
+      <Position>4</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="25" parent="10" name="name">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="26" parent="10" name="lecturers_lecturerId">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="27" parent="10" name="FK_courses_lecturers_lecturerId">
+      <ColNames>lecturers_lecturerId</ColNames>
+    </index>
+    <key id="28" parent="10" name="PRIMARY">
+      <ColNames>courseId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="29" parent="10" name="FK_courses_lecturers_lecturerId">
+      <ColNames>lecturers_lecturerId</ColNames>
+      <RefSchemaName>caps</RefSchemaName>
+      <RefTableName>lecturers</RefTableName>
+      <RefColNames>lecturerId</RefColNames>
+    </foreign-key>
+    <column id="30" parent="11" name="endingDate">
+      <Position>1</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="31" parent="11" name="gradePoint">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="32" parent="11" name="startingDate">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="33" parent="11" name="status">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="34" parent="11" name="students_studentId">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="35" parent="11" name="courses_courseId">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="36" parent="11" name="FK_enroled_courses_courses_courseId">
+      <ColNames>courses_courseId</ColNames>
+    </index>
+    <key id="37" parent="11" name="PRIMARY">
+      <ColNames>students_studentId
+courses_courseId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="38" parent="11" name="FK_enroled_courses_students_studentId">
+      <ColNames>students_studentId</ColNames>
+      <RefSchemaName>caps</RefSchemaName>
+      <RefTableName>students</RefTableName>
+      <RefColNames>studentId</RefColNames>
+    </foreign-key>
+    <foreign-key id="39" parent="11" name="FK_enroled_courses_courses_courseId">
+      <ColNames>courses_courseId</ColNames>
+      <RefSchemaName>caps</RefSchemaName>
+      <RefTableName>courses</RefTableName>
+      <RefColNames>courseId</RefColNames>
+    </foreign-key>
+    <column id="40" parent="12" name="lecturerId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="41" parent="12" name="endDate">
+      <Position>2</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="42" parent="12" name="position">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="43" parent="12" name="startDate">
+      <Position>4</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="44" parent="12" name="users_userId">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="45" parent="12" name="FK_lecturers_users_userId">
+      <ColNames>users_userId</ColNames>
+    </index>
+    <key id="46" parent="12" name="PRIMARY">
+      <ColNames>lecturerId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="47" parent="12" name="FK_lecturers_users_userId">
+      <ColNames>users_userId</ColNames>
+      <RefSchemaName>caps</RefSchemaName>
+      <RefTableName>users</RefTableName>
+      <RefColNames>userId</RefColNames>
+    </foreign-key>
+    <column id="48" parent="13" name="studentId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="49" parent="13" name="citizenship">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="50" parent="13" name="nric">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="51" parent="13" name="users_userId">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="52" parent="13" name="first_name">
+      <Position>5</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="53" parent="13" name="last_name">
+      <Position>6</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="54" parent="13" name="dob">
+      <Position>7</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="55" parent="13" name="gender">
+      <Position>8</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <index id="56" parent="13" name="FK_students_users_userId">
+      <ColNames>users_userId</ColNames>
+    </index>
+    <key id="57" parent="13" name="PRIMARY">
+      <ColNames>studentId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="58" parent="13" name="FK_students_users_userId">
+      <ColNames>users_userId</ColNames>
+      <RefSchemaName>caps</RefSchemaName>
+      <RefTableName>users</RefTableName>
+      <RefColNames>userId</RefColNames>
+    </foreign-key>
+    <column id="59" parent="14" name="userId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="60" parent="14" name="address">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="61" parent="14" name="email">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="62" parent="14" name="password">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="63" parent="14" name="phone">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="64" parent="14" name="role">
+      <Position>6</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="65" parent="14" name="status">
+      <Position>7</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="66" parent="14" name="userName">
+      <Position>8</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="67" parent="14" name="PRIMARY">
+      <ColNames>userId</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

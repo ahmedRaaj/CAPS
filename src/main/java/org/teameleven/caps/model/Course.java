@@ -23,8 +23,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -32,14 +30,13 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "courses")
-@XmlRootElement
-//@NamedQueries({
-//    @NamedQuery(name = "Course.findAll", query = "SELECT c FROM Course c")
-//    , @NamedQuery(name = "Course.findByCourseId", query = "SELECT c FROM Course c WHERE c.courseId = :courseId")
-//    , @NamedQuery(name = "Course.findByName", query = "SELECT c FROM Course c WHERE c.name = :name")
-//    , @NamedQuery(name = "Course.findByCredits", query = "SELECT c FROM Course c WHERE c.credits = :credits")
-//    , @NamedQuery(name = "Course.findByDuration", query = "SELECT c FROM Course c WHERE c.duration = :duration")
-//    , @NamedQuery(name = "Course.findByCourseSize", query = "SELECT c FROM Course c WHERE c.courseSize = :courseSize")})
+@NamedQueries({
+    @NamedQuery(name = "Course.findAll", query = "SELECT c FROM Course c")
+    , @NamedQuery(name = "Course.findByCourseId", query = "SELECT c FROM Course c WHERE c.courseId = :courseId")
+    , @NamedQuery(name = "Course.findByCourseSize", query = "SELECT c FROM Course c WHERE c.courseSize = :courseSize")
+    , @NamedQuery(name = "Course.findByCredits", query = "SELECT c FROM Course c WHERE c.credits = :credits")
+    , @NamedQuery(name = "Course.findByDuration", query = "SELECT c FROM Course c WHERE c.duration = :duration")
+    , @NamedQuery(name = "Course.findByName", query = "SELECT c FROM Course c WHERE c.name = :name")})
 public class Course implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -48,20 +45,19 @@ public class Course implements Serializable {
     @Basic(optional = false)
     @Column(name = "courseId")
     private Integer courseId;
-    @Column(name = "name")
-    private String name;
+    @Column(name = "courseSize")
+    private Integer courseSize;
     @Column(name = "credits")
     private Integer credits;
     @Column(name = "duration")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date duration;
-    @Column(name = "courseSize")
-    private Integer courseSize;
+    private String duration;
+    @Column(name = "name")
+    private String name;
     @JoinColumn(name = "lecturers_lecturerId", referencedColumnName = "lecturerId")
-    @ManyToOne(optional = false)
+    @ManyToOne
     private Lecturer lecturerslecturerId;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "courses")
-    private List<EnroledCourse> enroledCoursesList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "course")
+    private List<EnroledCourse> enroledCourseList;
 
     public Course() {
     }
@@ -78,12 +74,12 @@ public class Course implements Serializable {
         this.courseId = courseId;
     }
 
-    public String getName() {
-        return name;
+    public Integer getCourseSize() {
+        return courseSize;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCourseSize(Integer courseSize) {
+        this.courseSize = courseSize;
     }
 
     public Integer getCredits() {
@@ -94,20 +90,20 @@ public class Course implements Serializable {
         this.credits = credits;
     }
 
-    public Date getDuration() {
+    public String getDuration() {
         return duration;
     }
 
-    public void setDuration(Date duration) {
+    public void setDuration(String duration) {
         this.duration = duration;
     }
 
-    public Integer getCourseSize() {
-        return courseSize;
+    public String getName() {
+        return name;
     }
 
-    public void setCourseSize(Integer courseSize) {
-        this.courseSize = courseSize;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Lecturer getLecturerslecturerId() {
@@ -118,13 +114,12 @@ public class Course implements Serializable {
         this.lecturerslecturerId = lecturerslecturerId;
     }
 
-    @XmlTransient
-    public List<EnroledCourse> getEnroledCoursesList() {
-        return enroledCoursesList;
+    public List<EnroledCourse> getEnroledCourseList() {
+        return enroledCourseList;
     }
 
-    public void setEnroledCoursesList(List<EnroledCourse> enroledCoursesList) {
-        this.enroledCoursesList = enroledCoursesList;
+    public void setEnroledCourseList(List<EnroledCourse> enroledCourseList) {
+        this.enroledCourseList = enroledCourseList;
     }
 
     @Override
@@ -149,7 +144,7 @@ public class Course implements Serializable {
 
     @Override
     public String toString() {
-        return "org.capse.entity.Courses[ courseId=" + courseId + " ]";
+        return "org.caps.model.Course[ courseId=" + courseId + " ]";
     }
     
 }

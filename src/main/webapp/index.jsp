@@ -91,14 +91,14 @@
     </div>
 
   </div>
+  <script src="js/jquery-1.10.2.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/ImgEffect.js"></script>
 </div>
 
 
 
 
 
-<script src="js/jquery-1.10.2.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/ImgEffect.js"></script>
 </body>
 </html>
