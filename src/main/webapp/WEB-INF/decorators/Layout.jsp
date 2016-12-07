@@ -5,7 +5,9 @@
 <html>
 <head>
 <%@ include file="Header.jsp"%>
-<c:url value="/css/simple.css" var="ss" />
+<c:url value="/css/BlurBackground.css" var="ss" />
+	<c:url value="/css/bootstrap.css" var="ss" />
+
 <link rel="STYLESHEET" type="text/css" href="${ss}" />
 </head>
 <body>
@@ -26,7 +28,10 @@
 			</td>
 		</tr>
 	</table>
+	<c:url value="/js/jquery-1.10.2.min.js" var="ss" />
+	<c:url value="/js/bootstrap.min.js" var="ss" />
 
+	<c:url value="/js/ImgEffect.js" var="ss" />
 	<!-- ======== Footer ======== -->
 	<div id="footer" align="center">
 		<hr>
