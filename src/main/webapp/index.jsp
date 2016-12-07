@@ -9,7 +9,7 @@
 <%@taglib prefix="login" uri="http://login.com" %>
 <html >
 <head>
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/BlurBackground.css">
 </head>
 <body class="bkg">
@@ -86,19 +86,24 @@
         </div>
       </div>
       <div class="col-md-3">
-     <login:login/>
+        <%--${pageContext.request.contextPath}--%>
+        <form action="${pageContext.request.contextPath}/login/auth" method="post" id="LoginForm" role="form" >
+          <login:login/>
+        </form>
+
+      </div>
       </div>
     </div>
 
   </div>
+  <script src="js/jquery-1.10.2.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/ImgEffect.js"></script>
 </div>
 
 
 
 
 
-<script src="js/jquery-1.10.2.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/ImgEffect.js"></script>
 </body>
 </html>
