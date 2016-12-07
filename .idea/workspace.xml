@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c244b83-2d5d-4053-bbae-7362fd7c94ac" name="Default" comment="ZHN">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/teameleven/caps/controller/LoginAuth.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/teameleven/caps/customlib/LoginLib.java" afterPath="$PROJECT_DIR$/src/main/java/org/teameleven/caps/customlib/LoginLib.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/decorators/Menu.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/decorators/Menu.jsp" />
     </list>
     <manually-removed-from-ignored>
@@ -56,8 +59,8 @@
       <file leaf-file-name="Header.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/decorators/Header.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="49" lean-forward="false" selection-start-line="5" selection-start-column="49" selection-end-line="5" selection-end-column="49" />
+            <state relative-caret-position="102">
+              <caret line="6" column="6" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -81,21 +84,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StudentService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/teameleven/caps/services/StudentService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="19" column="26" lean-forward="false" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Menu.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Menu.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/decorators/Menu.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="27" column="139" lean-forward="false" selection-start-line="27" selection-start-column="139" selection-end-line="27" selection-end-column="139" />
+            <state relative-caret-position="238">
+              <caret line="21" column="45" lean-forward="false" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
               <folding>
                 <element signature="n#div#0;n#div#0;n#nav#0;n#!!top" expanded="true" />
                 <element signature="n#button#0;n#div#0;n#div#0;n#nav#0;n#!!top" expanded="true" />
@@ -106,6 +99,7 @@
                 <element signature="n#li#4;n#ul#0;n#div#1;n#div#0;n#nav#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#1;n#a#0;n#li#4;n#ul#0;n#div#1;n#div#0;n#nav#0;n#!!top" expanded="true" />
                 <element signature="n#ul#0;n#li#4;n#ul#0;n#div#1;n#div#0;n#nav#0;n#!!top" expanded="true" />
+                <element signature="e#2162#2184#0#JSP" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#a#0;n#li#5;n#ul#0;n#div#1;n#div#0;n#nav#0;n#!!top" expanded="true" />
               </folding>
             </state>
@@ -115,14 +109,15 @@
       <file leaf-file-name="list.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/student/list.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="33" column="123" lean-forward="false" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="119" />
+            <state relative-caret-position="340">
+              <caret line="20" column="26" lean-forward="false" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="75" />
               <folding>
                 <element signature="n#head#0;n#!!top" expanded="true" />
                 <element signature="n#form#0;n#div#0;n#body#0;n#!!top" expanded="true" />
                 <element signature="n#div#0;n#form#0;n#div#0;n#body#0;n#!!top" expanded="true" />
                 <element signature="n#input#0;n#div#0;n#form#0;n#div#0;n#body#0;n#!!top" expanded="true" />
                 <element signature="n#button#0;n#form#0;n#div#0;n#body#0;n#!!top" expanded="true" />
+                <element signature="n#form#1;n#div#0;n#body#0;n#!!top" expanded="true" />
                 <element signature="n#c:choose#0;n#jsp:root#0;n#!!top" expanded="true" />
                 <element signature="n#c:when#0;n#c:choose#0;n#jsp:root#0;n#!!top" expanded="true" />
                 <element signature="n#table#0;n#form#1;n#div#0;n#body#0;n#!!top" expanded="true" />
@@ -160,10 +155,10 @@
       <file leaf-file-name="LoginLib.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/teameleven/caps/customlib/LoginLib.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="28" column="36" lean-forward="true" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
+            <state relative-caret-position="68">
+              <caret line="15" column="42" lean-forward="false" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
               <folding>
-                <marker date="1481087228342" expanded="false" signature="192:193" ph="..." />
+                <marker date="1481089823117" expanded="false" signature="192:193" ph="..." />
               </folding>
             </state>
           </provider>
@@ -172,9 +167,21 @@
       <file leaf-file-name="StudentController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/teameleven/caps/controller/StudentController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="50" column="50" lean-forward="false" selection-start-line="50" selection-start-column="50" selection-end-line="50" selection-end-column="50" />
+            <state relative-caret-position="204">
+              <caret line="26" column="6" lean-forward="true" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="58" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginAuth.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/teameleven/caps/controller/LoginAuth.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="15" column="28" lean-forward="false" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -186,6 +193,7 @@
       <list>
         <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -273,6 +281,7 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/student/list.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/org/teameleven/caps/customlib/LoginLib.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/decorators/Menu.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/org/teameleven/caps/controller/LoginAuth.java" />
       </list>
     </option>
   </component>
@@ -1380,7 +1389,7 @@
       <updated>1481018021600</updated>
       <workItem from="1481018030518" duration="6536000" />
       <workItem from="1481025070285" duration="913000" />
-      <workItem from="1481078229547" duration="6555000" />
+      <workItem from="1481078229547" duration="8637000" />
     </task>
     <task id="LOCAL-00001" summary="ZHN">
       <created>1481022274463</created>
@@ -1400,7 +1409,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14004000" />
+    <option name="totallyTimeSpent" value="16086000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
@@ -1470,14 +1479,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="42" column="45" lean-forward="false" selection-start-line="42" selection-start-column="45" selection-end-line="42" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/decorators/Header.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -1545,7 +1546,7 @@
         <state relative-caret-position="119">
           <caret line="12" column="65" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding>
-            <marker date="1481087228342" expanded="false" signature="192:193" ph="..." />
+            <marker date="1481089823117" expanded="false" signature="192:193" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1774,14 +1775,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/teameleven/caps/controller/StudentController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="50" column="50" lean-forward="false" selection-start-line="50" selection-start-column="50" selection-end-line="50" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
@@ -1802,14 +1795,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="19" column="26" lean-forward="false" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/teameleven/caps/init/WebAppConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="123" column="40" lean-forward="true" selection-start-line="123" selection-start-column="5" selection-end-line="123" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -1854,8 +1839,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/decorators/Header.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="49" lean-forward="false" selection-start-line="5" selection-start-column="49" selection-end-line="5" selection-end-column="49" />
+        <state relative-caret-position="102">
+          <caret line="6" column="6" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1878,14 +1863,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/student/list.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="33" column="123" lean-forward="false" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="119" />
+        <state relative-caret-position="340">
+          <caret line="20" column="26" lean-forward="false" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="75" />
           <folding>
             <element signature="n#head#0;n#!!top" expanded="true" />
             <element signature="n#form#0;n#div#0;n#body#0;n#!!top" expanded="true" />
             <element signature="n#div#0;n#form#0;n#div#0;n#body#0;n#!!top" expanded="true" />
             <element signature="n#input#0;n#div#0;n#form#0;n#div#0;n#body#0;n#!!top" expanded="true" />
             <element signature="n#button#0;n#form#0;n#div#0;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#form#1;n#div#0;n#body#0;n#!!top" expanded="true" />
             <element signature="n#c:choose#0;n#jsp:root#0;n#!!top" expanded="true" />
             <element signature="n#c:when#0;n#c:choose#0;n#jsp:root#0;n#!!top" expanded="true" />
             <element signature="n#table#0;n#form#1;n#div#0;n#body#0;n#!!top" expanded="true" />
@@ -1895,20 +1881,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/teameleven/caps/init/WebAppConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="123" column="40" lean-forward="true" selection-start-line="123" selection-start-column="5" selection-end-line="123" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/teameleven/caps/customlib/LoginLib.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="28" column="36" lean-forward="true" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
+        <state relative-caret-position="68">
+          <caret line="15" column="42" lean-forward="false" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
           <folding>
-            <marker date="1481087228342" expanded="false" signature="192:193" ph="..." />
+            <marker date="1481089823117" expanded="false" signature="192:193" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/teameleven/caps/controller/StudentController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="26" column="6" lean-forward="true" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="58" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/decorators/Menu.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="27" column="139" lean-forward="false" selection-start-line="27" selection-start-column="139" selection-end-line="27" selection-end-column="139" />
+        <state relative-caret-position="238">
+          <caret line="21" column="45" lean-forward="false" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
           <folding>
             <element signature="n#div#0;n#div#0;n#nav#0;n#!!top" expanded="true" />
             <element signature="n#button#0;n#div#0;n#div#0;n#nav#0;n#!!top" expanded="true" />
@@ -1919,7 +1921,18 @@
             <element signature="n#li#4;n#ul#0;n#div#1;n#div#0;n#nav#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#1;n#a#0;n#li#4;n#ul#0;n#div#1;n#div#0;n#nav#0;n#!!top" expanded="true" />
             <element signature="n#ul#0;n#li#4;n#ul#0;n#div#1;n#div#0;n#nav#0;n#!!top" expanded="true" />
+            <element signature="e#2162#2184#0#JSP" expanded="true" />
             <element signature="n#style#0;n#span#0;n#a#0;n#li#5;n#ul#0;n#div#1;n#div#0;n#nav#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/teameleven/caps/controller/LoginAuth.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="15" column="28" lean-forward="false" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
