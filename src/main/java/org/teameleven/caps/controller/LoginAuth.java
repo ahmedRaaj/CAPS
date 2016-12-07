@@ -13,7 +13,7 @@ public class LoginAuth {
     @RequestMapping(value = "/auth")
     public String yourMethod(RedirectAttributes redirectAttributes)
     {
-        String role="student";
+        String role="admin";
         redirectAttributes.addAttribute("role", role);
         return "redirect:/Caps/student/list";
     }

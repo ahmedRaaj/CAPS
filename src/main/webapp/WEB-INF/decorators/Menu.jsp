@@ -19,18 +19,63 @@
                 <li ><a href="#">Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
                 <%
                     String type= request.getParameter("role");
+//                    session.getAttribute(role);
                     if(type.equals("student"))
                     {
                 %>
                 <li ><a href="#">Grades and GPA<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list-alt"></span></a></li>
                 <li ><a href="#">Courses<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-book"></span></a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Enrollment Details <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Enrollment Details <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tasks"></span></a>
                     <ul class="dropdown-menu forAnimate" role="menu">
                         <li><a href="#">Enrolled Courses</a></li>
                         <li><a href="#">Active Courses</a></li>
                     </ul>
                 </li>
+                <%}
+                %>
+                <%
+                    if(type.equals("lacturer"))
+                    {
+                %>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Courses Details <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-folder-open"></span></a>
+                    <ul class="dropdown-menu forAnimate" role="menu">
+                        <li><a href="#">Courses Taught</a></li>
+                        <li><a href="#">Grade Course</a></li>
+                    </ul>
+                </li>
+                <li ><a href="#">Course Enrolment<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list-alt"></span></a></li>
+                <li ><a href="#">Student Performance<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-book"></span></a></li>
+
+                <%}
+                %>
+                <%
+                    if(type.equals("admin"))
+                    {
+                %>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Student Management <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
+                    <ul class="dropdown-menu forAnimate" role="menu">
+                        <li><a href="#">Add Student</a></li>
+                        <li><a href="#">Manage the Students</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Lecturer Management <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-leaf"></span></a>
+                    <ul class="dropdown-menu forAnimate" role="menu">
+                        <li><a href="#">Add Lecturer</a></li>
+                        <li><a href="#">Manage the Lecturer</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Courses Management <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tasks"></span></a>
+                    <ul class="dropdown-menu forAnimate" role="menu">
+                        <li><a href="#">Add Courses</a></li>
+                        <li><a href="#">Manage the Courses</a></li>
+                    </ul>
+                </li>
+                <li ><a href="#">Manage Enrolment<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>
                 <%}
                 %>
                 <li ><a href="#">Logout<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-minus-sign"></span></a></li>
