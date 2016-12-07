@@ -27,11 +27,11 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "students")
-@NamedQueries({
-    @NamedQuery(name = "Student.findAll", query = "SELECT s FROM Student s")
-    , @NamedQuery(name = "Student.findByStudentId", query = "SELECT s FROM Student s WHERE s.studentId = :studentId")
-    , @NamedQuery(name = "Student.findByCitizenship", query = "SELECT s FROM Student s WHERE s.citizenship = :citizenship")
-    , @NamedQuery(name = "Student.findByNric", query = "SELECT s FROM Student s WHERE s.nric = :nric")})
+//@NamedQueries({
+//    @NamedQuery(name = "Student.findAll", query = "SELECT s FROM Student s")
+//    , @NamedQuery(name = "Student.findByStudentId", query = "SELECT s FROM Student s WHERE s.studentId = :studentId")
+//    , @NamedQuery(name = "Student.findByCitizenship", query = "SELECT s FROM Student s WHERE s.citizenship = :citizenship")
+//    , @NamedQuery(name = "Student.findByNric", query = "SELECT s FROM Student s WHERE s.nric = :nric")})
 public class Student implements Serializable {
 
     private static final long serialVersionUID = 1L;

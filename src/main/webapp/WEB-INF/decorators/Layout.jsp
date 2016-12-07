@@ -13,7 +13,7 @@
 <body>
 	<table style="width: 100%">
 		<tr>
-			<td style="width: 180; border: 1" valign="top">
+			<td style="width: 180px; border: 1px" valign="top">
 				<div>
 					<%@ include file="Menu.jsp"%>
 				</div>

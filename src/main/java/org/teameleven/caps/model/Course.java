@@ -30,13 +30,13 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "courses")
-@NamedQueries({
-    @NamedQuery(name = "Course.findAll", query = "SELECT c FROM Course c")
-    , @NamedQuery(name = "Course.findByCourseId", query = "SELECT c FROM Course c WHERE c.courseId = :courseId")
-    , @NamedQuery(name = "Course.findByCourseSize", query = "SELECT c FROM Course c WHERE c.courseSize = :courseSize")
-    , @NamedQuery(name = "Course.findByCredits", query = "SELECT c FROM Course c WHERE c.credits = :credits")
-    , @NamedQuery(name = "Course.findByDuration", query = "SELECT c FROM Course c WHERE c.duration = :duration")
-    , @NamedQuery(name = "Course.findByName", query = "SELECT c FROM Course c WHERE c.name = :name")})
+//@NamedQueries({
+//    @NamedQuery(name = "Course.findAll", query = "SELECT c FROM Course c")
+//    , @NamedQuery(name = "Course.findByCourseId", query = "SELECT c FROM Course c WHERE c.courseId = :courseId")
+//    , @NamedQuery(name = "Course.findByCourseSize", query = "SELECT c FROM Course c WHERE c.courseSize = :courseSize")
+//    , @NamedQuery(name = "Course.findByCredits", query = "SELECT c FROM Course c WHERE c.credits = :credits")
+//    , @NamedQuery(name = "Course.findByDuration", query = "SELECT c FROM Course c WHERE c.duration = :duration")
+//    , @NamedQuery(name = "Course.findByName", query = "SELECT c FROM Course c WHERE c.name = :name")})
 public class Course implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -50,8 +50,7 @@ public class Course implements Serializable {
     @Column(name = "credits")
     private Integer credits;
     @Column(name = "duration")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date duration;
+    private String duration;
     @Column(name = "name")
     private String name;
     @JoinColumn(name = "lecturers_lecturerId", referencedColumnName = "lecturerId")
@@ -91,11 +90,11 @@ public class Course implements Serializable {
         this.credits = credits;
     }
 
-    public Date getDuration() {
+    public String getDuration() {
         return duration;
     }
 
-    public void setDuration(Date duration) {
+    public void setDuration(String duration) {
         this.duration = duration;
     }
 

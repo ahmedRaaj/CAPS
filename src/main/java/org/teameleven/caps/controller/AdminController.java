@@ -13,12 +13,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.teameleven.caps.model.Course;
 import org.teameleven.caps.model.Student;
 import org.teameleven.caps.repository.AdminRepository;
 import org.teameleven.caps.repository.CourseRepository;
 import org.teameleven.caps.repository.LecturerRepository;
 import org.teameleven.caps.repository.StudentRepository;
 import org.teameleven.caps.services.StudentService;
+
+import java.util.List;
 
 /**
  *
@@ -68,9 +71,18 @@ public class AdminController {
     }
       @RequestMapping("/clist")
     public ModelAndView listAllCourses() {
-
+          List<Course> courseList=courseDao.findAll();
         ModelAndView v = new ModelAndView("crud/course-list");
-        v.addObject("courseList", courseDao.findAll());
+        v.addObject("courseList",courseList);
+        return v;
+    }
+
+    @RequestMapping("/cform")
+    public ModelAndView creatOrEditCourse(){
+
+        ModelAndView v = new ModelAndView("crud/course-form");
+//        v.addObject("courseId",)
+
         return v;
     }
      

@@ -24,10 +24,10 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "admins")
-@NamedQueries({
-    @NamedQuery(name = "Admin.findAll", query = "SELECT a FROM Admin a")
-    , @NamedQuery(name = "Admin.findByAdminId", query = "SELECT a FROM Admin a WHERE a.adminId = :adminId")
-    , @NamedQuery(name = "Admin.findByPosition", query = "SELECT a FROM Admin a WHERE a.position = :position")})
+//@NamedQueries({
+//    @NamedQuery(name = "Admin.findAll", query = "SELECT a FROM Admin a")
+//    , @NamedQuery(name = "Admin.findByAdminId", query = "SELECT a FROM Admin a WHERE a.adminId = :adminId")
+//    , @NamedQuery(name = "Admin.findByPosition", query = "SELECT a FROM Admin a WHERE a.position = :position")})
 public class Admin implements Serializable {
 
     private static final long serialVersionUID = 1L;
