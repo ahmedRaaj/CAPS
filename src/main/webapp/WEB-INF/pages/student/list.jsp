@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : list
     Created on : 6 Dec, 2016, 9:58:48 PM
     Author     : ahmedraaj
@@ -7,10 +7,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html>
+
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="./css/bootstrap.min.css"/>
+
         <title>JSP Page</title>
     </head>
     <body>
@@ -20,8 +20,8 @@
             <!--Search Form -->
             <form action="${pageContext.request.contextPath}/student/search" method="get" id="seachStudentForm" role="form" >
                 <div class="form-group col-xs-5">
-                    <input type="text" name="studentName" id="studentName" class="form-control" required="true" 
-                           placeholder="Type the Name or Last Name of the Student"/>                    
+                    <input type="text" name="studentName" id="studentName" class="form-control" required="true"
+                           placeholder="Type the Name or Last Name of the Student"/>
                 </div>
                 <button type="submit" class="btn btn-info">
                     <span class="glyphicon glyphicon-search"></span> Search
@@ -31,7 +31,7 @@
             </form>
 
 
-            <form action="${pageContext.request.contextPath}/student/list" method="post" id="studentForm" role="form" >  
+            <form action="${pageContext.request.contextPath}/student/list" method="post" id="studentForm" role="form" >
                 <input type="hidden" id="studentId" name="studentId">
                 <input type="hidden" id="action" name="action">
                 <c:choose>
@@ -50,7 +50,7 @@
                             </thead>
                             <c:forEach var="student" items="${studentList}">
                                 <c:set var="classSucess" value=""/>
-                                <c:if test ="${studentId == student.studentId}">                           
+                                <c:if test ="${studentId == student.studentId}">
                                     <c:set var="classSucess" value="info"/>
                                 </c:if>
                                 <tr class="${classSucess}">
@@ -61,34 +61,35 @@
                                     <td>${student.dob}</td>
                                     <td>${student.citizenship}</td>
                                     <td>${student.nric}</td>
-                                    <td>${student.gender}</td>  
-                                    <td><a href="#" id="remove" 
+                                    <td>${student.gender}</td>
+                                    <td><a href="#" id="remove"
                                            onclick="document.getElementById('action').value = 'remove';document.getElementById('studentId').value = '${student.studentId}';
 
-                                                   document.getElementById('studentForm').submit();"> 
+                                                   document.getElementById('studentForm').submit();">
                                             <span class="glyphicon glyphicon-trash"/>
                                         </a>
 
                                     </td>
                                 </tr>
-                            </c:forEach>               
-                        </table>  
-                    </c:when>                    
+                            </c:forEach>
+                        </table>
+                    </c:when>
                     <c:otherwise>
-                        <br>  </br>           
+                        <br>  </br>
                         <div class="alert alert-info">
                             No people found matching your search criteria
                         </div>
                     </c:otherwise>
-                </c:choose>                        
+                </c:choose>
             </form>
 
 
-            <form action ="${pageContext.request.contextPath}/student/form">            
+            <form action ="${pageContext.request.contextPath}/student/form">
                 <br></br>
-                <button type="submit" class="btn btn-primary  btn-md">New Student</button> 
+                <button type="submit" class="btn btn-primary  btn-md">New Student</button>
             </form>
-
+        </div>
 
     </body>
+
 </html>
