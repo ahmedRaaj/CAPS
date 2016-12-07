@@ -9,7 +9,6 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,8 +22,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -32,13 +29,12 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "lecturers")
-@XmlRootElement
-//@NamedQueries({
-//    @NamedQuery(name = "Lecturer.findAll", query = "SELECT l FROM Lecturer l")
-//    , @NamedQuery(name = "Lecturer.findByLecturerId", query = "SELECT l FROM Lecturer l WHERE l.lecturerId = :lecturerId")
-//    , @NamedQuery(name = "Lecturer.findByStartDate", query = "SELECT l FROM Lecturer l WHERE l.startDate = :startDate")
-//    , @NamedQuery(name = "Lecturer.findByEndDate", query = "SELECT l FROM Lecturer l WHERE l.endDate = :endDate")
-//    , @NamedQuery(name = "Lecturer.findByPosition", query = "SELECT l FROM Lecturer l WHERE l.position = :position")})
+@NamedQueries({
+    @NamedQuery(name = "Lecturer.findAll", query = "SELECT l FROM Lecturer l")
+    , @NamedQuery(name = "Lecturer.findByLecturerId", query = "SELECT l FROM Lecturer l WHERE l.lecturerId = :lecturerId")
+    , @NamedQuery(name = "Lecturer.findByEndDate", query = "SELECT l FROM Lecturer l WHERE l.endDate = :endDate")
+    , @NamedQuery(name = "Lecturer.findByPosition", query = "SELECT l FROM Lecturer l WHERE l.position = :position")
+    , @NamedQuery(name = "Lecturer.findByStartDate", query = "SELECT l FROM Lecturer l WHERE l.startDate = :startDate")})
 public class Lecturer implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -47,19 +43,19 @@ public class Lecturer implements Serializable {
     @Basic(optional = false)
     @Column(name = "lecturerId")
     private Integer lecturerId;
-    @Column(name = "startDate")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date startDate;
     @Column(name = "endDate")
     @Temporal(TemporalType.TIMESTAMP)
     private Date endDate;
     @Column(name = "position")
     private String position;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "lecturerslecturerId")
-    private List<Course> coursesList;
-    @JoinColumn(name = "users_userId", referencedColumnName = "userId")
+    @Column(name = "startDate")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date startDate;
+    @OneToMany(mappedBy = "lecturerslecturerId")
+    private List<Course> courseList;
+    @JoinColumn(name = "user_userId", referencedColumnName = "userId")
     @OneToOne(optional = false)
-    private User usersuserId;
+    private User user;
 
     public Lecturer() {
     }
@@ -74,14 +70,6 @@ public class Lecturer implements Serializable {
 
     public void setLecturerId(Integer lecturerId) {
         this.lecturerId = lecturerId;
-    }
-
-    public Date getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
     }
 
     public Date getEndDate() {
@@ -100,21 +88,28 @@ public class Lecturer implements Serializable {
         this.position = position;
     }
 
-    @XmlTransient
-    public List<Course> getCoursesList() {
-        return coursesList;
+    public Date getStartDate() {
+        return startDate;
     }
 
-    public void setCoursesList(List<Course> coursesList) {
-        this.coursesList = coursesList;
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
     }
 
-    public User getUsersuserId() {
-        return usersuserId;
+    public List<Course> getCourseList() {
+        return courseList;
     }
 
-    public void setUsersuserId(User usersuserId) {
-        this.usersuserId = usersuserId;
+    public void setCourseList(List<Course> courseList) {
+        this.courseList = courseList;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override
@@ -139,7 +134,7 @@ public class Lecturer implements Serializable {
 
     @Override
     public String toString() {
-        return "org.capse.entity.Lecturers[ lecturerId=" + lecturerId + " ]";
+        return "org.caps.model.Lecturer[ lecturerId=" + lecturerId + " ]";
     }
     
 }

@@ -14,7 +14,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -22,31 +21,30 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "enroled_courses")
-@XmlRootElement
-//@NamedQueries({
-//    @NamedQuery(name = "EnroledCourse.findAll", query = "SELECT e FROM EnroledCourse e")
-//    , @NamedQuery(name = "EnroledCourse.findByStudentsstudentId", query = "SELECT e FROM EnroledCourse e WHERE e.enroledCoursesPK.studentsstudentId = :studentsstudentId")
-//    , @NamedQuery(name = "EnroledCourse.findByCoursescourseId", query = "SELECT e FROM EnroledCourse e WHERE e.enroledCoursesPK.coursescourseId = :coursescourseId")
-//    , @NamedQuery(name = "EnroledCourse.findByStartingDate", query = "SELECT e FROM EnroledCourse e WHERE e.startingDate = :startingDate")
-//    , @NamedQuery(name = "EnroledCourse.findByEndingDate", query = "SELECT e FROM EnroledCourse e WHERE e.endingDate = :endingDate")
-//    , @NamedQuery(name = "EnroledCourse.findByGradePoint", query = "SELECT e FROM EnroledCourse e WHERE e.gradePoint = :gradePoint")
-//    , @NamedQuery(name = "EnroledCourse.findByStatus", query = "SELECT e FROM EnroledCourse e WHERE e.status = :status")})
+@NamedQueries({
+    @NamedQuery(name = "EnroledCourse.findAll", query = "SELECT e FROM EnroledCourse e")
+    , @NamedQuery(name = "EnroledCourse.findByEndingDate", query = "SELECT e FROM EnroledCourse e WHERE e.endingDate = :endingDate")
+    , @NamedQuery(name = "EnroledCourse.findByGradePoint", query = "SELECT e FROM EnroledCourse e WHERE e.gradePoint = :gradePoint")
+    , @NamedQuery(name = "EnroledCourse.findByStartingDate", query = "SELECT e FROM EnroledCourse e WHERE e.startingDate = :startingDate")
+    , @NamedQuery(name = "EnroledCourse.findByStatus", query = "SELECT e FROM EnroledCourse e WHERE e.status = :status")
+    , @NamedQuery(name = "EnroledCourse.findByStudentsstudentId", query = "SELECT e FROM EnroledCourse e WHERE e.enroledCoursePK.studentsstudentId = :studentsstudentId")
+    , @NamedQuery(name = "EnroledCourse.findByCoursescourseId", query = "SELECT e FROM EnroledCourse e WHERE e.enroledCoursePK.coursescourseId = :coursescourseId")})
 public class EnroledCourse implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected EnroledCoursePK enroledCoursePK;
-    @Column(name = "startingDate")
-    private String startingDate;
     @Column(name = "endingDate")
     private String endingDate;
     @Column(name = "gradePoint")
     private String gradePoint;
+    @Column(name = "startingDate")
+    private String startingDate;
     @Column(name = "status")
     private String status;
     @JoinColumn(name = "courses_courseId", referencedColumnName = "courseId", insertable = false, updatable = false)
     @ManyToOne(optional = false)
-    private Course courses;
+    private Course course;
     @JoinColumn(name = "students_studentId", referencedColumnName = "studentId", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Student student;
@@ -54,8 +52,8 @@ public class EnroledCourse implements Serializable {
     public EnroledCourse() {
     }
 
-    public EnroledCourse(EnroledCoursePK enroledCoursesPK) {
-        this.enroledCoursePK = enroledCoursesPK;
+    public EnroledCourse(EnroledCoursePK enroledCoursePK) {
+        this.enroledCoursePK = enroledCoursePK;
     }
 
     public EnroledCourse(int studentsstudentId, int coursescourseId) {
@@ -68,14 +66,6 @@ public class EnroledCourse implements Serializable {
 
     public void setEnroledCoursePK(EnroledCoursePK enroledCoursePK) {
         this.enroledCoursePK = enroledCoursePK;
-    }
-
-    public String getStartingDate() {
-        return startingDate;
-    }
-
-    public void setStartingDate(String startingDate) {
-        this.startingDate = startingDate;
     }
 
     public String getEndingDate() {
@@ -94,6 +84,14 @@ public class EnroledCourse implements Serializable {
         this.gradePoint = gradePoint;
     }
 
+    public String getStartingDate() {
+        return startingDate;
+    }
+
+    public void setStartingDate(String startingDate) {
+        this.startingDate = startingDate;
+    }
+
     public String getStatus() {
         return status;
     }
@@ -102,12 +100,12 @@ public class EnroledCourse implements Serializable {
         this.status = status;
     }
 
-    public Course getCourses() {
-        return courses;
+    public Course getCourse() {
+        return course;
     }
 
-    public void setCourses(Course courses) {
-        this.courses = courses;
+    public void setCourse(Course course) {
+        this.course = course;
     }
 
     public Student getStudent() {
@@ -140,7 +138,7 @@ public class EnroledCourse implements Serializable {
 
     @Override
     public String toString() {
-        return "org.capse.entity.EnroledCourses[ enroledCoursesPK=" + enroledCoursePK + " ]";
+        return "org.caps.model.EnroledCourse[ enroledCoursePK=" + enroledCoursePK + " ]";
     }
     
 }
