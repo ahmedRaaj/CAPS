@@ -72,11 +72,11 @@ public class User implements Serializable {
     private Date dob;
     @Column(name = "gender")
     private String gender;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "useruserId")
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
     private Lecturer lecturer;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "useruserId")
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
     private Student student;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "useruserId")
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
     private Admin admin;
 
     public User() {

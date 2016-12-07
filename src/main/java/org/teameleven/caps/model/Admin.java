@@ -40,7 +40,7 @@ public class Admin implements Serializable {
     private String position;
     @JoinColumn(name = "user_userId", referencedColumnName = "userId")
     @OneToOne(optional = false)
-    private User useruserId;
+    private User user;
 
     public Admin() {
     }
@@ -65,12 +65,12 @@ public class Admin implements Serializable {
         this.position = position;
     }
 
-    public User getUseruserId() {
-        return useruserId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUseruserId(User useruserId) {
-        this.useruserId = useruserId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override

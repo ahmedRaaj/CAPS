@@ -15,6 +15,6 @@ public class LoginAuth {
     {
         String role="student";
         redirectAttributes.addAttribute("role", role);
-        return "redirect:/student/list";
+        return "redirect:/Caps/student/list";
     }
 }

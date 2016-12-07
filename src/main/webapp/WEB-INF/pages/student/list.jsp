@@ -14,10 +14,10 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <div class="container">
+<!--        <div class="container">
 
             <h2>Students</h2>
-            <!--Search Form -->
+            Search Form 
             <form action="${pageContext.request.contextPath}/student/search" method="get" id="seachStudentForm" role="form" >
                 <div class="form-group col-xs-5">
                     <input type="text" name="studentName" id="studentName" class="form-control" required="true"
@@ -56,7 +56,7 @@
                                 <tr class="${classSucess}">
                                     <td><a href="${pageContext.request.contextPath}/student/form?studentId=${student.studentId}">${student.studentId}</a></td>
 
-                                    <td>${student.firstName}</td>
+                                    <td>${student.user.firstName}</td>
                                     <td>${student.lastName}</td>
                                     <td>${student.dob}</td>
                                     <td>${student.citizenship}</td>
@@ -88,7 +88,7 @@
                 <br></br>
                 <button type="submit" class="btn btn-primary  btn-md">New Student</button>
             </form>
-        </div>
+        </div>-->
 
     </body>
 

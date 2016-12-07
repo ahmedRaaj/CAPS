@@ -48,7 +48,7 @@ public class Student implements Serializable {
     private List<EnroledCourse> enroledCourseList;
     @JoinColumn(name = "user_userId", referencedColumnName = "userId")
     @OneToOne(optional = false)
-    private User useruserId;
+    private User user;
 
     public Student() {
     }
@@ -89,12 +89,12 @@ public class Student implements Serializable {
         this.enroledCourseList = enroledCourseList;
     }
 
-    public User getUseruserId() {
-        return useruserId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUseruserId(User useruserId) {
-        this.useruserId = useruserId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override

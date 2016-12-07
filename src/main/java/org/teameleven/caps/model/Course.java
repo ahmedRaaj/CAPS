@@ -50,8 +50,7 @@ public class Course implements Serializable {
     @Column(name = "credits")
     private Integer credits;
     @Column(name = "duration")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date duration;
+    private String duration;
     @Column(name = "name")
     private String name;
     @JoinColumn(name = "lecturers_lecturerId", referencedColumnName = "lecturerId")
@@ -91,11 +90,11 @@ public class Course implements Serializable {
         this.credits = credits;
     }
 
-    public Date getDuration() {
+    public String getDuration() {
         return duration;
     }
 
-    public void setDuration(Date duration) {
+    public void setDuration(String duration) {
         this.duration = duration;
     }
 
