@@ -42,10 +42,11 @@
                                     <td>#</td>
                                     <td>First Name</td>
                                     <td>Last name</td>
+                                    <td>Gender</td>
                                     <td>Birth date</td>
                                     <td>Citizenship</td>
                                     <td>NRIC</td>
-                                    <td>Gender</td>
+
                                 </tr>
                             </thead>
                             <c:forEach var="student" items="${studentList}">
@@ -56,12 +57,13 @@
                                 <tr class="${classSucess}">
                                     <td><a href="${pageContext.request.contextPath}/student/form?studentId=${student.studentId}">${student.studentId}</a></td>
 
-                                    <td>${student.firstName}</td>
-                                    <td>${student.lastName}</td>
-                                    <td>${student.dob}</td>
+                                    <td>${student.user.firstName}</td>
+                                    <td>${student.user.lastName}</td>
+                                    <td>${student.user.gender}</td> 
+                                    <td>${student.user.dob}</td>
                                     <td>${student.citizenship}</td>
                                     <td>${student.nric}</td>
-                                    <td>${student.gender}</td>  
+
                                     <td><a href="#" id="remove" 
                                            onclick="document.getElementById('action').value = 'remove';document.getElementById('studentId').value = '${student.studentId}';
 
@@ -88,7 +90,7 @@
                 <br></br>
                 <button type="submit" class="btn btn-primary  btn-md">New Student</button> 
             </form>
-
+        </div>
 
     </body>
 </html>

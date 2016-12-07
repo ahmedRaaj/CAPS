@@ -61,8 +61,18 @@ public class AdminController {
     public ModelAndView listAllLecturers() {
 
         ModelAndView v = new ModelAndView("crud/lecturer-list");
+        v.addObject("lecturerList", lecDao.findAll());
         return v;
     }
+    
+     @RequestMapping("/lecform")
+    public ModelAndView createOrEditLecturer() {
+
+        ModelAndView v = new ModelAndView("crud/lecturer-form");
+        v.addObject("lecturerList", lecDao.findAll());
+        return v;
+    }
+    
       @RequestMapping("/alist")
     public ModelAndView listAllAdmins() {
 
