@@ -20,7 +20,7 @@
                 <%
                     String type= request.getParameter("role");
 //                    session.getAttribute(role);
-                    if(type.equals("student"))
+                    if(type != null && type.equals("student"))
                     {
                 %>
                 <li ><a href="#">Grades and GPA<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list-alt"></span></a></li>
@@ -35,7 +35,7 @@
                 <%}
                 %>
                 <%
-                    if(type.equals("lacturer"))
+                    if(type != null && type.equals("lacturer"))
                     {
                 %>
                 <li class="dropdown">
@@ -51,7 +51,7 @@
                 <%}
                 %>
                 <%
-                    if(type.equals("admin"))
+                    if(type != null && type.equals("admin"))
                     {
                 %>
                 <li class="dropdown">

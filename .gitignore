@@ -52,3 +52,4 @@ local.properties
 .classpath
 .settings/
 .loadpath
+!/src/main/resources/application.properties
