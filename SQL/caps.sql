@@ -26,6 +26,10 @@ CREATE TABLE IF NOT EXISTS `CAPS`.`users` (
   `role` VARCHAR(255) NULL DEFAULT NULL,
   `status` VARCHAR(255) NULL DEFAULT NULL,
   `userName` VARCHAR(255) NULL DEFAULT NULL,
+  `first_name` VARCHAR(45) NULL,
+  `last_name` VARCHAR(45) NULL,
+  `dob` DATETIME NULL,
+  `gender` VARCHAR(45) NULL,
   PRIMARY KEY (`userId`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 2
@@ -40,12 +44,15 @@ DROP TABLE IF EXISTS `CAPS`.`admins` ;
 CREATE TABLE IF NOT EXISTS `CAPS`.`admins` (
   `adminId` INT(11) NOT NULL AUTO_INCREMENT,
   `position` VARCHAR(255) NULL DEFAULT NULL,
-  `users_userId` INT(11) NULL DEFAULT NULL,
+  `user_userId` INT(11) NOT NULL,
   PRIMARY KEY (`adminId`),
-  INDEX `FK_admins_users_userId` (`users_userId` ASC),
-  CONSTRAINT `FK_admins_users_userId`
-    FOREIGN KEY (`users_userId`)
-    REFERENCES `CAPS`.`users` (`userId`))
+  INDEX `fk_admins_users1_idx` (`user_userId` ASC),
+  UNIQUE INDEX `user_userId_UNIQUE` (`user_userId` ASC),
+  CONSTRAINT `fk_admins_users1`
+    FOREIGN KEY (`user_userId`)
+    REFERENCES `CAPS`.`users` (`userId`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
@@ -60,12 +67,15 @@ CREATE TABLE IF NOT EXISTS `CAPS`.`lecturers` (
   `endDate` DATETIME NULL DEFAULT NULL,
   `position` VARCHAR(255) NULL DEFAULT NULL,
   `startDate` DATETIME NULL DEFAULT NULL,
-  `users_userId` INT(11) NULL DEFAULT NULL,
+  `user_userId` INT(11) NOT NULL,
   PRIMARY KEY (`lecturerId`),
-  INDEX `FK_lecturers_users_userId` (`users_userId` ASC),
-  CONSTRAINT `FK_lecturers_users_userId`
-    FOREIGN KEY (`users_userId`)
-    REFERENCES `CAPS`.`users` (`userId`))
+  INDEX `fk_lecturers_users1_idx` (`user_userId` ASC),
+  UNIQUE INDEX `user_userId_UNIQUE` (`user_userId` ASC),
+  CONSTRAINT `fk_lecturers_users1`
+    FOREIGN KEY (`user_userId`)
+    REFERENCES `CAPS`.`users` (`userId`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
@@ -100,16 +110,15 @@ CREATE TABLE IF NOT EXISTS `CAPS`.`students` (
   `studentId` INT(11) NOT NULL AUTO_INCREMENT,
   `citizenship` VARCHAR(255) NULL DEFAULT NULL,
   `nric` VARCHAR(255) NULL DEFAULT NULL,
-  `users_userId` INT(11) NULL DEFAULT NULL,
-  `first_name` VARCHAR(45) NULL DEFAULT NULL,
-  `last_name` VARCHAR(45) NULL DEFAULT NULL,
-  `dob` DATETIME NULL DEFAULT NULL,
-  `gender` VARCHAR(45) NULL DEFAULT NULL,
+  `user_userId` INT(11) NOT NULL,
   PRIMARY KEY (`studentId`),
-  INDEX `FK_students_users_userId` (`users_userId` ASC),
-  CONSTRAINT `FK_students_users_userId`
-    FOREIGN KEY (`users_userId`)
-    REFERENCES `CAPS`.`users` (`userId`))
+  INDEX `fk_students_users1_idx` (`user_userId` ASC),
+  UNIQUE INDEX `user_userId_UNIQUE` (`user_userId` ASC),
+  CONSTRAINT `fk_students_users1`
+    FOREIGN KEY (`user_userId`)
+    REFERENCES `CAPS`.`users` (`userId`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8;

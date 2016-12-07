@@ -17,7 +17,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -25,11 +24,10 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "admins")
-@XmlRootElement
-//@NamedQueries({
-//    @NamedQuery(name = "Admin.findAll", query = "SELECT a FROM Admin a")
-//    , @NamedQuery(name = "Admin.findByAdminId", query = "SELECT a FROM Admin a WHERE a.adminId = :adminId")
-//    , @NamedQuery(name = "Admin.findByPosition", query = "SELECT a FROM Admin a WHERE a.position = :position")})
+@NamedQueries({
+    @NamedQuery(name = "Admin.findAll", query = "SELECT a FROM Admin a")
+    , @NamedQuery(name = "Admin.findByAdminId", query = "SELECT a FROM Admin a WHERE a.adminId = :adminId")
+    , @NamedQuery(name = "Admin.findByPosition", query = "SELECT a FROM Admin a WHERE a.position = :position")})
 public class Admin implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -38,23 +36,17 @@ public class Admin implements Serializable {
     @Basic(optional = false)
     @Column(name = "adminId")
     private Integer adminId;
-    @Basic(optional = false)
     @Column(name = "position")
     private String position;
-    @JoinColumn(name = "users_userId", referencedColumnName = "userId")
+    @JoinColumn(name = "user_userId", referencedColumnName = "userId")
     @OneToOne(optional = false)
-    private User userAccount;
+    private User useruserId;
 
     public Admin() {
     }
 
     public Admin(Integer adminId) {
         this.adminId = adminId;
-    }
-
-    public Admin(Integer adminId, String position) {
-        this.adminId = adminId;
-        this.position = position;
     }
 
     public Integer getAdminId() {
@@ -73,12 +65,12 @@ public class Admin implements Serializable {
         this.position = position;
     }
 
-    public User getUsersuserId() {
-        return userAccount;
+    public User getUseruserId() {
+        return useruserId;
     }
 
-    public void setUsersuserId(User usersuserId) {
-        this.userAccount = usersuserId;
+    public void setUseruserId(User useruserId) {
+        this.useruserId = useruserId;
     }
 
     @Override
@@ -103,7 +95,7 @@ public class Admin implements Serializable {
 
     @Override
     public String toString() {
-        return "org.capse.entity.Admins[ adminId=" + adminId + " ]";
+        return "org.caps.model.Admin[ adminId=" + adminId + " ]";
     }
     
 }

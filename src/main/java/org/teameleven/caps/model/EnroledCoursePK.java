@@ -17,11 +17,7 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class EnroledCoursePK implements Serializable {
 
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	@Basic(optional = false)
+    @Basic(optional = false)
     @Column(name = "students_studentId")
     private int studentsstudentId;
     @Basic(optional = false)
@@ -78,7 +74,7 @@ public class EnroledCoursePK implements Serializable {
 
     @Override
     public String toString() {
-        return "org.capse.entity.EnroledCoursesPK[ studentsstudentId=" + studentsstudentId + ", coursescourseId=" + coursescourseId + " ]";
+        return "org.caps.model.EnroledCoursePK[ studentsstudentId=" + studentsstudentId + ", coursescourseId=" + coursescourseId + " ]";
     }
     
 }
