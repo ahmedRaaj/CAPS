@@ -29,12 +29,12 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "lecturers")
-@NamedQueries({
-    @NamedQuery(name = "Lecturer.findAll", query = "SELECT l FROM Lecturer l")
-    , @NamedQuery(name = "Lecturer.findByLecturerId", query = "SELECT l FROM Lecturer l WHERE l.lecturerId = :lecturerId")
-    , @NamedQuery(name = "Lecturer.findByEndDate", query = "SELECT l FROM Lecturer l WHERE l.endDate = :endDate")
-    , @NamedQuery(name = "Lecturer.findByPosition", query = "SELECT l FROM Lecturer l WHERE l.position = :position")
-    , @NamedQuery(name = "Lecturer.findByStartDate", query = "SELECT l FROM Lecturer l WHERE l.startDate = :startDate")})
+//@NamedQueries({
+//    @NamedQuery(name = "Lecturer.findAll", query = "SELECT l FROM Lecturer l")
+//    , @NamedQuery(name = "Lecturer.findByLecturerId", query = "SELECT l FROM Lecturer l WHERE l.lecturerId = :lecturerId")
+//    , @NamedQuery(name = "Lecturer.findByEndDate", query = "SELECT l FROM Lecturer l WHERE l.endDate = :endDate")
+//    , @NamedQuery(name = "Lecturer.findByPosition", query = "SELECT l FROM Lecturer l WHERE l.position = :position")
+//    , @NamedQuery(name = "Lecturer.findByStartDate", query = "SELECT l FROM Lecturer l WHERE l.startDate = :startDate")})
 public class Lecturer implements Serializable {
 
     private static final long serialVersionUID = 1L;
