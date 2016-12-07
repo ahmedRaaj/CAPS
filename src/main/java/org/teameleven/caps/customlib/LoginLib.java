@@ -1,10 +1,10 @@
 package org.teameleven.caps.customlib;
 
 
-import java.io.IOException;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
+import java.io.IOException;
 
 /**
  * Created by Zwe Htat Naing on 06/12/2016.
@@ -13,7 +13,7 @@ public class LoginLib extends SimpleTagSupport {
     public void doTag() throws JspException, IOException {
 
         JspWriter out = getJspContext().getOut();
-        out.println("<div class=\"glassbg \" style=\"margin-top:100px;\">" +
+        out.println("<form action=\"${pageContext.request.contextPath}/Login/Auth\" method=\"post\" id=\"LoginForm\" role=\"form\" >"+"<div class=\"glassbg \" style=\"margin-top:100px;\">" +
                 "  <div class=\"modal-title\" style=\"padding-left:10px;margin-left:5px;\">" +
                 "    <h2 style=\"color: rgba(108,124,255,0.85)\" > Login</h2>" +
                 "  </div>\n" +
@@ -31,6 +31,6 @@ public class LoginLib extends SimpleTagSupport {
                 "    <input type=\"submit\" class=\"btn btn-success\" value=\"Login\" style=\"margin-top: 20px;\">" +
                 "" +
                 "  </div>" +
-                "</div>");
+                "</div>"+"</form>");
     }
 }
