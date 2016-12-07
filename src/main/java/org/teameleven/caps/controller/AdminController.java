@@ -70,6 +70,7 @@ public class AdminController {
     public ModelAndView listAllCourses() {
 
         ModelAndView v = new ModelAndView("crud/course-list");
+        v.addObject("courseList", courseDao.findAll());
         return v;
     }
      
