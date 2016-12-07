@@ -25,6 +25,7 @@
                         <li><a href="#">Active Courses</a></li>
                     </ul>
                 </li>
+                <li ><a href="#">Logout<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-minus-sign"></span></a></li>
 
             </ul>
         </div>
