@@ -9,15 +9,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="./css/bootstrap.min.css"/>
+
         <title>Course List</title>
     </head>
     <body>
     <div class="container">
-        <form action="${pageContext.request.contextPath}/admin/clist" method="post" id="courseForm" role="form"
+        <form action="${pageContext.request.contextPath}/admin/clist" method="post" id="courseForm" role="form">
         <c:choose>
             <c:when test="${not empty courseList}">
-                <table class="table table-striped">
+                <table class="table table-responsive">
                     <thead>
                     <tr>
                         <td>Couse ID</td>
@@ -37,13 +37,14 @@
                             <td>${course.courseSize}</td>
                             <td>${course.lecturerslecturerId.user.firstName}</td>
                             <td><a href="${pageContext.request.contextPath}/admin/cform?courseId==${course.courseId}">edit</a></td>
-
+                            <br/>
                         </tr>
                     </c:forEach>
                 </table>
 
             </c:when>
         </c:choose>
+
     </div>
 
     </body>

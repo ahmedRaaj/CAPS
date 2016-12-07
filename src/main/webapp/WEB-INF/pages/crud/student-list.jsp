@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="./css/bootstrap.min.css"/>
+
         <title>JSP Page</title>
     </head>
     <body>
@@ -26,8 +26,8 @@
                 <button type="submit" class="btn btn-info">
                     <span class="glyphicon glyphicon-search"></span> Search
                 </button>
-                <br></br>
-                <br></br>
+                <br/>
+                <br/>
             </form>
 
 
@@ -87,7 +87,7 @@
 
 
             <form action ="${pageContext.request.contextPath}/student/form">            
-                <br></br>
+                <br/>
                 <button type="submit" class="btn btn-primary  btn-md">New Student</button> 
             </form>
         </div>
