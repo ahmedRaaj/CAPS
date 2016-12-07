@@ -17,15 +17,15 @@ USE `CAPS` ;
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `CAPS`.`users` ;
 
-CREATE TABLE IF NOT EXISTS `CAPS`.`users` (
+CREATE TABLE IF NOT EXISTS `CAPS`.`users` (username, password, role, status, email, phone, address
   `userId` INT(11) NOT NULL AUTO_INCREMENT,
-  `address` VARCHAR(255) NULL DEFAULT NULL,
-  `email` VARCHAR(255) NULL DEFAULT NULL,
+  `userName` VARCHAR(255) NULL DEFAULT NULL,
   `password` VARCHAR(255) NULL DEFAULT NULL,
-  `phone` VARCHAR(255) NULL DEFAULT NULL,
   `role` VARCHAR(255) NULL DEFAULT NULL,
   `status` VARCHAR(255) NULL DEFAULT NULL,
-  `userName` VARCHAR(255) NULL DEFAULT NULL,
+  `email` VARCHAR(255) NULL DEFAULT NULL,
+  `phone` VARCHAR(255) NULL DEFAULT NULL,
+  `address` VARCHAR(255) NULL DEFAULT NULL,
   `first_name` VARCHAR(45) NULL,
   `last_name` VARCHAR(45) NULL,
   `dob` DATETIME NULL,
