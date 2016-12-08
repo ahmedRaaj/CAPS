@@ -52,4 +52,9 @@ local.properties
 .classpath
 .settings/
 .loadpath
-.idea
+*.iml
+*.ipr
+*.iws
+.idea/
+atlassian-ide-plugin.xml
+application.properties

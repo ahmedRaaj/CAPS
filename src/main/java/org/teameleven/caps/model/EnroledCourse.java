@@ -21,14 +21,14 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "enroled_courses")
-@NamedQueries({
-    @NamedQuery(name = "EnroledCourse.findAll", query = "SELECT e FROM EnroledCourse e")
-    , @NamedQuery(name = "EnroledCourse.findByEndingDate", query = "SELECT e FROM EnroledCourse e WHERE e.endingDate = :endingDate")
-    , @NamedQuery(name = "EnroledCourse.findByGradePoint", query = "SELECT e FROM EnroledCourse e WHERE e.gradePoint = :gradePoint")
-    , @NamedQuery(name = "EnroledCourse.findByStartingDate", query = "SELECT e FROM EnroledCourse e WHERE e.startingDate = :startingDate")
-    , @NamedQuery(name = "EnroledCourse.findByStatus", query = "SELECT e FROM EnroledCourse e WHERE e.status = :status")
-    , @NamedQuery(name = "EnroledCourse.findByStudentsstudentId", query = "SELECT e FROM EnroledCourse e WHERE e.enroledCoursePK.studentsstudentId = :studentsstudentId")
-    , @NamedQuery(name = "EnroledCourse.findByCoursescourseId", query = "SELECT e FROM EnroledCourse e WHERE e.enroledCoursePK.coursescourseId = :coursescourseId")})
+//@NamedQueries({
+//    @NamedQuery(name = "EnroledCourse.findAll", query = "SELECT e FROM EnroledCourse e")
+//    , @NamedQuery(name = "EnroledCourse.findByEndingDate", query = "SELECT e FROM EnroledCourse e WHERE e.endingDate = :endingDate")
+//    , @NamedQuery(name = "EnroledCourse.findByGradePoint", query = "SELECT e FROM EnroledCourse e WHERE e.gradePoint = :gradePoint")
+//    , @NamedQuery(name = "EnroledCourse.findByStartingDate", query = "SELECT e FROM EnroledCourse e WHERE e.startingDate = :startingDate")
+//    , @NamedQuery(name = "EnroledCourse.findByStatus", query = "SELECT e FROM EnroledCourse e WHERE e.status = :status")
+//    , @NamedQuery(name = "EnroledCourse.findByStudentsstudentId", query = "SELECT e FROM EnroledCourse e WHERE e.enroledCoursePK.studentsstudentId = :studentsstudentId")
+//    , @NamedQuery(name = "EnroledCourse.findByCoursescourseId", query = "SELECT e FROM EnroledCourse e WHERE e.enroledCoursePK.coursescourseId = :coursescourseId")})
 public class EnroledCourse implements Serializable {
 
     private static final long serialVersionUID = 1L;

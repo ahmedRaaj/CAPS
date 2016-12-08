@@ -5,36 +5,43 @@
 <html>
 <head>
 <%@ include file="Header.jsp"%>
-<c:url value="/css/BlurBackground.css" var="ss" />
-	<c:url value="/css/bootstrap.css" var="ss" />
-
 <link rel="STYLESHEET" type="text/css" href="${ss}" />
 </head>
 <body>
-	<table style="width: 100%">
-		<tr>
-			<td style="width: 180; border: 1" valign="top">
-				<div>
-					<%@ include file="Menu.jsp"%>
-				</div>
-			</td>
-			<td>
-				<div>
-					<h3>
-						<spring:message code="${bodyTitle}" />
-					</h3>
-					<dec:body />
-				</div>
-			</td>
-		</tr>
-	</table>
-	<c:url value="/js/jquery-1.10.2.min.js" var="ss" />
-	<c:url value="/js/bootstrap.min.js" var="ss" />
+<%
+	String url=request.getRequestURL().toString();
+	String server=request.getContextPath();
+	if(!url.contains("/student/main"))
+	{
+%>
+     <div class="container-fluid">
+		 <div class="row">
 
-	<c:url value="/js/ImgEffect.js" var="ss" />
+			 <div class="col-sm-2 col-md-2 top">
+				 <%@ include file="Menu.jsp"%>
+
+			 </div>
+
+
+		 <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-1">
+			 <%}%>
+			 <h3>
+				 <spring:message code="${bodyTitle}" />
+			 </h3>
+			 <dec:body />
+		 </div>
+		 </div>
+	 </div>
+
+
+
+<script src="/js/jquery-1.10.2.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/ImgEffect.js"></script>
+<script src="/js/metro.min.js"></script>
+<script src="/js/sidebar.js"></script>
 	<!-- ======== Footer ======== -->
 	<div id="footer" align="center">
-		<hr>
 		<small> &copy; ISS NUS SA Diploma 2016 </small>
 	</div>
 </body>
