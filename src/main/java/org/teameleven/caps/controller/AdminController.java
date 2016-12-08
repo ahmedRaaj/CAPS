@@ -6,12 +6,10 @@
 package org.teameleven.caps.controller;
 
 import org.jboss.logging.Logger;
+import org.omg.PortableServer.Current;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.teameleven.caps.model.Course;
 import org.teameleven.caps.model.Student;
@@ -21,10 +19,13 @@ import org.teameleven.caps.repository.LecturerRepository;
 import org.teameleven.caps.repository.StudentRepository;
 import org.teameleven.caps.services.StudentService;
 
+import java.io.Console;
 import java.util.List;
-import org.springframework.web.bind.annotation.PathVariable;
+
 import org.teameleven.caps.model.EnroledCourse;
 import org.teameleven.caps.repository.EnroledCourseRepository;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  *
@@ -110,12 +111,16 @@ public class AdminController {
         return v;
     }
 
-    @RequestMapping("/cform")
-    public ModelAndView creatOrEditCourse(){
+    @RequestMapping(value = "/cform")
+    public ModelAndView creatOrEditCourse(int courseId){
+        HttpServletRequest request=null;
         ModelAndView v = new ModelAndView("crud/course-form");
-//        v.addObject("courseId",)
+        v.addObject("courseDetail",courseDao.findOne(courseId));
         return v;
     }
+
+    @RequestMapping(value="/cupdate")
+    public
      
     private ModelAndView getDebug(String Message){
         ModelAndView m = new ModelAndView("debug");

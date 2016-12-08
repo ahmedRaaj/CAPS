@@ -45,7 +45,7 @@
                     </thead>
                     <c:forEach var="course" items="${courseList}">
                         <tr >
-                            <td><a href="${pageContext.request.contextPath}/admin/cform?courseId==${course.courseId}">${course.courseId}</a></td>
+                            <td><a href="${pageContext.request.contextPath}/admin/cform?courseId=${course.courseId}">${course.courseId}</a></td>
                             <td>${course.name}</td>
                             <td>${course.credits}</td>
                             <td>${course.duration}</td>
@@ -56,6 +56,7 @@
                                            document.getElementById('courseForm').submit();">
                                 <span class="glyphicon glyphicon-trash"/>
                             </a></td>
+                            <%request.setAttribute("courseId","${course.courseId}");%>
                             <%--<td><a href="${pageContext.request.contextPath}/admin/cform?courseId==${course.courseId}">edit</a></td>--%>
                         </tr>
                     </c:forEach>
