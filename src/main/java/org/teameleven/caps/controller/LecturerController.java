@@ -5,10 +5,26 @@
  */
 package org.teameleven.caps.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.teameleven.caps.model.User;
+
 /**
  *
  * @author ahmedraaj
  */
+@Controller
+@RequestMapping("/lecturer")
 public class LecturerController {
-    
+    @RequestMapping("/Mainpage")
+    public ModelAndView LecturerMain(RedirectAttributes redirectAttributes,HttpServletRequest req)
+    {
+        User user = (User)req.getSession().getAttribute("user");
+        ModelAndView v = new ModelAndView("/lecturerMainpage");
+        v.addObject("lecturer", user.getLecturer());
+        return v;
+    }
 }

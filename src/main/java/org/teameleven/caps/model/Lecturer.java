@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -51,10 +52,10 @@ public class Lecturer implements Serializable {
     @Column(name = "startDate")
     @Temporal(TemporalType.TIMESTAMP)
     private Date startDate;
-    @OneToMany(mappedBy = "lecturerslecturerId")
+    @OneToMany(mappedBy = "lecturer")
     private List<Course> courseList;
     @JoinColumn(name = "user_userId", referencedColumnName = "userId")
-    @OneToOne(optional = false)
+    @OneToOne(optional = false,cascade = CascadeType.ALL)
     private User user;
 
     public Lecturer() {

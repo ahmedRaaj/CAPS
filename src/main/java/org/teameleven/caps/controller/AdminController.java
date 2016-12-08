@@ -22,6 +22,12 @@ import org.teameleven.caps.repository.StudentRepository;
 import org.teameleven.caps.services.StudentService;
 
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.teameleven.caps.model.EnroledCourse;
+import org.teameleven.caps.model.User;
+import org.teameleven.caps.repository.EnroledCourseRepository;
 
 /**
  *
@@ -30,6 +36,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
+
     @Autowired
     StudentRepository studentDao;
     @Autowired
@@ -38,63 +45,104 @@ public class AdminController {
     AdminRepository adminDao;
     @Autowired
     CourseRepository courseDao;
+    @Autowired
+    EnroledCourseRepository enroledDao;
 
-    @RequestMapping("/slist")
+    @RequestMapping("/Mainpage")
+    public ModelAndView AdminMainPage(HttpServletRequest req) {
+        User user = (User) req.getSession().getAttribute("user");
+        ModelAndView v = new ModelAndView("/adminMainPage");
+        v.addObject("student", user.getAdmin());
+        return v;
+    }
+
+    @RequestMapping("/student/list")
     public ModelAndView listAllStudent() {
-
         ModelAndView v = new ModelAndView("crud/student-list");
         v.addObject("studentList", studentDao.findAll());
         return v;
     }
-    
-    @RequestMapping("sform")
-    public ModelAndView createOrEditStudent(@ModelAttribute("student") Student student) {
 
-        //service.setValue(5);
-        if(student == null) Logger.getLogger(StudentController.class).log(Logger.Level.FATAL, "student Null");
-        ModelAndView v = new ModelAndView("crud/student-form");
-        v.addObject("student", student);
+    @RequestMapping("/student/add")
+    public ModelAndView addOrUpdateStudent(@ModelAttribute("student") Student student) {
+        studentDao.save(student);
+        ModelAndView v = new ModelAndView("crud/student-list");
+        v.addObject("studentList", studentDao.findAll());
         return v;
     }
-    
+
+    @RequestMapping("/student/edit")
+    public ModelAndView showStudentFormEdit(@RequestParam("studentId") String studentId) {
+        Student s = studentDao.findOne(Integer.parseInt(studentId));
+        ModelAndView v = new ModelAndView("crud/student-form");
+        v.addObject("student", s);
+        return v;
+    }
+
+    @RequestMapping("/student/new")
+    public ModelAndView showStudentFormNew() {
+        Student s = new Student();
+        User u = new User();
+        s.setUser(u);
+        ModelAndView v = new ModelAndView("crud/student-form");
+        v.addObject("student", s);
+        return v;
+    }
+
+    @RequestMapping("/student/del")
+    public ModelAndView deleteStudent(@RequestParam("studentId") String studentId) {
+        studentDao.delete(Integer.parseInt(studentId));
+        ModelAndView v = new ModelAndView("crud/student-list");
+        v.addObject("studentList", studentDao.findAll());
+        return v;
+    }
+
     @RequestMapping("/leclist")
     public ModelAndView listAllLecturers() {
-
         ModelAndView v = new ModelAndView("crud/lecturer-list");
         v.addObject("lecturerList", lecDao.findAll());
         return v;
     }
-    
-     @RequestMapping("/lecform")
-    public ModelAndView createOrEditLecturer() {
 
+    @RequestMapping("/lecform")
+    public ModelAndView createOrEditLecturer() {
         ModelAndView v = new ModelAndView("crud/lecturer-form");
         v.addObject("lecturerList", lecDao.findAll());
         return v;
     }
-    
-      @RequestMapping("/alist")
-    public ModelAndView listAllAdmins() {
 
+    @RequestMapping("/alist")
+    public ModelAndView listAllAdmins() {
         ModelAndView v = new ModelAndView("crud/admin-list");
         return v;
     }
-      @RequestMapping("/clist")
+
+    @RequestMapping("/aform")
+    public ModelAndView createOrEditAdmin() {
+
+        ModelAndView v = new ModelAndView("crud/admin-form");
+        v.addObject("adminList", adminDao.findAll());
+        return v;
+    }
+
+    @RequestMapping("/clist")
     public ModelAndView listAllCourses() {
-          List<Course> courseList=courseDao.findAll();
+        List<Course> courseList = courseDao.findAll();
         ModelAndView v = new ModelAndView("crud/course-list");
-        v.addObject("courseList",courseList);
+        v.addObject("courseList", courseList);
         return v;
     }
 
     @RequestMapping("/cform")
-    public ModelAndView creatOrEditCourse(){
-
+    public ModelAndView creatOrEditCourse() {
         ModelAndView v = new ModelAndView("crud/course-form");
 //        v.addObject("courseId",)
-
         return v;
     }
-     
-   
+
+    private ModelAndView getDebug(String Message) {
+        ModelAndView m = new ModelAndView("debug");
+        m.addObject("message", Message);
+        return m;
+    }
 }

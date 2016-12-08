@@ -55,7 +55,7 @@ public class Course implements Serializable {
     private String name;
     @JoinColumn(name = "lecturers_lecturerId", referencedColumnName = "lecturerId")
     @ManyToOne
-    private Lecturer lecturerslecturerId;
+    private Lecturer lecturer;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "course")
     private List<EnroledCourse> enroledCourseList;
 
@@ -106,12 +106,12 @@ public class Course implements Serializable {
         this.name = name;
     }
 
-    public Lecturer getLecturerslecturerId() {
-        return lecturerslecturerId;
+    public Lecturer getLecturer() {
+        return lecturer;
     }
 
-    public void setLecturerslecturerId(Lecturer lecturerslecturerId) {
-        this.lecturerslecturerId = lecturerslecturerId;
+    public void setLecturer(Lecturer lecturer) {
+        this.lecturer = lecturer;
     }
 
     public List<EnroledCourse> getEnroledCourseList() {

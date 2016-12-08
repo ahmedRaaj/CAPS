@@ -31,7 +31,7 @@
             </form>
 
 
-            <form action="${pageContext.request.contextPath}/student/list" method="post" id="studentForm" role="form" >  
+            <form action="${pageContext.request.contextPath}/admin/student/list" method="post" id="studentForm" role="form" >  
                 <input type="hidden" id="studentId" name="studentId">
                 <input type="hidden" id="action" name="action">
                 <c:choose>
@@ -55,7 +55,7 @@
                                     <c:set var="classSucess" value="info"/>
                                 </c:if>
                                 <tr class="${classSucess}">
-                                    <td><a href="${pageContext.request.contextPath}/student/form?studentId=${student.studentId}">${student.studentId}</a></td>
+                                    <td><a href="edit?studentId=${student.studentId}">${student.studentId}</a></td>
 
                                     <td>${student.user.firstName}</td>
                                     <td>${student.user.lastName}</td>
@@ -64,11 +64,9 @@
                                     <td>${student.citizenship}</td>
                                     <td>${student.nric}</td>
 
-                                    <td><a href="#" id="remove" 
-                                           onclick="document.getElementById('action').value = 'remove';document.getElementById('studentId').value = '${student.studentId}';
-
-                                                   document.getElementById('studentForm').submit();"> 
-                                            <span class="glyphicon glyphicon-trash"/>
+                                    <td><a href="del?studentId=${student.studentId}" id="remove" 
+                                           />
+                                        <span class="glyphicon glyphicon-trash"/>
                                         </a>
 
                                     </td>
@@ -86,7 +84,7 @@
             </form>
 
 
-            <form action ="${pageContext.request.contextPath}/student/form">            
+            <form action ="${pageContext.request.contextPath}/admin/student/new">            
                 <br/>
                 <button type="submit" class="btn btn-primary  btn-md">New Student</button> 
             </form>

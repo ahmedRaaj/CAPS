@@ -129,7 +129,7 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `CAPS`.`enrolled_courses` ;
 
-CREATE TABLE IF NOT EXISTS `CAPS`.`enrolled_courses` (
+CREATE TABLE IF NOT EXISTS `CAPS`.`enroled_courses` (
   `students_studentId` INT(11) NOT NULL,
   `courses_courseId` INT(11) NOT NULL,
   `startingDate` VARCHAR(255) NULL DEFAULT NULL,
@@ -209,7 +209,7 @@ values
 ('C-Sharp Programming', 6, 3, 120, 4),
 ('C-Sharp OO Programming', 10, 3, 120, 4);
 
-insert into enrolled_courses
+insert into enroled_courses
 (students_studentId, courses_courseId, startingDate, endingDate, gradePoint, status)
 values
 -- Raj
