@@ -1,6 +1,6 @@
 <%-- 
-    Document   : studentMainPage
-    Created on : 7 Dec, 2016, 4:31:18 PM
+    Document   : debug
+    Created on : 8 Dec, 2016, 12:13:49 AM
     Author     : ahmedraaj
 --%>
 
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>student page</h1>
+        <h1>"${message}"</h1>
     </body>
 </html>
