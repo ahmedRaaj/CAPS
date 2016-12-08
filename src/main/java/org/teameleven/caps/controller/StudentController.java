@@ -8,7 +8,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 @RequestMapping("/student")
 public class StudentController {
-    @RequestMapping("/main")
+    @RequestMapping("/Mainpage")
    public ModelAndView StudentMain(RedirectAttributes redirectAttributes)
    {
 
