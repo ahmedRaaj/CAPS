@@ -58,11 +58,18 @@ public class AdminController {
         v.addObject("studentList", studentDao.findAll());
         return v;
     }
-    @RequestMapping("/student/form")
-    public ModelAndView showStudentForm(@RequestParam("studentId") String studentId) {
-        Student s;
+    @RequestMapping("/student/edit")
+    public ModelAndView showStudentFormEdit(@RequestParam("studentId") String studentId) {
+        Student s=studentDao.findOne(Integer.parseInt(studentId));
         ModelAndView v = new ModelAndView("crud/student-form");
-        //v.addObject("student", student);
+        v.addObject("student", s);
+        return v;
+    }
+    @RequestMapping("/student/new")
+    public ModelAndView showStudentFormNew() {
+        Student s=new Student();
+        ModelAndView v = new ModelAndView("crud/student-form");
+        v.addObject("student", s);
         return v;
     }
      @RequestMapping(name = "/student/del")

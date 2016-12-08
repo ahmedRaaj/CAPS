@@ -14,12 +14,7 @@
     <body>
               <div class="container">
             <form action="#" method="post"  role="form" data-toggle="validator" >
-                <c:if test ="${empty action}">                        	
-                    <c:set var="action" value="add"/>
-                </c:if>
-                <input type="hidden" id="action" name="action" value="${action}">
-                <input type="hidden" id="student.studentId" name="student.studentId" value="${student.studentId}">
-                <h2>Student</h2>
+                
                
                 <div class="form-group col-xs-4">
                      <br></br>
