@@ -93,6 +93,15 @@ public class AdminController {
         ModelAndView v = new ModelAndView("crud/admin-list");
         return v;
     }
+    
+    @RequestMapping("/aform")
+    public ModelAndView createOrEditAdmin() {
+
+        ModelAndView v = new ModelAndView("crud/admin-form");
+        v.addObject("adminList", adminDao.findAll());
+        return v;
+    }
+    
       @RequestMapping("/clist")
     public ModelAndView listAllCourses() {
           List<Course> courseList=courseDao.findAll();
