@@ -50,7 +50,7 @@
                     <c:forEach var="enroled" items="${Course}"><%--need to get arraylist from controller for students and gradepoint from enroled course table--%>
                     <tr>
                     <td> <c:out value="${enroled.Student.studentId}"/> </td>
-                    <td> <c:out value="${enroled.Student.User.firstName}"/> </td>
+                    <td> <c:out value="${enroled.Student.user.firstName}"/> </td>
                     <td> <c:out value="${enroled.gradePoint}"/> </td>         
                     </tr>
                     </c:forEach>
