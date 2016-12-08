@@ -35,21 +35,21 @@
 
 
 
-<script src="/js/jquery-1.10.2.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquery-1.10.2.min.js"></script>
 
 
-<script src="/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 
-<script src="/js/ImgEffect.js"></script>
+<script src="${pageContext.request.contextPath}/js/ImgEffect.js"></script>
 <%
 
 	if(path.contains("/Mainpage"))
 	{
 %>
-<script src="/js/metro.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/metro.min.js"></script>
 
 <%}%>
-<script src="/js/sidebar.js"></script>
+<script src="${pageContext.request.contextPath}/js/sidebar.js"></script>
 
 	<!-- ======== Footer ======== -->
 	<div id="footer" align="center">

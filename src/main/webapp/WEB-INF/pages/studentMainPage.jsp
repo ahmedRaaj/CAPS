@@ -10,11 +10,8 @@
 <html>
 <head>
     <title>ISS</title>
-
-
 </head>
 <body>
-
 <%
     String name = request.getParameter("Name");
 %>
