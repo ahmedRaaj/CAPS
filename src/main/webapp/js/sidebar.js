@@ -4,8 +4,8 @@
 
 function htmlbodyHeightUpdate(){
     var height3 = $( window ).height();
-    var height1 = $('.nav').height()+50;
-    height2 = $('.main').height();
+    var height1 = $('.nav').height()+50  ;
+    height2 = $('.main').height() ;
     if(height2 > height3){
         $('html').height(Math.max(height1,height3,height2)+10);
         $('body').height(Math.max(height1,height3,height2)+10);
@@ -18,12 +18,12 @@ function htmlbodyHeightUpdate(){
 
 }
 $(document).ready(function () {
-    htmlbodyHeightUpdate();
+    htmlbodyHeightUpdate() ;
     $( window ).resize(function() {
-        htmlbodyHeightUpdate();
+        htmlbodyHeightUpdate() ;
     });
     $( window ).scroll(function() {
-        height2 = $('.main').height();
+        height2 = $('.main').height()
         htmlbodyHeightUpdate();
     });
 });
