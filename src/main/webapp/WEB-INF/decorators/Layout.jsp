@@ -47,7 +47,7 @@
 	{
 %>
 <script src="/js/metro.min.js"></script>
-
+  <script src="/js/Mainpage.js"></script>
 <%}%>
 <script src="/js/sidebar.js"></script>
 

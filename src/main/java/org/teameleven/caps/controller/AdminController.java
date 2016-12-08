@@ -5,26 +5,18 @@
  */
 package org.teameleven.caps.controller;
 
-import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.teameleven.caps.model.Course;
 import org.teameleven.caps.model.Student;
-import org.teameleven.caps.repository.AdminRepository;
-import org.teameleven.caps.repository.CourseRepository;
-import org.teameleven.caps.repository.LecturerRepository;
-import org.teameleven.caps.repository.StudentRepository;
-import org.teameleven.caps.services.StudentService;
+import org.teameleven.caps.repository.*;
 
 import java.util.List;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.teameleven.caps.model.EnroledCourse;
-import org.teameleven.caps.repository.EnroledCourseRepository;
 
 /**
  *
@@ -44,13 +36,22 @@ public class AdminController {
     @Autowired
     EnroledCourseRepository enroledDao;
 
+
+    @RequestMapping("/Mainpage")
+    public ModelAndView LecturerMain(RedirectAttributes redirectAttributes)
+    {
+
+        ModelAndView v = new ModelAndView("/adminMainPage");
+        return v;
+
+    }
     @RequestMapping("/student/list")
     public ModelAndView listAllStudent() {
         ModelAndView v = new ModelAndView("crud/student-list");
         v.addObject("studentList", studentDao.findAll());
         return v;
     }
-    
+
     @RequestMapping("/student/add")
     public ModelAndView addOrUpdateStudent(@ModelAttribute("student") Student student) {
         studentDao.save(student);
@@ -80,27 +81,27 @@ public class AdminController {
         v.addObject("studentList", studentDao.findAll());
         return getDebug(studentId);
     }
-    
+
     @RequestMapping("/leclist")
     public ModelAndView listAllLecturers() {
         ModelAndView v = new ModelAndView("crud/lecturer-list");
         v.addObject("lecturerList", lecDao.findAll());
         return v;
     }
-    
+
      @RequestMapping("/lecform")
     public ModelAndView createOrEditLecturer() {
         ModelAndView v = new ModelAndView("crud/lecturer-form");
         v.addObject("lecturerList", lecDao.findAll());
         return v;
     }
-    
+
       @RequestMapping("/alist")
     public ModelAndView listAllAdmins() {
         ModelAndView v = new ModelAndView("crud/admin-list");
         return v;
     }
-    
+
     @RequestMapping("/aform")
     public ModelAndView createOrEditAdmin() {
 
@@ -108,7 +109,7 @@ public class AdminController {
         v.addObject("adminList", adminDao.findAll());
         return v;
     }
-    
+
       @RequestMapping("/clist")
     public ModelAndView listAllCourses() {
           List<Course> courseList=courseDao.findAll();
@@ -123,7 +124,7 @@ public class AdminController {
 //        v.addObject("courseId",)
         return v;
     }
-     
+
     private ModelAndView getDebug(String Message){
         ModelAndView m = new ModelAndView("debug");
         m.addObject("message", Message);
