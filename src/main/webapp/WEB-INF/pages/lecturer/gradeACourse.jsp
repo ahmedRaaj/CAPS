@@ -32,7 +32,7 @@
                 Table is empty.
                 </c:when>
                 <c:otherwise>
-                <table>
+                <table class="table">
                     <thead>
                     <tr>
                     <th>STUDENT ID</th>
