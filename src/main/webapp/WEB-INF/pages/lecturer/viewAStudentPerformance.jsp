@@ -23,6 +23,8 @@
                 <form:options items="${countryList}" /><%--need an arraylist of course names from controller--%>
                 </form:select>
                 </td>
+                
+                
             </tr>
             <tr>
                 <td>
