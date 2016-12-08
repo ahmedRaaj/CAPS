@@ -29,30 +29,26 @@ public class LogInController {
     UserRepository userDao;
    
     @RequestMapping(value="/auth",method = RequestMethod.POST)
-    public ModelAndView AuthenticateAndRoute(@RequestParam("password") String password,@RequestParam("name") String name,RedirectAttributes attrb,HttpServletRequest req){
+    public String AuthenticateAndRoute(@RequestParam("password") String password,@RequestParam("name") String name,RedirectAttributes attrb,HttpServletRequest req){
         
        // return getDebug(name + password); //for debuging
-        ModelAndView m = new ModelAndView();
+        String m = "redirect:/";
         List<User> users = userDao.findAll();
         Optional<User> userOp = users.stream().filter(u->u.getUserName().equals(name) && u.getPassword().equals(password)).findFirst();
         if(userOp.isPresent()){
             User user = userOp.get();
             req.getSession(true).setAttribute("user", user);
             if(user.getRole().equalsIgnoreCase("student")){
-                m = new ModelAndView("studentMainPage");
-                m.addObject("student", user.getStudent());
+                m += "student/Mainpage";
             }
             else if(user.getRole().equalsIgnoreCase("lecturer")){
-                m = new ModelAndView("lecturerMainPage");
-                m.addObject("lecturer", user.getLecturer());
+                m += "lecturer/Mainpage";
             }
             else if(user.getRole().equalsIgnoreCase("admin")){
-                m = new ModelAndView("adminPage");
-                m.addObject("admin", user.getAdmin());
+                m += "admin/Mainpage";
             }
             else{
-                 m = new ModelAndView("debug");
-                m.addObject("message", user);
+                m = "redirect:/Caps/";
             }
             
         }
@@ -60,7 +56,7 @@ public class LogInController {
                 
         
     }
-    
+
     private ModelAndView getDebug(String Message){
         ModelAndView m = new ModelAndView("debug");
         m.addObject("message", Message);
