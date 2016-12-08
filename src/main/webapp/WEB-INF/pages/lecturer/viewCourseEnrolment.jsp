@@ -39,14 +39,16 @@
       <table>
        <thead>
          <tr>
-          <th> STUDENT ID </th>
+          <th>STUDENT ID</th>
+          <th> STUDENT NAME </th>
           <th> STATUS </th>         
          </tr>
         </thead>
         <tbody>
         <c:forEach var="enroled" items="${Course}"><%--need to get arraylist from controller for students and status from enroled course table--%>
         <tr>
-          <td> <c:out value="${enroled.student.studentId}"/> </td>
+           <td> <c:out value="${enroled.student.studentId}"/> </td> 
+          <td> <c:out value="${enroled.student.User.firstName}"/> </td>
           <td> <c:out value="${enroled.status}"/> </td>         
         </tr>
         </c:forEach>
