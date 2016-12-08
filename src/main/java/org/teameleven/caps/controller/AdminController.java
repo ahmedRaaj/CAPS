@@ -23,6 +23,8 @@ import org.teameleven.caps.services.StudentService;
 
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.teameleven.caps.model.EnroledCourse;
@@ -125,20 +127,31 @@ public class AdminController {
         return v;
     }
 
+
     @RequestMapping("/clist")
     public ModelAndView listAllCourses() {
-        List<Course> courseList = courseDao.findAll();
+        List<Course> courseList=courseDao.findAll();
         ModelAndView v = new ModelAndView("crud/course-list");
-        v.addObject("courseList", courseList);
+        v.addObject("courseList",courseList);
         return v;
     }
 
-    @RequestMapping("/cform")
-    public ModelAndView creatOrEditCourse() {
+    @RequestMapping(value = "/cform")
+    public ModelAndView creatOrEditCourse(int courseId){
+        HttpServletRequest request=null;
         ModelAndView v = new ModelAndView("crud/course-form");
-//        v.addObject("courseId",)
+        v.addObject("courseDetail",courseDao.findOne(courseId));
         return v;
     }
+
+    @RequestMapping(value="/cupdate")
+    public String UpdateCourse(Course course){
+        HttpServletResponse response=null;
+        return null;
+
+    }
+
+
 
     private ModelAndView getDebug(String Message) {
         ModelAndView m = new ModelAndView("debug");

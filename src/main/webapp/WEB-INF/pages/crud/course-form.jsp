@@ -13,7 +13,7 @@
 </head>
 <body>
 <div class="container">
-    <form action="" method="post"  role="form" data-toggle="validator" >
+    <form action="/admin/cupdate" method="post"  role="form" data-toggle="validator" >
         <div class="form-group col-xs-8">
             <br/>
             <label  class="control-label col-xs-8">Course Id:</label>
