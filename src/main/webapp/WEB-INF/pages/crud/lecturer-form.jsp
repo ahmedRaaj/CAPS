@@ -18,7 +18,7 @@
                     <c:set var="action" value="add"/>
                 </c:if>
                 <input type="hidden" id="action" name="action" value="${action}">
-                <input type="hidden" id="lecturerId" name="lecturerId" value="${lecturer.lecturerId}">
+                <input type="hidden" id="lecturer.lecturerId" name="lecturer.lecturerId" value="${lecturer.lecturerId}">
                 <h2>Lecturer</h2>
                
                 <div class="form-group col-xs-4">
@@ -29,14 +29,16 @@
                     <label for="lecturer.user.lastName" class="control-label col-xs-4">Last Name:</label>                   
                     <input type="text" name="lecturer.user.lastName" id="lecturer.user.lastName" class="form-control" value="${lecturer.user.lastName}" required="true"/> 
 
-                    <label for="lecturer.user.dob" class="control-label col-xs-4">Birth Date</label>                 
+                    <label for="lecturer.user.dob" class="control-label col-xs-4">Birth Date:</label>                 
                     <input type="date"  name="lecturer.user.dob" id="lecturer.user.dob" class="form-control" value="${lecturer.user.dob}" placeholder="dd-MM-yyy" required="true"/>
-
-                    <label for="lecturer.position" class="control-label col-xs-4">Position:</label>                    
-                    <input type="text" name="lecturer.position" id="lecturer.position" class="form-control" value="${lecturer.position}" required="true"/> 
 
                     <label for="lecturer.user.gender" class="control-label col-xs-4">Gender:</label>
                     <input type="text" name="lecturer.user.gender" id="lecturer.user.gender" class="form-control" value="${lecturer.user.gender}" placeholder="male&female" required="true"/>
+                    
+                    <label for="lecturer.position" class="control-label col-xs-4">Position:</label>                    
+                    <input type="text" name="lecturer.position" id="lecturer.position" class="form-control" value="${lecturer.position}" required="true"/> 
+
+                    
 
                     <label for="lecturer.startDate" class="control-label col-xs-4">Start Date:</label>                   
                     <input type="date" name="lecturer.startDate" id="lecturer.startDate" class="form-control" value="${lecturer.startDate}" placeholder="dd-MM-yyy" required="true"/>
@@ -63,7 +65,7 @@
                     <input type="text" name="lecturer.user.address" id="lecturer.user.address" class="form-control" value="${lecturer.user.address}" required="true"/>
 
                     <label for="lecturer.user.email"  class="control-label col-xs-4">Email:</label>
-                    <input type="text" name="lecturer.user.email" id="lecturer.user.email" class="form-control" value="${lecturer.user.email}" placeholder="123@gmail.com" required="true"/>
+                    <input type="text" name="lecturer.user.email" id="lecturer.user.email" class="form-control" value="${lecturer.user.email}" placeholder="lecturer@gmail.com" required="true"/>
 
                     
                     <input type="hidden" name="lecturer.user.role" id="lecturer.user.role" class="form-control" value="lecturer" required="true"/>
