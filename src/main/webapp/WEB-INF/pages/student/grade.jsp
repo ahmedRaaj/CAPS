@@ -20,16 +20,16 @@
         <c:set var="totalGradePoint" value="${0}"/>
 
         <c:forEach var="enroledcourse" items="${enroledcourses}">
-            <c:set var="totalCredit" value="${totalCredit + enroledcourse.course.credit}"/>
-            <c:set var="totalGradePoint" value="${totalGradePoint + (enroledcourse.course.credit * enroledcourse.gradePoint)}"/>
+            <c:set var="totalCredit" value="${totalCredit + enroledcourse.course.credits}"/>
+            <c:set var="totalGradePoint" value="${totalGradePoint + (enroledcourse.course.credits * enroledcourse.gradePoint)}"/>
         </c:forEach>
 
         <table>
             <tr>
                 <td width="20%"><strong>Student ID</strong></td>
-                <td width="15%">${enroledcourses.student.studentId}</td>
+                <td width="15%">${enroledcourse.student.studentId}</td>
                 <td width="25%"><strong>Student Name</strong></td>
-                <td width="40%">${enroledcourses.student.user.firstName}, ${enroledcourses.student.user.lastName}</td>                
+                <td width="40%">${enroledcourse.student.user.firstName}, ${enroledcourse.student.user.lastName}</td>                
             </tr>
             <tr>
                 <td width="20%"><strong>GPA</strong></td>
@@ -40,7 +40,7 @@
         </table>
         <div style="padding-top: 50px;">
             <c:choose>
-                <c:when test="${empty grades}">
+                <c:when test="${empty enroledcourses}">
                     Grades Table is empty.
                 </c:when>
                 <c:otherwise>
@@ -61,7 +61,7 @@
                                     <td> ${enroledcourse.course.name} </td>
                                     <td> ${enroledcourse.gradePoint} </td>
                                     <td> ${enroledcourse.course.credits} </td>
-                                    <td> ${enroledcourse.course.credit * enroledcourse.gradePoint} </td>
+                                    <td> ${enroledcourse.course.credits * enroledcourse.gradePoint} </td>
                                 </tr>
                             </c:forEach>
                         </tbody>

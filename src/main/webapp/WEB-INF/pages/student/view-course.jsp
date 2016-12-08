@@ -24,12 +24,11 @@
             View Course Table is empty.
         </c:when>
         <c:otherwise>
-            <table>
+            <table class="table">
                 <thead>
                     <tr>
                         <th> Course Id </th>
                         <th> Course Name </th>
-                        <th> Start Date </th>
                         <th> Duration </th>
                         <th> Credit </th>
                         <th> Lecturer </th>
@@ -40,7 +39,6 @@
                         <tr>
                             <td> ${viewcourse.courseId} </td>
                             <td> ${viewcourse.name} </td>
-                            <td> ${viewcourse.startDate} </td>
                             <td> ${viewcourse.duration} </td>
                             <td> ${viewcourse.credits} </td>
                             <td> ${viewcourse.lecturer.user.firstName}, ${viewcourse.lecturer.user.lastName}</td>
