@@ -7,6 +7,7 @@ package org.teameleven.caps.model;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -39,7 +40,7 @@ public class Admin implements Serializable {
     @Column(name = "position")
     private String position;
     @JoinColumn(name = "user_userId", referencedColumnName = "userId")
-    @OneToOne(optional = false)
+    @OneToOne(optional = false,cascade = CascadeType.ALL)
     private User user;
 
     public Admin() {

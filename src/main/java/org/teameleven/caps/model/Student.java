@@ -47,7 +47,7 @@ public class Student implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "student")
     private List<EnroledCourse> enroledCourseList;
     @JoinColumn(name = "user_userId", referencedColumnName = "userId")
-    @OneToOne(optional = false)
+    @OneToOne(optional = false,cascade = CascadeType.ALL)
     private User user;
 
     public Student() {
