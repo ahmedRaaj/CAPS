@@ -20,9 +20,7 @@ public class LecturerController {
     @RequestMapping("/Mainpage")
     public ModelAndView LecturerMain(RedirectAttributes redirectAttributes)
     {
-
         ModelAndView v = new ModelAndView("/lecturerMainpage");
         return v;
-
     }
 }

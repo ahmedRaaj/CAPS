@@ -11,10 +11,8 @@ public class StudentController {
     @RequestMapping("/Mainpage")
    public ModelAndView StudentMain(RedirectAttributes redirectAttributes)
    {
-
        ModelAndView v = new ModelAndView("/studentMainPage");
        return v;
-
    }
 
 

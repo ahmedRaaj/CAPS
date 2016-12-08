@@ -38,12 +38,10 @@ public class AdminController {
 
 
     @RequestMapping("/Mainpage")
-    public ModelAndView LecturerMain(RedirectAttributes redirectAttributes)
+    public ModelAndView AdminMain(RedirectAttributes redirectAttributes)
     {
-
         ModelAndView v = new ModelAndView("/adminMainPage");
         return v;
-
     }
     @RequestMapping("/student/list")
     public ModelAndView listAllStudent() {

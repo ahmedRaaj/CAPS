@@ -8,17 +8,12 @@
 <html>
 <head>
     <title>ISS</title>
-
-
 </head>
 <body>
-
 <%
     String name = request.getParameter("Name");
 %>
 <div class="tile-area fg-white tile-area-scheme-lightBlue " style="height: 100%; max-height: 100% !important;padding: 50px 0px 0px;">
-
-
     <h1 class="tile-area-title" style="padding-top: 13px;">Welcome Name </h1>
 
     <div style="margin-left: 82%; padding: 0px 0px 0px;">
@@ -84,8 +79,6 @@
 
         </div>
     </div>
-
-
 </div>
 
 
