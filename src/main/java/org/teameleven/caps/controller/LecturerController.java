@@ -6,11 +6,15 @@
 package org.teameleven.caps.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.teameleven.caps.model.Student;
 import org.teameleven.caps.model.User;
+import org.teameleven.caps.repository.CourseRepository;
+import org.teameleven.caps.repository.EnroledCourseRepository;
 
 /**
  *
@@ -19,6 +23,12 @@ import org.teameleven.caps.model.User;
 @Controller
 @RequestMapping("/lecturer")
 public class LecturerController {
+    
+    @Autowired
+    EnroledCourseRepository enrolDao;
+    @Autowired
+    CourseRepository courseDao;
+    
     @RequestMapping("/Mainpage")
     public ModelAndView LecturerMain(RedirectAttributes redirectAttributes,HttpServletRequest req)
     {
@@ -27,4 +37,26 @@ public class LecturerController {
         v.addObject("lecturer", user.getLecturer());
         return v;
     }
+    
+    @RequestMapping("/gradecourse")
+    public ModelAndView gradeCourse()
+    {
+ 
+        ModelAndView v = new ModelAndView("/lecturer/gradeACourse");
+        v.addObject("enroledcourses", enrolDao.findAll());
+        v.addObject("courses",courseDao.findAll());
+        return v;
+    }
+    
+    
+     @RequestMapping("/viewperformance")
+    public ModelAndView viewPerformance()
+    {
+ 
+        ModelAndView v = new ModelAndView("/lecturer/viewAStudentPersformance");
+        v.addObject("enroledcourses", enrolDao.findAll());
+         v.addObject("courses",courseDao.findAll());
+        return v;
+    }
+    
 }

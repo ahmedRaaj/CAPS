@@ -30,8 +30,12 @@ public class StudentController {
    public ModelAndView StudentMain(HttpServletRequest req)
    {
        User user = (User)req.getSession().getAttribute("user");
+       Student s = null;
+       if(user != null && user.getStudent() != null){
+           s = user.getStudent();
+       }
        ModelAndView v = new ModelAndView("/studentMainPage");
-       v.addObject("student",user.getStudent());
+       v.addObject("student",s);
        return v;
    }
 
