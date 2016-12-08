@@ -24,6 +24,7 @@ import org.teameleven.caps.services.StudentService;
 import java.util.List;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.teameleven.caps.model.EnroledCourse;
+import org.teameleven.caps.model.User;
 import org.teameleven.caps.repository.EnroledCourseRepository;
 
 /**
@@ -68,17 +69,18 @@ public class AdminController {
     @RequestMapping("/student/new")
     public ModelAndView showStudentFormNew() {
         Student s=new Student();
+        User u = new User();
+        s.setUser(u);
         ModelAndView v = new ModelAndView("crud/student-form");
         v.addObject("student", s);
         return v;
     }
-     @RequestMapping(name = "/student/del")
+     @RequestMapping("/student/del")
     public ModelAndView deleteStudent(@RequestParam("studentId") String studentId) {
         studentDao.delete(Integer.parseInt(studentId));
-        studentDao.flush();
         ModelAndView v = new ModelAndView("crud/student-list");
         v.addObject("studentList", studentDao.findAll());
-        return getDebug(studentId);
+        return v;
     }
     
     @RequestMapping("/leclist")
