@@ -9,9 +9,9 @@
 </head>
 <body>
 <%
-	String url=request.getRequestURL().toString();
-	String server=request.getContextPath();
-	if(!url.contains("/student/main"))
+
+
+	if(!path.contains("/Mainpage"))
 	{
 %>
      <div class="container-fluid">
@@ -36,10 +36,21 @@
 
 
 <script src="/js/jquery-1.10.2.min.js"></script>
+
+
 <script src="/js/bootstrap.min.js"></script>
+
 <script src="/js/ImgEffect.js"></script>
+<%
+
+	if(path.contains("/Mainpage"))
+	{
+%>
 <script src="/js/metro.min.js"></script>
+
+<%}%>
 <script src="/js/sidebar.js"></script>
+
 	<!-- ======== Footer ======== -->
 	<div id="footer" align="center">
 		<small> &copy; ISS NUS SA Diploma 2016 </small>
