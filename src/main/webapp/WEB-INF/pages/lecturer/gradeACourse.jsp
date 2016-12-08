@@ -1,7 +1,7 @@
 <%-- 
     Document   : gradeACourse
     Created on : Dec 8, 2016, 10:30:41 AM
-    Author     : DELL
+    Author     : Janaki
 --%>
 
 <%@page contentType="text/html" pageEncoding="windows-1252"%>
