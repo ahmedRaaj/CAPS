@@ -128,8 +128,8 @@ public class AdminController {
         return v;
     }
 
-    @RequestMapping(value="/cupdate")
-    public
+//    @RequestMapping(value="/cupdate")
+
      
     private ModelAndView getDebug(String Message){
         ModelAndView m = new ModelAndView("debug");

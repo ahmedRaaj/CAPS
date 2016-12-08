@@ -33,9 +33,9 @@
 
             <label  class="control-label col-xs-8">Course Lecture:</label>
             <input type="text" name="lecturer" id="lecturerFirstName" class="form-control"
-                   value="${courseDetail.lecturerslecturerId.user.firstName}"/>
+                   value="${courseDetail.lecturer.user.firstName}"/>
             <input type="text" name="lecturer" id="lecturerLastName" class="form-control"
-                   value="${courseDetail.lecturerslecturerId.user.lastName}"/>
+                   value="${courseDetail.lecturer.user.lastName}"/>
             <br/>
             <button type="reset" class="btn btn-primary  btn-md">Cancel</button>
             <button type="submit" class="btn btn-primary  btn-md">Save</button>

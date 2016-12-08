@@ -35,7 +35,7 @@
                 <table class="table table-responsive">
                     <thead>
                     <tr>
-                        <td>Couse ID</td>
+                        <td>Course ID</td>
                         <td>Course Name</td>
                         <td>Credits</td>
                         <td>Duration</td>
@@ -50,7 +50,7 @@
                             <td>${course.credits}</td>
                             <td>${course.duration}</td>
                             <td>${course.courseSize}</td>
-                            <td>${course.lecturerslecturerId.user.firstName}</td>
+                            <td>${course.lecturer.user.firstName}</td>
                             <td><a href="#" id="remove"
                                    onclick="document.getElementById('action').value = 'remove';document.getElementById('courseId').value = '${course.courseId}';
                                            document.getElementById('courseForm').submit();">
