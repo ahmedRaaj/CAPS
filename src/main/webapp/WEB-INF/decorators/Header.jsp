@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="/css/sidebar.css">
 	<%
 		String path=request.getRequestURL().toString();
-		String server=request.getContextPath();
+	//	String server=request.getContextPath();
 		if(path.contains("/Mainpage"))
 		{
 	%>
