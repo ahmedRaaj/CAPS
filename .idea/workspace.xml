@@ -2,56 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c244b83-2d5d-4053-bbae-7362fd7c94ac" name="Default" comment="ZHN">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/image/Game Maker-22.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/image/Game Maker-30.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/image/Game Maker-35.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/image/LoginBackground.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/image/MainBAckground.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/image/sliderimg/data/arrows.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/image/sliderimg/data/bullet.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/image/sliderimg/data/pause.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/image/sliderimg/data/play.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/image/sliderimg/data/triangle.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/image/sliderimg/images/1.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/image/sliderimg/images/cmimg_74093.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/image/sliderimg/images/diplomacoursesinsingapore400x300.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/image/sliderimg/images/hdinspirationalquotesforstudentswithhdwindowswallpaperfullhdwithinspirationalquotesforstudentsdownloadhdwallpaper.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/image/sliderimg/images/laurea.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/image/sliderimg/images/nussing661x340400x300.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/image/sliderimg/images/servicemainland.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/image/sliderimg/images/servicesenior.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/image/sliderimg/images/thac.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/image/sliderimg/tooltips/1.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/image/sliderimg/tooltips/cmimg_74093.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/image/sliderimg/tooltips/diplomacoursesinsingapore400x300.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/image/sliderimg/tooltips/hdinspirationalquotesforstudentswithhdwindowswallpaperfullhdwithinspirationalquotesforstudentsdownloadhdwallpaper.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/image/sliderimg/tooltips/laurea.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/image/sliderimg/tooltips/nussing661x340400x300.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/image/sliderimg/tooltips/servicemainland.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/image/sliderimg/tooltips/servicesenior.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/image/sliderimg/tooltips/thac.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/image/t11logo.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/login.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/css/style.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/css/style.mod.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/js/jquery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/js/script.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/js/wowslider.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/js/wowslider.mod.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/image/nuspartnership.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/js/jquery-1.10.2.min.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/teameleven/caps/controller/LogInController.java" afterPath="$PROJECT_DIR$/src/main/java/org/teameleven/caps/controller/LogInController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/teameleven/caps/customlib/LoginLib.java" afterPath="$PROJECT_DIR$/src/main/java/org/teameleven/caps/customlib/LoginLib.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/decorators/Header.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/decorators/Header.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/decorators/Layout.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/decorators/Layout.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminMainPage.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminMainPage.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/lecturerMainpage.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/lecturerMainpage.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/studentMainPage.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/studentMainPage.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/css/BlurBackground.css" afterPath="$PROJECT_DIR$/src/main/webapp/css/BlurBackground.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/css/metro.css" afterPath="$PROJECT_DIR$/src/main/webapp/css/metro.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/css/metro.min.css" afterPath="$PROJECT_DIR$/src/main/webapp/css/metro.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <manually-removed-from-ignored>
@@ -85,9 +36,9 @@
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/decorators/Header.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
-              <caret line="19" column="18" lean-forward="true" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
+              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding>
-                <element signature="e#406#543#0#JSP" expanded="true" />
+                <marker date="1481292155688" expanded="true" signature="408:541" ph="..." />
               </folding>
             </state>
           </provider>
@@ -96,8 +47,8 @@
       <file leaf-file-name="metro.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/css/metro.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-5873">
-              <caret line="503" column="0" lean-forward="true" selection-start-line="503" selection-start-column="0" selection-end-line="503" selection-end-column="0" />
+            <state relative-caret-position="-5941">
+              <caret line="503" column="0" lean-forward="false" selection-start-line="503" selection-start-column="0" selection-end-line="503" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -140,7 +91,7 @@
       <file leaf-file-name="metro.min.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/css/metro.min.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
+            <state relative-caret-position="-960">
               <caret line="0" column="8859" lean-forward="false" selection-start-line="0" selection-start-column="8859" selection-end-line="0" selection-end-column="8859" />
               <folding />
             </state>
@@ -150,11 +101,14 @@
       <file leaf-file-name="adminMainPage.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminMainPage.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="38" column="42" lean-forward="false" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="42" />
+            <state relative-caret-position="196">
+              <caret line="36" column="42" lean-forward="false" selection-start-line="36" selection-start-column="42" selection-end-line="36" selection-end-column="42" />
               <folding>
-                <element signature="e#413#474#0#JSP" expanded="true" />
-                <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#html#0;n#!!top" expanded="true" />
+                <marker date="1481292231272" expanded="true" signature="2882:4754" ph="..." />
+                <marker date="1481292231272" expanded="false" signature="2898:3155" ph="..." />
               </folding>
             </state>
           </provider>
@@ -164,49 +118,29 @@
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/lecturerMainpage.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="145">
-              <caret line="35" column="38" lean-forward="false" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="38" />
+              <caret line="36" column="38" lean-forward="false" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="38" />
               <folding>
                 <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Layout.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/decorators/Layout.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="27" column="29" lean-forward="false" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
-              <folding>
-                <element signature="e#331#376#0#JSP" expanded="true" />
-                <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#595#605#0#JSP" expanded="true" />
-                <element signature="n#h3#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#947#988#0#JSP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/login.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="89" column="110" lean-forward="false" selection-start-line="89" selection-start-column="110" selection-end-line="89" selection-end-column="110" />
-              <folding>
-                <element signature="n#head#0;n#!!top" expanded="true" />
-                <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#!!top" expanded="true" />
-                <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#!!top" expanded="true" />
-                <element signature="n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#!!top" expanded="true" />
-                <element signature="n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#!!top" expanded="true" />
-                <element signature="n#div#2;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#!!top" expanded="true" />
-                <element signature="n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#!!top" expanded="true" />
-                <marker date="1481289821887" expanded="false" signature="384:487" ph="..." />
-                <marker date="1481289821887" expanded="false" signature="429:476" ph="..." />
-                <marker date="1481289821887" expanded="false" signature="725:1168" ph="..." />
-                <marker date="1481289821887" expanded="false" signature="1327:1773" ph="..." />
-                <marker date="1481289821887" expanded="false" signature="1933:2382" ph="..." />
+                <marker date="1481292155502" expanded="false" signature="996:1062" ph="..." />
+                <marker date="1481292155502" expanded="false" signature="1092:1130" ph="..." />
+                <marker date="1481292155502" expanded="true" signature="1131:3113" ph="..." />
+                <marker date="1481292155502" expanded="false" signature="1182:1199" ph="..." />
+                <marker date="1481292155502" expanded="true" signature="1200:2023" ph="..." />
+                <marker date="1481292155502" expanded="true" signature="1307:2007" ph="..." />
+                <marker date="1481292155502" expanded="false" signature="1403:1633" ph="..." />
+                <marker date="1481292155502" expanded="false" signature="1457:1545" ph="..." />
+                <marker date="1481292155502" expanded="false" signature="1758:1988" ph="..." />
+                <marker date="1481292155502" expanded="false" signature="1812:1900" ph="..." />
+                <marker date="1481292155502" expanded="false" signature="2064:2081" ph="..." />
+                <marker date="1481292155502" expanded="false" signature="2082:2561" ph="..." />
+                <marker date="1481292155502" expanded="false" signature="2189:2544" ph="..." />
+                <marker date="1481292155502" expanded="false" signature="2292:2524" ph="..." />
+                <marker date="1481292155502" expanded="false" signature="2346:2434" ph="..." />
+                <marker date="1481292155502" expanded="false" signature="2602:2619" ph="..." />
+                <marker date="1481292155502" expanded="false" signature="2620:3102" ph="..." />
+                <marker date="1481292155502" expanded="false" signature="2727:3085" ph="..." />
+                <marker date="1481292155502" expanded="false" signature="2830:3065" ph="..." />
+                <marker date="1481292155502" expanded="false" signature="2884:2972" ph="..." />
               </folding>
             </state>
           </provider>
@@ -216,7 +150,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/org/teameleven/caps/customlib/LoginLib.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="459">
-              <caret line="32" column="25" lean-forward="true" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
+              <caret line="32" column="25" lean-forward="false" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -358,7 +292,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/css/style.mod.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/jquery.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/test.html" />
-        <option value="$PROJECT_DIR$/src/main/java/org/teameleven/caps/controller/LogInController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/decorators/Layout.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/decorators/Layout.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/org/teameleven/caps/customlib/LoginLib.java" />
@@ -367,6 +300,8 @@
         <option value="$PROJECT_DIR$/src/main/webapp/css/metro.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/css/style.css" />
+        <option value="$USER_HOME$/Desktop/dirjava/src/main/java/org/teameleven/caps/controller/LogInController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/teameleven/caps/controller/LogInController.java" />
       </list>
     </option>
   </component>
@@ -1376,7 +1311,7 @@
       <workItem from="1481118304140" duration="101000" />
       <workItem from="1481118483656" duration="5115000" />
       <workItem from="1481117629974" duration="1104000" />
-      <workItem from="1481173613295" duration="40481000" />
+      <workItem from="1481173613295" duration="40823000" />
     </task>
     <task id="LOCAL-00001" summary="ZHN">
       <created>1481022274463</created>
@@ -1396,10 +1331,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61891000" />
+    <option name="totallyTimeSpent" value="62233000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1452" height="876" extended-state="1" />
+    <frame x="-8" y="-8" width="1452" height="876" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Hibernate Tools" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -1427,7 +1362,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1904762" sideWeight="0.49570313" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15181059" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2632312" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1469,7 +1404,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/crud/student-list.jsp</url>
-          <line>85</line>
+          <line>86</line>
           <properties />
           <option name="timeStamp" value="14" />
         </line-breakpoint>
@@ -1483,30 +1418,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/studentMainPage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-212">
-          <caret line="17" column="56" lean-forward="false" selection-start-line="17" selection-start-column="56" selection-end-line="17" selection-end-column="56" />
-          <folding>
-            <element signature="n#head#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#343#396#0#JSP" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#button#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#button#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#a#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="70">
@@ -1583,9 +1494,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="23" column="17" lean-forward="false" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1828,14 +1737,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/teameleven/caps/controller/LogInController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="31" column="38" lean-forward="false" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/css/BlurBackground.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -1883,18 +1784,21 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/org/teameleven/caps/customlib/LoginLib.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
-          <caret line="32" column="25" lean-forward="true" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
+          <caret line="32" column="25" lean-forward="false" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminMainPage.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="38" column="42" lean-forward="false" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="42" />
+        <state relative-caret-position="196">
+          <caret line="36" column="42" lean-forward="false" selection-start-line="36" selection-start-column="42" selection-end-line="36" selection-end-column="42" />
           <folding>
-            <element signature="e#413#474#0#JSP" expanded="true" />
-            <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#html#0;n#!!top" expanded="true" />
+            <marker date="1481292231272" expanded="true" signature="2882:4754" ph="..." />
+            <marker date="1481292231272" expanded="false" signature="2898:3155" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1902,9 +1806,29 @@
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/lecturerMainpage.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="145">
-          <caret line="35" column="38" lean-forward="false" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="38" />
+          <caret line="36" column="38" lean-forward="false" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="38" />
           <folding>
             <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1481292155502" expanded="false" signature="996:1062" ph="..." />
+            <marker date="1481292155502" expanded="false" signature="1092:1130" ph="..." />
+            <marker date="1481292155502" expanded="true" signature="1131:3113" ph="..." />
+            <marker date="1481292155502" expanded="false" signature="1182:1199" ph="..." />
+            <marker date="1481292155502" expanded="true" signature="1200:2023" ph="..." />
+            <marker date="1481292155502" expanded="true" signature="1307:2007" ph="..." />
+            <marker date="1481292155502" expanded="false" signature="1403:1633" ph="..." />
+            <marker date="1481292155502" expanded="false" signature="1457:1545" ph="..." />
+            <marker date="1481292155502" expanded="false" signature="1758:1988" ph="..." />
+            <marker date="1481292155502" expanded="false" signature="1812:1900" ph="..." />
+            <marker date="1481292155502" expanded="false" signature="2064:2081" ph="..." />
+            <marker date="1481292155502" expanded="false" signature="2082:2561" ph="..." />
+            <marker date="1481292155502" expanded="false" signature="2189:2544" ph="..." />
+            <marker date="1481292155502" expanded="false" signature="2292:2524" ph="..." />
+            <marker date="1481292155502" expanded="false" signature="2346:2434" ph="..." />
+            <marker date="1481292155502" expanded="false" signature="2602:2619" ph="..." />
+            <marker date="1481292155502" expanded="false" signature="2620:3102" ph="..." />
+            <marker date="1481292155502" expanded="false" signature="2727:3085" ph="..." />
+            <marker date="1481292155502" expanded="false" signature="2830:3065" ph="..." />
+            <marker date="1481292155502" expanded="false" signature="2884:2972" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1912,16 +1836,16 @@
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/decorators/Header.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
-          <caret line="19" column="18" lean-forward="true" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
-            <element signature="e#406#543#0#JSP" expanded="true" />
+            <marker date="1481292155688" expanded="true" signature="408:541" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/css/metro.min.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
+        <state relative-caret-position="-960">
           <caret line="0" column="8859" lean-forward="false" selection-start-line="0" selection-start-column="8859" selection-end-line="0" selection-end-column="8859" />
           <folding />
         </state>
@@ -1929,8 +1853,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/css/metro.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5873">
-          <caret line="503" column="0" lean-forward="true" selection-start-line="503" selection-start-column="0" selection-end-line="503" selection-end-column="0" />
+        <state relative-caret-position="-5941">
+          <caret line="503" column="0" lean-forward="false" selection-start-line="503" selection-start-column="0" selection-end-line="503" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1954,6 +1878,24 @@
             <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/dirjava/src/main/java/org/teameleven/caps/controller/LogInController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="36" column="10" lean-forward="true" selection-start-line="31" selection-start-column="3" selection-end-line="36" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#2761#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/teameleven/caps/controller/LogInController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="36" column="5" lean-forward="false" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
