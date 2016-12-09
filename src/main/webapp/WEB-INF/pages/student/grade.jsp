@@ -3,6 +3,7 @@
     Created on : 8 Dec, 2016, 1:06:10 PM
     Author     : Lau Mong Pau
 --%>
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="java.util.Date"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="windows-1252"%>
@@ -21,20 +22,21 @@
         <c:forEach var="enroledcourse" items="${enroledcourses}">
             <c:set var="totalCredit" value="${totalCredit + enroledcourse.course.credits}"/>
             <c:set var="totalGradePoint" value="${totalGradePoint + (enroledcourse.course.credits * enroledcourse.gradePoint)}"/>
+            <c:set var="GPA" value="${totalGradePoint / totalCredit}"></c:set>
         </c:forEach>
 
         <table class="table" cellpadding="2" cellspacing="5">
             <tr>
                 <td width="20%"><strong>Student ID</strong></td>
                 <td width="15%">${enroledcourses[0].student.studentId}</td>
-                <td width="20%"><strong>Student Name</strong></td>
-                <td width="45%">${enroledcourses[0].student.user.firstName}, ${enroledcourses[0].student.user.lastName}</td>                
+                <td width="25%"><strong>Student Name</strong></td>
+                <td width="40%">${enroledcourses[0].student.user.firstName}, ${enroledcourses[0].student.user.lastName}</td>                
             </tr>
             <tr>
                 <td width="20%"><strong>GPA</strong></td>
-                <td width="15%">${totalGradePoint / totalCredit}</td>
-                <td width="20%"><strong>Date</strong></td>
-                <td width="45%" class="align-left"><%= new java.util.Date() %></td>
+                <td width="15%">${GPA}</td>
+                <td width="25%"><strong>Date</strong></td>
+                <td width="40%" class="align-left"><%= new java.util.Date() %></td>
             </tr>
         </table>
         <div style="padding-top: 50px;">
