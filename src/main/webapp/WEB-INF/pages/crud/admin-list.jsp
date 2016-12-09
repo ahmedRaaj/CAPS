@@ -58,10 +58,10 @@
                                 <%--</c:if>--%>
                                 <%--<tr class="${classSucess}">--%>
                                 <tr>
-                                    <td><a href="${pageContext.request.contextPath}/admin/admin/edit?adminId=${admin.adminId}">
-                                            ${admin.adminId}
-                                        </a>
-                                    </td>
+                                    <%--<td><a href="${pageContext.request.contextPath}/admin/admin/edit?adminId=${admin.adminId}">--%>
+                                            <%--${admin.adminId}</a> </td>--%>
+
+                                    <td>${admin.adminId}</td>
                                     <td>${admin.user.firstName}</td>
                                     <td>${admin.user.lastName}</td>
                                     <td>${admin.user.gender}</td>
@@ -70,11 +70,15 @@
                                     
                                     <td><a href="del?adminId=${admin.adminId}" id="remove" 
                                            onclick="document.getElementById('action').value = 'remove';document.getElementById('adminId').value = '${admin.adminId}';
+                                                   document.getElementById('adminForm').submit();">
+                                    <span class="glyphicon glyphicon-trash"/>
+                                        </a></td>
 
-                                                   document.getElementById('adminForm').submit();"> 
-                                            <span class="glyphicon glyphicon-trash"/>
+                                    <td><a href="edit?adminId=${admin.adminId}" id="edit"
+                                           onclick="document.getElementById('action').value = 'edit';document.getElementById('adminId').value = '${admin.adminId}';
+                                                   document.getElementById('adminForm').submit();">
+                                        <span class="glyphicon glyphicon-edit"/>
                                         </a>
-
                                     </td>
                                 </tr>
                         </c:forEach>
