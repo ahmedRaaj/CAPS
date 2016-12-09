@@ -5,3 +5,13 @@
  */
 
 
+$(document).ready(function() {
+        $('#studentName').blur(function(event) {
+                var name = $('#studentName').val();
+                $.get('GetUserServlet', {
+                        userName : name
+                }, function(responseText) {
+                        $('#ajaxGetUserServletResponse').text(responseText);
+                });
+        });
+});

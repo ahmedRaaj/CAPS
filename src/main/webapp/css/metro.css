@@ -501,10 +501,7 @@ a.tag {
   text-decoration: underline;
   cursor: pointer;
 }
-.container {
-  width: 960px;
-  margin: 0 auto;
-}
+
 .fixed-top,
 .fixed-bottom {
   position: fixed;
