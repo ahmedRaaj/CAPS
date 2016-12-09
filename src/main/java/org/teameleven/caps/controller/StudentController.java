@@ -1,11 +1,18 @@
 package org.teameleven.caps.controller;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.NumberUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.teameleven.caps.model.EnroledCourse;
 import org.teameleven.caps.model.Student;
 import org.teameleven.caps.model.User;
 import org.teameleven.caps.repository.CourseRepository;
@@ -37,7 +44,7 @@ public class StudentController {
             v.addObject("user", user);
             v.addObject("student", s);
         }
-        
+
         return v;
     }
 
@@ -69,4 +76,40 @@ public class StudentController {
         v.addObject("student", s);
         return v;
     }
+
+    public static boolean isNumeric(String str)  
+    {  
+    try  
+    {  
+        double d = Double.parseDouble(str);  
+    }  
+    catch(NumberFormatException nfe)  
+    {  
+        return false;  
+    }  
+    return true;  
+}
+    
+    @RequestMapping("/doenroll")
+    public ModelAndView doEnrolment(HttpServletRequest req) {
+        List<String> cIds = new ArrayList<>(req.getParameterMap().keySet());
+        User u = (User) req.getSession().getAttribute("user");
+        Integer studentId = u.getStudent().getStudentId();
+
+        for (String cId : cIds) 
+        {
+            if (cId != null && !cId.equals("") && isNumeric(cId)) {
+                int ci = Integer.parseInt(cId);
+                EnroledCourse ec = new EnroledCourse(studentId, ci);
+                ec.setGradePoint(null);
+                ec.setStartingDate("2014/02/02");
+                ec.setStatus("submited");
+                enrolDao.save(ec);
+            }
+        }
+        enrolDao.flush();
+
+        return getDebug("done");
+    }
+
 }
