@@ -67,12 +67,16 @@ public class AdminController {
         return v;
     }
 
-    @RequestMapping("/student/add")
-    public ModelAndView addOrUpdateStudent(@ModelAttribute("student") Student student) {
-        studentDao.save(student);
-        ModelAndView v = new ModelAndView("crud/student-list");
-        v.addObject("studentList", studentDao.findAll());
-        return v;
+    @RequestMapping(value ="/student/add", method = RequestMethod.POST)
+    public ModelAndView addOrUpdateStudent(@ModelAttribute("student") Student student,HttpServletRequest req) {
+        String userId = req.getParameter("student.user.userId");
+        String studentNric =req.getParameter("student.nric");
+        return getDebug(userId + " " +studentNric);
+        
+//        studentDao.save(student);
+//        ModelAndView v = new ModelAndView("crud/student-list");
+//        v.addObject("studentList", studentDao.findAll());
+//        return v;
     }
 
     @RequestMapping("/student/edit")
