@@ -82,7 +82,24 @@
                     </c:otherwise>
                 </c:choose>                        
             </form>
+            <div>
+                <ul class="pagination">
 
+
+                    <c:forEach var="i" begin="0" end="${count-1}" >
+                        
+                            <c:choose>
+                                <c:when test="${pageId == i}">
+                                <li class="active">  <a  href="${pageContext.request.contextPath}/admin/student/list?pageId=${i}">${i+1}</a></li>
+                                </c:when>
+                                <c:otherwise>
+                                <li>  <a class="" href="${pageContext.request.contextPath}/admin/student/list?pageId=${i}">${i+1}</a> </li>
+                                </c:otherwise>
+                            </c:choose>
+                        
+                    </c:forEach>
+                </ul>
+            </div>
 
             <form action ="${pageContext.request.contextPath}/admin/student/new">            
                 <br/>

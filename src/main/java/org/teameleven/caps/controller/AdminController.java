@@ -77,11 +77,22 @@ public class AdminController {
     }
 
     @RequestMapping("/student/list")
-    public ModelAndView listAllStudent() {
+    public ModelAndView listAllStudent(HttpServletRequest req) {
         ModelAndView v = new ModelAndView("crud/student-list");
-        PageRequest pr = new PageRequest(1, 5);
+        String pageId = req.getParameter("pageId");
+        int pId = 0;
+        if(pageId != null && !pageId.equals("")){
+            pId= Integer.parseInt(pageId);
+            v.addObject("pageId",pId);
+        }
+        PageRequest pr = new PageRequest(pId, 5);
+        int size = studentDao.findAll().size();
+        int count = size/5 + (size%5 == 0 ? 0 : 1);
         Page<Student> pg = studentDao.findAll(pr);
         v.addObject("studentList", pg.getContent());
+        v.addObject("count" ,count);
+        
+        
         return v;
     }
 
