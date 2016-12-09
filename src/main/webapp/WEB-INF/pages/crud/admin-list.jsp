@@ -29,8 +29,8 @@
                     <span class="glyphicon glyphicon-search"></span> 
                     Search
                 </button>
-                <br></br>
-                <br></br>
+                <br/>
+                <br/>
             </form>
             
             <form action="#" method="post" id="adminForm" role="form">
@@ -52,12 +52,13 @@
                             </thead>
                             
                             <c:forEach var="admin" items="${adminList}">
-                                <c:set var="classSucess" value=""/>
-                                <c:if test="${adminId==admin.adminId}">
-                                    <c:set var="classSucess" value="info"/>
-                                </c:if>
-                                <tr class="${classSucess}">
-                                    <td><a href="edit?adminId==${admin.adminId}">
+                                <%--<c:set var="classSucess" value=""/>--%>
+                                <%--<c:if test="${adminId==admin.adminId}">--%>
+                                    <%--<c:set var="classSucess" value="info"/>--%>
+                                <%--</c:if>--%>
+                                <%--<tr class="${classSucess}">--%>
+                                <tr>
+                                    <td><a href="${pageContext.request.contextPath}/admin/admin/edit?adminId=${admin.adminId}">
                                             ${admin.adminId}
                                         </a>
                                     </td>

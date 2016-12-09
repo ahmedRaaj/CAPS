@@ -250,26 +250,55 @@ public class AdminController {
         return v;
     }
 
-    @RequestMapping(value = "/admin/add", method = RequestMethod.POST)
-    public ModelAndView addOrUpdateAdmin(@ModelAttribute("admin") Admin admin, HttpServletRequest req) {
+    @RequestMapping(value = "/admin/update", method = RequestMethod.GET)
+    public ModelAndView addOrUpdateAdmin( HttpServletRequest req) throws ParseException {
+        Admin admin;
+        User user;
+        if(req.getParameter("admin.adminId")== ""){
+            admin=new Admin();
+        }
+        else{
+            admin=adminDao.findOne(Integer.parseInt(req.getParameter("admin.adminId")));
+        }
+        if(req.getParameter("admin.user.userId")== ""){
+            user=new User();
+//            return getDebug("new user");
+        }
+        else{
+            user=userDao.findOne(Integer.parseInt(req.getParameter("admin.user.userId")));
+//            return getDebug(user.toString());
+        }
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-mm-dd");
+
         String userId = req.getParameter("admin.user.userId"); //Attribute type Integer
-        String uerName = req.getParameter("admin.user.userName");
+        String userName = req.getParameter("admin.user.userName");
         String userPassword = req.getParameter("admin.user.password");
         String adminFirstName = req.getParameter("admin.user.firstName");
         String adminlastName = req.getParameter("admin.user.lastName");
-        String adminDob = req.getParameter("admin.user.dob");
+        Date adminDob = simpleDateFormat.parse(req.getParameter("admin.user.dob"));
         String adminGender = req.getParameter("admin.user.gender");
         String adminEmail = req.getParameter("admin.user.email");
         String adminPhone = req.getParameter("admin.user.phone");
         String adminAddress = req.getParameter("admin.user.address");
-        String adminId = req.getParameter("admin.adminId"); //Attribute type Integer
+        String adminStatus=req.getParameter("admin.user.status");
+//        String adminId = req.getParameter("admin.adminId"); //Attribute type Integer
         String adminPosition = req.getParameter("admin.position");
-        return getDebug(userId + " " + adminId);
+//        return getDebug(adminDob.toString());
+        setUser(user, adminAddress, adminEmail, userPassword, adminPhone, adminPosition,
+                adminStatus, userName, adminFirstName, adminlastName, adminDob, adminGender);
+        admin.setUser(user);
+        admin.setPosition("admin");
+        adminDao.saveAndFlush(admin);
+
+        ModelAndView v = new ModelAndView("crud/admin-list");
+        v.addObject("adminList", adminDao.findAll());
+        return v;
+
     }
 
     @RequestMapping("/admin/edit")
-    public ModelAndView showAdminFormEdit(@RequestParam("adminId") String adminId) {
-        Admin a = adminDao.findOne(Integer.parseInt(adminId));
+    public ModelAndView showAdminFormEdit(int adminId) {
+        Admin a = adminDao.findOne(adminId);
         ModelAndView v = new ModelAndView("crud/admin-form");
         v.addObject("admin", a);
         return v;
