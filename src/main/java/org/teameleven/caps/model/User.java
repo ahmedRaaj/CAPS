@@ -230,5 +230,9 @@ public class User implements Serializable {
     public String toString() {
         return "org.caps.model.User[ userId=" + userId + " ]";
     }
+
+  public  String getSearchHash() {
+         return (this.getFirstName()+this.getLastName()+this.getGender()+this.getAddress()+this.email+this.status).toLowerCase();
+    }
     
 }

@@ -138,4 +138,8 @@ public class Lecturer implements Serializable {
         return "org.caps.model.Lecturer[ lecturerId=" + lecturerId + " ]";
     }
     
+     public String getSearchHash(){
+        return (this.user.getSearchHash()+this.position).toLowerCase();
+    }
+    
 }

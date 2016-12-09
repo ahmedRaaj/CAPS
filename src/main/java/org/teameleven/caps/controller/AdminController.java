@@ -27,6 +27,7 @@ import org.teameleven.caps.services.StudentService;
 
 import java.util.List;
 import java.util.logging.Level;
+import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.data.domain.Page;
@@ -74,6 +75,13 @@ public class AdminController {
         }
 
         return v;
+    }
+    @RequestMapping(value = "/student/search", method = RequestMethod.POST)
+    public ModelAndView searchStudent(@RequestParam("search") String search){
+         List<Student> collect = studentDao.findAll().stream().filter(s->s.getSearchHash().contains(search.toLowerCase())).collect(Collectors.toList());
+         ModelAndView v = new ModelAndView("crud/student-list");
+         v.addObject("studentList", collect);
+         return v;
     }
 
     @RequestMapping("/student/list")
