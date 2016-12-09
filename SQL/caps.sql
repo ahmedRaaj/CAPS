@@ -181,7 +181,7 @@ values
 ('S5634567A', 'China', 6),
 ('S6734567A', 'Myanmar', 7),
 ('S7834567A', 'China', 8),
-('S8934567A', 'Singapore', 9)
+('S8934567A', 'Singapore', 9),
 ('S9876543A', 'Singapore', 10);
 
 insert into admins (position, user_userId)
