@@ -92,7 +92,7 @@
 
             <form action="#">
                 <br></br>
-                <button type="submit" class="btn btn-primary  btn-md">New Student</button> 
+                <button type="submit" class="btn btn-primary  btn-md">New Lecturer</button> 
             </form>
         </div>
 
