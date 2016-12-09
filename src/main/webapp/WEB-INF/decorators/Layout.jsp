@@ -11,9 +11,11 @@
 <%
 
 
-	if(!path.contains("/Mainpage"))
+
+	if(!path.contains("/Mainpage") )
 	{
 %>
+
      <div class="container-fluid">
 		 <div class="row">
 
@@ -23,8 +25,9 @@
 			 </div>
 
 
-		 <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-1">
-			 <%}%>
+		 <div class="col-sm-7 col-sm-offset-2 col-md-7 col-md-offset-2">
+			 <%
+			 }%>
 			 <h3>
 				 <spring:message code="${bodyTitle}" />
 			 </h3>
@@ -35,7 +38,7 @@
 
 
 
-<script src="${pageContext.request.contextPath}/js/jquery-1.10.2.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquery.js"></script>
 
 
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>

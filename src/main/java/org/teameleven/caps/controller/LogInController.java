@@ -5,9 +5,6 @@
  */
 package org.teameleven.caps.controller;
 
-import java.util.List;
-import java.util.Optional;
-import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +15,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.teameleven.caps.model.User;
 import org.teameleven.caps.repository.UserRepository;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.List;
+import java.util.Optional;
+
 /**
  *
  * @author ahmedraaj
@@ -27,10 +28,16 @@ import org.teameleven.caps.repository.UserRepository;
 public class LogInController {
     @Autowired
     UserRepository userDao;
-   
+
+    @RequestMapping(value = "/Mainpage")
+    public ModelAndView LoginCaller()
+    {
+        ModelAndView mv = new ModelAndView("/login");
+        return mv;
+    }
     @RequestMapping(value="/auth",method = RequestMethod.POST)
     public ModelAndView AuthenticateAndRoute(@RequestParam("password") String password,@RequestParam("name") String name,RedirectAttributes attrb,HttpServletRequest req){
-        
+
        // return getDebug(name + password); //for debuging
         ModelAndView m = new ModelAndView();
         List<User> users = userDao.findAll();
@@ -54,13 +61,13 @@ public class LogInController {
                  m = new ModelAndView("debug");
                 m.addObject("message", user);
             }
-            
+
         }
         return m;
-                
-        
+
+
     }
-    
+
     private ModelAndView getDebug(String Message){
         ModelAndView m = new ModelAndView("debug");
         m.addObject("message", Message);

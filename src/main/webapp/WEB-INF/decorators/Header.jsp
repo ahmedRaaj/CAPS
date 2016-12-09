@@ -16,6 +16,7 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/metro-icons.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/metro-colors.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/metro-schemes.min.css">
+
 	<%}%>
 
 </div>
