@@ -29,6 +29,8 @@ public class LecturerController {
     @Autowired
     CourseRepository courseDao;
     
+    
+    
     @RequestMapping("/Mainpage")
     public ModelAndView LecturerMain(RedirectAttributes redirectAttributes,HttpServletRequest req)
     {
@@ -53,10 +55,29 @@ public class LecturerController {
     public ModelAndView viewPerformance()
     {
  
-        ModelAndView v = new ModelAndView("/lecturer/viewAStudentPersformance");
+        ModelAndView v = new ModelAndView("/lecturer/viewAStudentPerformance");
         v.addObject("enroledcourses", enrolDao.findAll());
          v.addObject("courses",courseDao.findAll());
         return v;
     }
     
+    @RequestMapping("/viewenrolment")
+    public ModelAndView viewEnrollment()
+    {
+ 
+        ModelAndView v = new ModelAndView("/lecturer/viewCourseEnrolment");
+        v.addObject("enroledcourses", enrolDao.findAll());
+         v.addObject("courses",courseDao.findAll());
+        return v;
+    }
+    
+    @RequestMapping("/viewcourses")
+    public ModelAndView viewCoursesTaught()
+    {
+ 
+        ModelAndView v = new ModelAndView("/lecturer/viewCourseTaught");
+        v.addObject("courses", courseDao.findAll());
+         
+        return v;
+    }
 }
