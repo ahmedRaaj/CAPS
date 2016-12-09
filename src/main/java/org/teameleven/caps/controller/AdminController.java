@@ -73,11 +73,23 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/student/add", method = RequestMethod.POST)
-    public ModelAndView addOrUpdateStudent(@ModelAttribute("student") Student student, HttpServletRequest req) {
-        String userId = req.getParameter("student.user.userId");
-        String studentNric = req.getParameter("student.nric");
-        return getDebug(userId + " " + studentNric);
+    public ModelAndView addOrUpdateStudent(@ModelAttribute("student") Student student, HttpServletRequest req) 
+    {
+        String userFirstName = req.getParameter("student.user.firstName");
+        String userLastname = req.getParameter("student.user.lastName"); 
+        String userUserId =req.getParameter("student.user.userId");
+        String userUserName =req.getParameter("student.user.userName");
+        String userPassword =req.getParameter("student.user.password");
+        String userPhone=req.getParameter("student.user.phone");
+        String userAddress=req.getParameter("student.user.address");
+        String userEmail=req.getParameter("student.user.email");
+        String userRole=req.getParameter("student.user.role");
+        String userStatus=req.getParameter("student.user.status");
+        String userGender =req.getParameter("student.user.gender");   
+        //Date userDob=SimpleDateFormat.parse(req.getParameter("student.user.dob"));
 
+        String studentCitizenship =req.getParameter("student.citizenship"); 
+        String studentNric =req.getParameter("student.nric");   
 //        studentDao.save(student);
 //        ModelAndView v = new ModelAndView("crud/student-list");
 //        v.addObject("studentList", studentDao.findAll());
