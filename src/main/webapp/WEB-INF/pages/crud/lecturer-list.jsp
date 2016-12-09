@@ -29,8 +29,8 @@
                     <span class="glyphicon glyphicon-search"></span> 
                     Search
                 </button>
-                <br></br>
-                <br></br>
+                <br/>
+                <br/>
             </form>
 
             <form action="${pageContext.request.contextPath}/admin/course/list" method="post" id="lecturerForm" role="form">
@@ -58,10 +58,11 @@
                                     <c:set var="classSucess" value="info"/>
                                 </c:if>
                                 <tr class="${classSucess}">
-                                    <td><a href="${pageContext.request.contextPath}/admin/lecturer/edit?lecturerId=${lecturer.lecturerId}">
-                                            ${lecturer.lecturerId}
-                                        </a>
-                                    </td>
+                                    <%--<td><a href="${pageContext.request.contextPath}/admin/lecturer/edit?lecturerId=${lecturer.lecturerId}">--%>
+                                            <%--${lecturer.lecturerId}--%>
+                                        <%--</a>--%>
+                                    <%--</td>--%>
+                                    <td> ${lecturer.lecturerId}</td>
                                     <td>${lecturer.user.firstName}</td>
                                     <td>${lecturer.user.lastName}</td>
                                     <td>${lecturer.user.gender}</td>
@@ -69,11 +70,16 @@
                                     <td>${lecturer.position}</td>
                                     <td>${lecturer.startDate}</td>
                                     <td>${lecturer.endDate}</td>
-                                    <td><a href="del?lecturerId=${lecturer.lecturerId}" id="remove"/>
-                                   
+                                    <td><a href="del?lecturerId=${lecturer.lecturerId}" id="remove">
                                 <span class="glyphicon glyphicon-trash"/>
                             </a></td>
-                           
+                                    <td><a href="edit?lecturerId=${lecturer.lecturerId}" id="edit"
+                                           onclick="document.getElementById('action').value = 'edit';document.getElementById('lecturerId').value = '${lecturer.lecturerId}';
+                                                   document.getElementById('lecturerForm').submit();">
+                                        <span class="glyphicon glyphicon-edit"/>
+                                    </a>
+                                    </td>
+
                                 </tr>
                             </c:forEach>
                         </table>

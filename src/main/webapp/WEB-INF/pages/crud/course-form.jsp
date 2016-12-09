@@ -14,6 +14,7 @@
     <title>Course Form</title>
 </head>
 <body>
+<h2>Course</h2>
 
 <div class="container">
     <form  name="Course" action="${pageContext.request.contextPath}/admin/course/update" role="form" method="get" data-toggle="validator"   >
