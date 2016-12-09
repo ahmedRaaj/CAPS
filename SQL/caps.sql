@@ -156,14 +156,14 @@ insert into users
 (username, password, role, status, email, phone, address, first_name, last_name, dob, gender)
 values
 ('admin1', 'password', 'admin', 'active', 'admin1@u.nus.edu', '12345678', 'Block 5, 01-25, Some Nice Street, 234568', 'admin', 'Sah', str_to_date('4-11-1980', '%d-%m-%Y'), 'Female'),
-('raj', 'password', 'student', 'active', 'raj@u.nus.edu', '22345678', 'Block 5, 01-25, Some Nice Street, 234568', 'Raaj', 'Mohammad', str_to_date('5-10-1985', '%d-%m-%Y'), 'Male'),
-('janaki', 'password', 'student', 'active', 'janaki@u.nus.edu', '32345678', 'Block 5, 01-25, Some Nice Street, 234568', 'Janaki', 'Mrs', str_to_date('1-4-1990', '%d-%m-%Y'), 'Female'),
-('zoe', 'password', 'student', 'active', 'zoe@u.nus.edu', '42345678', 'Block 5, 01-25, Some Nice Street, 234568', 'Zoe', 'Wei', str_to_date('2-8-1993', '%d-%m-%Y'), 'Female'),
-('kaung', 'password', 'student', 'active', 'kaung@u.nus.edu', '52345678', 'Block 5, 01-25, Some Nice Street, 234568', 'Kaung', 'Myat', str_to_date('17-4-1994', '%d-%m-%Y'), 'Male'),
-('xuran', 'password', 'student', 'active', 'xuran@u.nus.edu', '62345678', 'Block 5, 01-25, Some Nice Street, 234568', 'Xuran', 'Liu', str_to_date('19-8-1993', '%d-%m-%Y'), 'Female'),
-('zwe', 'password', 'student', 'active', 'zwe@u.nus.edu', '72345678', 'Block 5, 01-25, Some Nice Street, 234568', 'Zwe', 'Htet', str_to_date('3-8-1993', '%d-%m-%Y'), 'Male'),
-('xianhan', 'password', 'student', 'active', 'xianhan@u.nus.edu', '82345678', 'Block 5, 01-25, Some Nice Street, 234568', 'Xian', 'Han', str_to_date('30-1-1993', '%d-%m-%Y'), 'Male'),
-('lau', 'password', 'student', 'active', 'lau@u.nus.edu', '92345678', 'Block 5, 01-25, Some Nice Street, 234568', 'Lau', 'Pau', str_to_date('17-4-1978', '%d-%m-%Y'), 'Male'),
+('raj', 'password', 'student', 'active', 'e0046737@u.nus.edu', '22345678', 'Block 5, 01-25, Some Nice Street, 234568', 'Raaj', 'Mohammad', str_to_date('5-10-1985', '%d-%m-%Y'), 'Male'),
+('janaki', 'password', 'student', 'active', 'e0046647@u.nus.edu', '32345678', 'Block 5, 01-25, Some Nice Street, 234568', 'Janaki', 'Mrs', str_to_date('1-4-1990', '%d-%m-%Y'), 'Female'),
+('zoe', 'password', 'student', 'active', 'e0046827@u.nus.edu', '42345678', 'Block 5, 01-25, Some Nice Street, 234568', 'Zoe', 'Wei', str_to_date('2-8-1993', '%d-%m-%Y'), 'Female'),
+('kaung', 'password', 'student', 'active', 'e0046786@u.nus.edu', '52345678', 'Block 5, 01-25, Some Nice Street, 234568', 'Kaung', 'Myat', str_to_date('17-4-1994', '%d-%m-%Y'), 'Male'),
+('xuran', 'password', 'student', 'active', 'e0046488@u.nus.edu', '62345678', 'Block 5, 01-25, Some Nice Street, 234568', 'Xuran', 'Liu', str_to_date('19-8-1993', '%d-%m-%Y'), 'Female'),
+('zwe', 'password', 'student', 'active', 'e0046815@u.nus.edu', '72345678', 'Block 5, 01-25, Some Nice Street, 234568', 'Zwe', 'Htet', str_to_date('3-8-1993', '%d-%m-%Y'), 'Male'),
+('xianhan', 'password', 'student', 'active', 'e0046814@u.nus.edu', '82345678', 'Block 5, 01-25, Some Nice Street, 234568', 'Xian', 'Han', str_to_date('30-1-1993', '%d-%m-%Y'), 'Male'),
+('lau', 'password', 'student', 'active', 'e0046767@u.nus.edu', '92345678', 'Block 5, 01-25, Some Nice Street, 234568', 'Lau', 'Pau', str_to_date('17-4-1978', '%d-%m-%Y'), 'Male'),
 ('suria', 'password', 'lecturer', 'active', 'suria@u.nus.edu', '10345678', 'Block 5, 01-25, Some Nice Street, 234568', 'Suria', 'R', str_to_date('4-11-1980', '%d-%m-%Y'), 'Female'),
 ('zhimin', 'password', 'lecturer', 'active', 'zhimin@u.nus.edu', '21345678', 'Block 5, 01-25, Some Nice Street, 234568', 'Zhi', 'Min', str_to_date('11-7-1980', '%d-%m-%Y'), 'Male'),
 ('derek', 'password', 'lecturer', 'active', 'derek@u.nus.edu', '23345678', 'Block 5, 01-25, Some Nice Street, 234568', 'Derek', 'Kiong', str_to_date('2-12-1980', '%d-%m-%Y'), 'Male'),
@@ -181,7 +181,8 @@ values
 ('S5634567A', 'China', 6),
 ('S6734567A', 'Myanmar', 7),
 ('S7834567A', 'China', 8),
-('S8934567A', 'Singapore', 9);
+('S8934567A', 'Singapore', 9)
+('S9876543A', 'Singapore', 10);
 
 insert into admins (position, user_userId)
 values
