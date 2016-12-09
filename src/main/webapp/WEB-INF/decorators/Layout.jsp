@@ -23,7 +23,7 @@
 			 </div>
 
 
-		 <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-1">
+		 <div class="col-sm-7 col-sm-offset-1 col-md-7 col-md-offset-1">
 			 <%}%>
 			 <h3>
 				 <spring:message code="${bodyTitle}" />

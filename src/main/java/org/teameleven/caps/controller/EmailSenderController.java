@@ -66,7 +66,7 @@ public class EmailSenderController {
             message.setFrom(new InternetAddress(fromEmailAddress));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(sendToEmailAddress));
             message.setSubject(emailSubject);
-            message.setContent(emailContent,messageFormat);
+            message.setContent(MailContent(Integer.parseInt(studentId)),messageFormat);
             Transport.send(message);
 
             System.out.println("Email Send Success!");
@@ -83,8 +83,10 @@ public class EmailSenderController {
     
     
     
-    
-    private final String emailContent="<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n" +
+   private String MailContent(int studentId){
+        String s=new String();
+        Student student=studentDao.findOne(studentId);
+        s="<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n" +
 "<html>\n" +
 " <head>\n" +
 " <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n" +
@@ -443,7 +445,7 @@ public class EmailSenderController {
 " <h4 class=\"h6\">Courses Registration Successful</h4>\n" +
 " <strong>CAPS Registration:</strong> \n" +
 " <br />\n" +
-"Congratulations student of NUS ISS. You have successfully enrolled in courses on Course Application Processing System(CAPS).\n" +
+"Congratulations"+" "+ student.getUser().getFirstName()+" "+student.getUser().getLastName()+". You have successfully enrolled in courses on Course Application Processing System(CAPS).\n" +
 "\n" +
 "To view your courses, go to  <a href="+localUrl+">CAPS online website</a>. If this email has been wrongly sent, ignore this email.\n" +
 " </div>\n" +
@@ -470,14 +472,14 @@ public class EmailSenderController {
 " <tr>\n" +
 " <td colspan=\"2\" valign=\"middle\" id=\"social\">\n" +
 " <div mc:edit=\"std_social\">\n" +
-" &nbsp;<a href=\"http://nus.edu.sg\">NUS Homepage</a> | <a href=\"*|https://www.facebook.com/nus.singapore/|*\">Visit NUS Facebook</a>&nbsp;\n" +
+" &nbsp;<a href=\"http://nus.edu.sg\">NUS Homepage</a> | <a>SA43 Team11</a>&nbsp;\n" +
 " </div>\n" +
 " </td>\n" +
 " </tr>\n" +
 " <tr>\n" +
 " <td valign=\"top\" width=\"350\">\n" +
 " <div mc:edit=\"std_footer\">\n" +
-"	<em>Copyright &copy;  |2016| Course Application Processing System| <br>\n" +
+"	<em>Copyright &copy;  |2016| Course Application Processing System by SA43 Team11 <br>\n" +
 "	All rights reserved.</em>\n" +
 "	<br /></br>\n" +
 "	\n" +
@@ -508,4 +510,6 @@ public class EmailSenderController {
 " </center>\n" +
 " </body>\n" +
 "</html>";
+        return s;
+    }
 }

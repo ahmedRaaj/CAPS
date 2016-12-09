@@ -18,16 +18,17 @@
 
 <p style="float: left"><strong>Date: </strong></p>
 <p style="float: left"><%= new java.util.Date() %></p>
+<br />
 
 <c:choose>
     <c:when test="${empty viewcourses}">
         View Course Table is empty.
     </c:when>
     <c:otherwise>
-        <table class="table" cellpadding="5" cellspacing="5" border="1">
-            <thead>
+        <table class="table" cellpadding="5" cellspacing="5" border="2">
+            <thead style="background-color: #00ccff">
                 <tr>
-                    <th> Course Id </th>
+                    <th> Id </th>
                     <th> Course Name </th>
                     <th> Duration </th>
                     <th> Credit </th>
@@ -41,7 +42,7 @@
                         <td> ${viewcourse.name} </td>
                         <td align="middle"> ${viewcourse.duration} </td>
                         <td align="middle"> ${viewcourse.credits} </td>
-                        <td> ${viewcourse.lecturer.user.firstName}, ${viewcourse.lecturer.user.lastName}</td>
+                        <td> ${viewcourse.lecturer.user.firstName}</td>
                     </tr>
                 </c:forEach>
             </tbody>
