@@ -56,7 +56,12 @@ public class AdminController {
     public ModelAndView AdminMainPage(HttpServletRequest req) {
         User user = (User) req.getSession().getAttribute("user");
         ModelAndView v = new ModelAndView("/adminMainPage");
-        v.addObject("student", user.getAdmin());
+        if(user == null){
+            v = new ModelAndView("/unauthorize");
+        }else{
+             v.addObject("admin", user.getFirstName());
+        }
+       
         return v;
     }
 

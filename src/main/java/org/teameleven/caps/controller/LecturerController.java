@@ -36,7 +36,12 @@ public class LecturerController {
     {
         User user = (User)req.getSession().getAttribute("user");
         ModelAndView v = new ModelAndView("/lecturerMainpage");
-        v.addObject("lecturer", user.getLecturer());
+        if(user == null){
+            v = new ModelAndView("/unauthorize");
+        }else{
+             v.addObject("user", user);
+        }
+     
         return v;
     }
     

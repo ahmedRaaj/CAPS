@@ -27,7 +27,7 @@
             <span class="icon mif-user mif-3x"></span>
         </button>
         <button class="image-button fg-white bg-lightBlue bg-hover-darkBrown no-border">
-            <span class="icon mif-lock"></span>
+            <span class="icon mif-lock"><a href="../login/logout">Logout</a></span>
         </button>
 
     </div>
@@ -38,14 +38,14 @@
         <div class="tile-group double" style="margin-top: 40px;">
             <span class="tile-group-title">Enrollment Details</span>
             <div class="tile-container">
-                <a href="/student/enroll" class="tile bg-indigo fg-white" data-role="tile">
+                <a href="../student/enroll" class="tile bg-indigo fg-white" data-role="tile">
                     <div class="tile-content iconic">
                         <span class="icon mif-books"></span>
                     </div>
                     <span class="tile-label">Enrolled Courses</span>
                 </a>
 
-                <div class="tile bg-darkBlue fg-white" data-role="tile" onclick="document.location.href='/student/activecourses'">
+                <div class="tile bg-darkBlue fg-white" data-role="tile" onclick="document.location.href='../student/view'">
                     <div class="tile-content iconic">
                         <span class="icon mif-list2"></span>
                     </div>
@@ -71,7 +71,7 @@
         <div class="tile-group" style="margin-top: 40px;">
             <span class="tile-group-title">Grades and GPA</span>
             <div class="tile-container">
-                <a href="/student/enroll" class="tile bg-darkCyan fg-white" data-role="tile">
+                <a href="../student/grade" class="tile bg-darkCyan fg-white" data-role="tile">
                     <div class="tile-content iconic">
                         <span class="icon mif-books"></span>
                     </div>

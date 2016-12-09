@@ -20,7 +20,7 @@
 
         <button class="image-button icon-right bg-transparent fg-white bg-lightBlue bg-hover-dark no-border">
             <span class="sub-header no-margin text-light">name</span>
-            <span class="icon mif-user mif-3x"></span>
+            <span class="icon mif-user mif-3x"><a href="../login/logout">Logout</a></span>
         </button>
         <button class="image-button fg-white bg-lightBlue bg-hover-darkBrown no-border">
             <span class="icon mif-lock"></span>
