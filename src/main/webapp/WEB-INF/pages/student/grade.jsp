@@ -14,7 +14,6 @@
     </head>
     
         <h1>Grades and GPA</h1>
-        <% Date dt = new Date();%>
 
         <c:set var="totalCredit" value="${0}"/>
         <c:set var="totalGradePoint" value="${0}"/>
@@ -24,27 +23,27 @@
             <c:set var="totalGradePoint" value="${totalGradePoint + (enroledcourse.course.credits * enroledcourse.gradePoint)}"/>
         </c:forEach>
 
-        <table>
+        <table class="table" cellpadding="2" cellspacing="5">
             <tr>
                 <td width="20%"><strong>Student ID</strong></td>
-                <td width="15%">${enroledcourse.student.studentId}</td>
-                <td width="25%"><strong>Student Name</strong></td>
-                <td width="40%">${enroledcourse.student.user.firstName}, ${enroledcourse.student.user.lastName}</td>                
+                <td width="15%">${enroledcourses[0].student.studentId}</td>
+                <td width="20%"><strong>Student Name</strong></td>
+                <td width="45%">${enroledcourses[0].student.user.firstName}, ${enroledcourses[0].student.user.lastName}</td>                
             </tr>
             <tr>
                 <td width="20%"><strong>GPA</strong></td>
                 <td width="15%">${totalGradePoint / totalCredit}</td>
-                <td width="25%"><strong>Date</strong></td>
-                <td width="40%">${dt.toString()}</td>
+                <td width="20%"><strong>Date</strong></td>
+                <td width="45%" class="align-left"><%= new java.util.Date() %></td>
             </tr>
         </table>
         <div style="padding-top: 50px;">
             <c:choose>
                 <c:when test="${empty enroledcourses}">
-                    Grades Table is empty.
+                    Enroled Course Table is empty.
                 </c:when>
                 <c:otherwise>
-                    <table>
+                    <table class="table-striped" cellpadding="5" cellspacing="5" border="1">
                         <thead>
                             <tr>
                                 <th> Course Id </th>
@@ -57,11 +56,11 @@
                         <tbody>
                             <c:forEach var="enroledcourse" items="${enroledcourses}">
                                 <tr>
-                                    <td> ${enroledcourse.course.courseId} </td>
+                                    <td align="middle"> ${enroledcourse.course.courseId} </td>
                                     <td> ${enroledcourse.course.name} </td>
-                                    <td> ${enroledcourse.gradePoint} </td>
-                                    <td> ${enroledcourse.course.credits} </td>
-                                    <td> ${enroledcourse.course.credits * enroledcourse.gradePoint} </td>
+                                    <td align="middle"> ${enroledcourse.gradePoint} </td>
+                                    <td align="middle"> ${enroledcourse.course.credits} </td>
+                                    <td align="middle"> ${enroledcourse.course.credits * enroledcourse.gradePoint} </td>
                                 </tr>
                             </c:forEach>
                         </tbody>
