@@ -5,6 +5,10 @@
  */
 package org.teameleven.caps.controller;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +26,7 @@ import org.teameleven.caps.repository.StudentRepository;
 import org.teameleven.caps.services.StudentService;
 
 import java.util.List;
+import java.util.logging.Level;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -32,6 +37,7 @@ import org.teameleven.caps.model.EnroledCourse;
 import org.teameleven.caps.model.Lecturer;
 import org.teameleven.caps.model.User;
 import org.teameleven.caps.repository.EnroledCourseRepository;
+import org.teameleven.caps.repository.UserRepository;
 
 /**
  *
@@ -51,17 +57,19 @@ public class AdminController {
     CourseRepository courseDao;
     @Autowired
     EnroledCourseRepository enroledDao;
+    @Autowired
+    UserRepository userDao;
 
     @RequestMapping("/Mainpage")
     public ModelAndView AdminMainPage(HttpServletRequest req) {
         User user = (User) req.getSession().getAttribute("user");
         ModelAndView v = new ModelAndView("/adminMainPage");
-        if(user == null){
+        if (user == null) {
             v = new ModelAndView("/unauthorize");
-        }else{
-             v.addObject("admin", user.getFirstName());
+        } else {
+            v.addObject("admin", user.getFirstName());
         }
-       
+
         return v;
     }
 
@@ -90,6 +98,10 @@ public class AdminController {
 
         String studentCitizenship =req.getParameter("student.citizenship"); 
         String studentNric =req.getParameter("student.nric");   
+        
+      return getDebug("");
+        
+        
 //        studentDao.save(student);
 //        ModelAndView v = new ModelAndView("crud/student-list");
 //        v.addObject("studentList", studentDao.findAll());
@@ -132,30 +144,75 @@ public class AdminController {
 
     @RequestMapping(value = "/lecturer/add", method = RequestMethod.POST)
     public ModelAndView addOrUpdateLecturer(@ModelAttribute("lecturer") Lecturer lecturer, HttpServletRequest req) {
-        String userId = req.getParameter("lectuerer.user.userId");//Attribute type Integer
-        String address = req.getParameter("lectuerer.user.address");
-        String email = req.getParameter("lectuerer.user.email");
-        String userName = req.getParameter("lectuerer.user.userName");
-        String password = req.getParameter("lectuerer.user.password");
-        String phone = req.getParameter("lectuerer.user.phone");
-        String role = req.getParameter("lectuerer.user.role");
-        String status = req.getParameter("lectuerer.user.status");
-        String firstName = req.getParameter("lectuerer.user.firstName");
-        String lastName = req.getParameter("lectuerer.user.lastName");
-        String dob = req.getParameter("lectuerer.user.dob"); //Attribute type Date
-        String gender = req.getParameter("lectuerer.user.gender");
+        User user;
+        Lecturer l;
+        String userId = req.getParameter("lecturer.user.userId");//Attribute type Integer
+        String address = req.getParameter("lecturer.user.address");
+        String email = req.getParameter("lecturer.user.email");
+        String userName = req.getParameter("lecturer.user.userName");
+        String password = req.getParameter("lecturer.user.password");
+        String phone = req.getParameter("lecturer.user.phone");
+        String role = "lecturer";
+        String status = req.getParameter("lecturer.user.status");
+        String firstName = req.getParameter("lecturer.user.firstName");
+        String lastName = req.getParameter("lecturer.user.lastName");
+        String gender = req.getParameter("lecturer.user.gender");
+        DateFormat df = new SimpleDateFormat("yyyy/mm/dd");
+        Date dob =null;
+        try {
+            dob = df.parse(req.getParameter("lecturer.user.dob"));
+        } catch (ParseException ex) {
+            java.util.logging.Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-        String lecturerId = req.getParameter("lectuerer.lecturerId");//Attribute type Integer
-        String endDate = req.getParameter("lectuerer.endDate");//Attribute type Date
-        String position = req.getParameter("lectuerer.position");
-        String startDate = req.getParameter("lectuerer.startDate");//Attribute type Date
+        if (userId == null || userId== "") {
+            user = new User();
+        } else {
+           user = userDao.findOne(Integer.parseInt(userId));
+        }
+        setUser(user, address, email, password, phone, role, status, userName, firstName, lastName, dob, gender);
+        
+        String lecturerId = req.getParameter("lecturer.lecturerId");//Attribute type Integer
+        String endDate = req.getParameter("lecturer.endDate");//Attribute type Date
+        String position = req.getParameter("lecturer.position");
+        String startDate = req.getParameter("lecturer.startDate");//Attribute type DateDate Dend
+        Date Dend=null;
+        Date dStart=null;
+        try {
+            Dend = df.parse(endDate);
+            dStart = df.parse(startDate);
+                    } catch (ParseException ex) {
+            java.util.logging.Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if(lecturerId == null || lecturerId.equals("")){
+            l = new Lecturer();
+        }else{
+            l = lecDao.findOne(Integer.parseInt(lecturerId));
+            
+        }
+        l.setEndDate(Dend);
+        l.setPosition(position);
+        l.setStartDate(dStart);
+        l.setUser(user);
+        lecDao.saveAndFlush(l);
 
-        return getDebug(userId + "/n" + address + "/n" + email + "/n" + userName + "/n" + password + "/n" + phone + "/n" + role + "/n" + status + "/n" + firstName + "/n" + lastName + "/n" + dob
-                + "/n" + gender + "/n" + lecturerId + "/n" + endDate + "/n" + position + "/n" + startDate);
-//        lecDao.save(lecturer);
-//        ModelAndView v = new ModelAndView("crud/lecturer-list");
-//        v.addObject("lecturerList", lecDao.findAll());
-//       return v;
+        ModelAndView v = new ModelAndView("crud/lecturer-list");
+        v.addObject("lecturerList", lecDao.findAll());
+        return v;
+    }
+
+    private void setUser(User user, String address, String email, String password, String phone, String role, String status, String userName, String firstName, String lastName, Date dob, String gender) {
+        user.setAddress(address);
+        user.setEmail(email);
+        user.setPassword(password);
+        user.setPhone(phone);
+        user.setRole(role);
+        user.setStatus(status);
+        user.setUserName(userName);
+        user.setFirstName(firstName);
+        user.setLastName(lastName);
+        user.setDob(dob);
+        user.setGender(gender);
     }
 
     @RequestMapping("/lecturer/edit")

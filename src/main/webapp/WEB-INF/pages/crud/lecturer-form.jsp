@@ -13,7 +13,7 @@
     </head>
     <body>
         <div class="container">
-            <form action="#" method="post"  role="form" data-toggle="validator" >
+            <form action="${pageContext.request.contextPath}/admin/lecturer/add" method="post"  role="form" data-toggle="validator" >
                 <c:if test ="${empty action}">                        	
                     <c:set var="action" value="add"/>
                 </c:if>
@@ -30,7 +30,7 @@
                     <input type="text" name="lecturer.user.lastName" id="lecturer.user.lastName" class="form-control" value="${lecturer.user.lastName}" required="true"/> 
 
                     <label for="lecturer.user.dob" class="control-label col-xs-4">Birth Date:</label>                 
-                    <input type="date"  name="lecturer.user.dob" id="lecturer.user.dob" class="form-control" value="${lecturer.user.dob}" placeholder="dd-MM-yyy" required="true"/>
+                    <input type="text"  name="lecturer.user.dob" id="lecturer.user.dob" class="form-control" value="${lecturer.user.dob}" placeholder="dd-MM-yyy" required="true"/>
 
                     <label for="lecturer.user.gender" class="control-label col-xs-4">Gender:</label>
                     <input type="text" name="lecturer.user.gender" id="lecturer.user.gender" class="form-control" value="${lecturer.user.gender}" placeholder="male&female" required="true"/>
@@ -41,10 +41,10 @@
                     
 
                     <label for="lecturer.startDate" class="control-label col-xs-4">Start Date:</label>                   
-                    <input type="date" name="lecturer.startDate" id="lecturer.startDate" class="form-control" value="${lecturer.startDate}" placeholder="dd-MM-yyy" required="true"/>
+                    <input type="text" name="lecturer.startDate" id="lecturer.startDate" class="form-control" value="${lecturer.startDate}" placeholder="dd-MM-yyy" required="true"/>
 
                     <label for="lecturer.endDate" class="control-label col-xs-4">End Date:</label>                   
-                    <input type="date" name="lecturer.endDate" id="lecturer.endDate" class="form-control" value="${lecturer.endDate}" placeholder="dd-MM-yyy" required="true"/>
+                    <input type="text" name="lecturer.endDate" id="lecturer.endDate" class="form-control" value="${lecturer.endDate}" placeholder="dd-MM-yyy" />
 
                     <br></br>
                     <br></br>
