@@ -4,29 +4,27 @@
     Author     : ahmedraaj
 --%>
 
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <!DOCTYPE html>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <title>ISS</title>
     <body>
-    <%
-        String name = request.getParameter("Name");
-    %>
-    <div class="tile-area fg-white tile-area-scheme-lightTeal " style="height: 100%; max-height: 100% !important;padding: 50px 0px 0px;">
+  
+    <div class="tile-area fg-white tile-area-scheme-lightBlue " style="height: 100%; max-height: 100% !important;padding: 50px 0px 0px;">
 
 
-        <h1 class="tile-area-title" style="padding-top: 13px;">Welcome Name </h1>
+        <h1 class="tile-area-title" style="padding-top: 13px;"> Welcome, ${admin} </h1>
 
         <div style="margin-left: 82%; padding: 0px 0px 0px;">
 
-            <button class="image-button icon-right bg-transparent fg-white bg-lightTeal bg-hover-dark no-border">
-                <span class="sub-header no-margin text-light">name</span>
+            <button class="image-button icon-right bg-transparent fg-white bg-lightBlue bg-hover-dark no-border">
+                <span class="sub-header no-margin text-light">${admin}</span>
                 <span class="icon mif-user mif-3x"></span>
             </button>
             <button class="image-button fg-white bg-lightBlue bg-hover-darkBrown no-border">
-                <span class="icon mif-lock"></span>
+                <span class="icon mif-lock"><a href="../login/logout">Logout</a></span>
             </button>
 
         </div>
@@ -37,14 +35,14 @@
             <div class="tile-group double" style="margin-top: 40px;">
                 <span class="tile-group-title">Student Management</span>
                 <div class="tile-container">
-                    <a href="/student/add" class="tile bg-indigo fg-white" data-role="tile">
+                    <a href="../admin/student/new" class="tile bg-indigo fg-white" data-role="tile">
                         <div class="tile-content iconic">
                             <span class="icon mif-books"></span>
                         </div>
                         <span class="tile-label">Add Student</span>
                     </a>
 
-                    <div class="tile bg-darkBlue fg-white" data-role="tile" onclick="document.location.href='/student/list'">
+                    <div class="tile bg-darkBlue fg-white" data-role="tile" onclick="document.location.href='../admin/student/list'">
                         <div class="tile-content iconic">
                             <span class="icon mif-list2"></span>
                         </div>
@@ -56,13 +54,13 @@
             <div class="tile-group double" style="margin-top: 40px;">
                 <span class="tile-group-title">Lecturer Management</span>
                 <div class="tile-container">
-                    <a href="/lecturer/add" class="tile bg-darkOrange fg-white" data-role="tile">
+                    <a href="../admin/lecturer/new" class="tile bg-darkOrange fg-white" data-role="tile">
                         <div class="tile-content iconic">
                             <span class="icon mif-books"></span>
                         </div>
                         <span class="tile-label">Add Lecturer</span>
                     </a>
-                    <div class="tile bg-darkBlue fg-white" data-role="tile" onclick="document.location.href='/lecturer/list'">
+                    <div class="tile bg-darkBlue fg-white" data-role="tile" onclick="document.location.href='../admin/lecturer/list'">
                         <div class="tile-content iconic">
                             <span class="icon mif-list2"></span>
                         </div>

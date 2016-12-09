@@ -19,6 +19,7 @@
                 <li ><a href="#">Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
                 <%
                     String type= request.getParameter("role");
+
 //                    session.getAttribute(role);
                     if(type != null && type.equals("student"))
                     {

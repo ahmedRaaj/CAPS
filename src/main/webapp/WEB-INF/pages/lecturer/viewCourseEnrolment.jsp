@@ -14,51 +14,51 @@
         <title>Course Enrollment Page</title>
     </head>
     <body>
+        <h3><center>ENROLLED STUDENTS</center></h3>
+        
+            
+                <td>
+        <form action="#" method="post" id="searchStudentsByCourseName" role="form" >
+            <select name="course">
+                <c:forEach var="course" items="${courses}">
+                    <option name="${course.courseId}">${course.name} </option>
+                </c:forEach>
+            </select>
+            <input type="submit" value="SUBMIT" class="btn-success">
+        </form>
+                    
         <form method="post" action=""><%--need the url of controller--%>
             <table>
             <tr>
                 <td>
-                <form:select path="course">
-                <form:option value="NONE" label="--- Select a Course ---"/>
-                <form:options items="${countryList}" /><%--need an arraylist of course names from controller--%>
-                </form:select>
+                  <c:choose>
+                <c:when test="${empty enroledcourses }">
+                Table is empty.
+                </c:when>
+                <c:otherwise>
+                    <table class="table">
+                    <thead>
+                    <tr>
+                    <th>STUDENT ID</th>
+                    <th> STUDENT NAME </th>
+                    <th> STATUS </th>         
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach var="enroled" items="${enroledcourses}"><%--need to get arraylist from controller for students and status from enroled course table--%>
+                    <tr>
+                    <td> <c:out value="${enroled.student.studentId}"/> </td> 
+                    <td> <c:out value="${enroled.student.user.firstName}"/> </td>
+                    <td> <c:out value="${enroled.status}"/> </td>         
+                    </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+                </c:otherwise>
+                </c:choose>  
                 </td>
-            </tr>
-            <tr>
-                <td>
-            <input type="submit" value="SUBMIT">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                <c:choose>
-     <c:when test="${empty EnroledCourse }">
-       Table is empty.
-     </c:when>
-     <c:otherwise>
-      <table>
-       <thead>
-         <tr>
-          <th>STUDENT ID</th>
-          <th> STUDENT NAME </th>
-          <th> STATUS </th>         
-         </tr>
-        </thead>
-        <tbody>
-        <c:forEach var="enroled" items="${Course}"><%--need to get arraylist from controller for students and status from enroled course table--%>
-        <tr>
-           <td> <c:out value="${enroled.student.studentId}"/> </td> 
-          <td> <c:out value="${enroled.student.User.firstName}"/> </td>
-          <td> <c:out value="${enroled.status}"/> </td>         
-        </tr>
-        </c:forEach>
-       </tbody>
-     </table>
-    </c:otherwise>
-   </c:choose>
-            </table>
-        <td/>
-            </tr>
+            </tr>             
+        </table>       
         </form>
     </body>
 </html>

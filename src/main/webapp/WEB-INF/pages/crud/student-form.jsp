@@ -13,11 +13,12 @@
     </head>
     <body>
               <div class="container">
-            <form action="#" method="post"  role="form" data-toggle="validator" >
+            <form action="${pageContext.request.contextPath}/admin/student/add" method="post"  role="form" data-toggle="validator" >
                 
                
                 <div class="form-group col-xs-4">
                      <br></br>
+                     <input type="hidden" name="student.studentId" id="student.studentId" class="form-control" value="${student.studentId}" required="true"/>                                   
                     <label for="student.user.firstName" class="control-label col-xs-4">First Name:</label>
                     <input type="text" name="student.user.firstName" id="student.user.firstName" class="form-control" value="${student.user.firstName}" required="true"/>                                   
 
@@ -25,10 +26,10 @@
                     <input type="text" name="student.user.lastName" id="student.user.lastName" class="form-control" value="${student.user.lastName}" required="true"/> 
 
                     <label for="student.user.dob" class="control-label col-xs-4">Birth Date:</label>                 
-                    <input type="date"  name="lecturer.user.dob" id="student.user.dob" class="form-control" value="${student.user.dob}" placeholder="dd-MM-yyy" required="true"/>
+                    <input type="text"  name="student.user.dob" id="student.user.dob" class="form-control" value="${student.user.dob}" placeholder="yyyy-mm-dd" />
 
                                        <label for="student.user.gender" class="control-label col-xs-4">Gender:</label>
-                    <input type="text" name="student.user.gender" id="student.user.gender" class="form-control" value="${student.user.gender}" placeholder="male&female" required="true"/>
+                    <input type="text" name="student.user.gender" id="student.user.gender" class="form-control" value="${student.user.gender}" placeholder="male" required="true"/>
                     
                     <label for="student.citizenship" class="control-label col-xs-4">Citizenship:</label>                    
                     <input type="text" name="student.citizenship" id="student.citizenship" class="form-control" value="${student.citizenship}" required="true"/> 
