@@ -271,26 +271,55 @@ public class AdminController {
         return v;
     }
 
-    @RequestMapping(value = "/admin/add", method = RequestMethod.POST)
-    public ModelAndView addOrUpdateAdmin(@ModelAttribute("admin") Admin admin, HttpServletRequest req) {
+    @RequestMapping(value = "/admin/update", method = RequestMethod.GET)
+    public ModelAndView addOrUpdateAdmin( HttpServletRequest req) throws ParseException {
+        Admin admin;
+        User user;
+        if(req.getParameter("admin.adminId")== ""){
+            admin=new Admin();
+        }
+        else{
+            admin=adminDao.findOne(Integer.parseInt(req.getParameter("admin.adminId")));
+        }
+        if(req.getParameter("admin.user.userId")== ""){
+            user=new User();
+//            return getDebug("new user");
+        }
+        else{
+            user=userDao.findOne(Integer.parseInt(req.getParameter("admin.user.userId")));
+//            return getDebug(user.toString());
+        }
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-mm-dd");
+
         String userId = req.getParameter("admin.user.userId"); //Attribute type Integer
-        String uerName = req.getParameter("admin.user.userName");
+        String userName = req.getParameter("admin.user.userName");
         String userPassword = req.getParameter("admin.user.password");
         String adminFirstName = req.getParameter("admin.user.firstName");
         String adminlastName = req.getParameter("admin.user.lastName");
-        String adminDob = req.getParameter("admin.user.dob");
+        Date adminDob = simpleDateFormat.parse(req.getParameter("admin.user.dob"));
         String adminGender = req.getParameter("admin.user.gender");
         String adminEmail = req.getParameter("admin.user.email");
         String adminPhone = req.getParameter("admin.user.phone");
         String adminAddress = req.getParameter("admin.user.address");
-        String adminId = req.getParameter("admin.adminId"); //Attribute type Integer
+        String adminStatus=req.getParameter("admin.user.status");
+//        String adminId = req.getParameter("admin.adminId"); //Attribute type Integer
         String adminPosition = req.getParameter("admin.position");
-        return getDebug(userId + " " + adminId);
+//        return getDebug(adminDob.toString());
+        setUser(user, adminAddress, adminEmail, userPassword, adminPhone, adminPosition,
+                adminStatus, userName, adminFirstName, adminlastName, adminDob, adminGender);
+        admin.setUser(user);
+        admin.setPosition("admin");
+        adminDao.saveAndFlush(admin);
+
+        ModelAndView v = new ModelAndView("crud/admin-list");
+        v.addObject("adminList", adminDao.findAll());
+        return v;
+
     }
 
     @RequestMapping("/admin/edit")
-    public ModelAndView showAdminFormEdit(@RequestParam("adminId") String adminId) {
-        Admin a = adminDao.findOne(Integer.parseInt(adminId));
+    public ModelAndView showAdminFormEdit(int adminId) {
+        Admin a = adminDao.findOne(adminId);
         ModelAndView v = new ModelAndView("crud/admin-form");
         v.addObject("admin", a);
         return v;
@@ -314,27 +343,63 @@ public class AdminController {
     }
 
     /*End Admin Part*/
-    @RequestMapping("/clist")
+    @RequestMapping("/course/list")
     public ModelAndView listAllCourses() {
-        List<Course> courseList = courseDao.findAll();
+        List<Course> courseList=courseDao.findAll();
         ModelAndView v = new ModelAndView("crud/course-list");
-        v.addObject("courseList", courseList);
+        v.addObject("courseList",courseList);
         return v;
     }
 
-    @RequestMapping(value = "/cform")
-    public ModelAndView creatOrEditCourse(int courseId) {
-        HttpServletRequest request = null;
+    @RequestMapping(value = "/course/edit")
+    public ModelAndView createOrEditCourse(int courseId){
         ModelAndView v = new ModelAndView("crud/course-form");
-        v.addObject("courseDetail", courseDao.findOne(courseId));
+        v.addObject("Course",courseDao.findOne(courseId));
+        return v;
+    }
+    @RequestMapping(value = "/course/add")
+    public ModelAndView createOrEditCourse(){
+        ModelAndView v = new ModelAndView("crud/course-form");
+        Course course=new Course();
+        v.addObject("Course",course);
         return v;
     }
 
-    @RequestMapping(value = "/cupdate")
-    public String UpdateCourse(Course course) {
-        HttpServletResponse response = null;
-        return null;
+    @RequestMapping(value = "/course/del")
+    public ModelAndView deleteCourse(int courseId){
+        courseDao.delete(courseId);
+        List<Course> courseList=courseDao.findAll();
+        ModelAndView v = new ModelAndView("crud/course-list");
+        v.addObject("courseList",courseList);
+        return v;
+    }
 
+
+    @RequestMapping(value="/course/update",method = RequestMethod.GET)
+    public ModelAndView UpdateCourse(HttpServletRequest req){
+        Course course;
+        if(req.getParameter("Course.courseId")== ""){
+            course=new Course();
+//            return getDebug("its null");
+        }
+        else{
+            course=courseDao.findOne(Integer.parseInt(req.getParameter("Course.courseId")));
+        }
+
+        String courseName=req.getParameter("Course.name");
+        String courseDuration=req.getParameter("Course.duration");
+        String courseCredits=req.getParameter("Course.credits");
+        String courseSize=req.getParameter("Course.courseSize");
+        String courseLecturer=req.getParameter("Course.lecturerId");
+//        return getDebug(req.getParameter("Course.courseId") + " " + courseName + " " + courseCredits + " " + courseSize + courseLecturer + courseDuration);
+
+        course.setName(courseName);
+        course.setCourseSize(Integer.parseInt(courseSize));
+        course.setCredits(Integer.parseInt(courseCredits));
+        course.setDuration(courseDuration);
+        course.setLecturer(lecDao.findOne(Integer.parseInt(courseLecturer)));
+        courseDao.save(course);
+        return listAllCourses();
     }
 
     private ModelAndView getDebug(String Message) {
