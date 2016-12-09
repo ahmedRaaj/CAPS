@@ -45,12 +45,12 @@ public class Lecturer implements Serializable {
     @Column(name = "lecturerId")
     private Integer lecturerId;
     @Column(name = "endDate")
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date endDate;
     @Column(name = "position")
     private String position;
     @Column(name = "startDate")
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date startDate;
     @OneToMany(mappedBy = "lecturer")
     private List<Course> courseList;

@@ -14,27 +14,24 @@
         <title>Course Enrollment Page</title>
     </head>
     <body>
+        <h3><center>ENROLLED STUDENTS</center></h3>
+        
+            
+                <td>
+        <form action="#" method="post" id="searchStudentsByCourseName" role="form" >
+            <select name="course">
+                <c:forEach var="course" items="${courses}">
+                    <option name="${course.courseId}">${course.name} </option>
+                </c:forEach>
+            </select>
+            <input type="submit" value="SUBMIT" class="btn-success">
+        </form>
+                    
         <form method="post" action=""><%--need the url of controller--%>
             <table>
             <tr>
                 <td>
-                <form action="#" method="get" id="seachStudentForm" role="form" >
-                                <select name="course">
-                                    <c:forEach var="course" items="${courses}">
-                                        <option name="${course.courseId}">${course.name} </option>
-                                    </c:forEach>
-                                </select>
-                            </form>
-                </td>
-            </tr>
-            <tr>
-                <td>
-            <input type="submit" value="SUBMIT">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                <c:choose>
+                  <c:choose>
                 <c:when test="${empty enroledcourses }">
                 Table is empty.
                 </c:when>
@@ -58,12 +55,10 @@
                     </tbody>
                 </table>
                 </c:otherwise>
-                </c:choose>
+                </c:choose>  
                 </td>
-            </tr>
-
-            </table>
-        
+            </tr>             
+        </table>       
         </form>
     </body>
 </html>

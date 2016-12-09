@@ -13,55 +13,55 @@
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
         <title>Grade a course Page</title>
     </head>
-    <body>
-        <form method="post" action=""><%--need the url of controller--%>
-            <table>
-            <tr>
-                <td>
-                            <form action="#" method="get" id="seachStudentForm" role="form" >
-                                <select name="course">
-                                    <c:forEach var="course" items="${courses}">
-                                        <option name="${course.courseId}">${course.name} </option>
-                                    </c:forEach>
-                                </select>
-                            </form>
-                
-                </td>
-            </tr>
-            
-            <tr>
-                <td>
-                <c:choose>
-                <c:when test="${empty enroledcourses }">
-                Table is empty.
-                </c:when>
-                <c:otherwise>
-                <table class="table">
-                    <thead>
-                    <tr>
-                    <th>STUDENT ID</th>
-                    <th>STUDENT NAME</th>
-                    <th> GRADE POINT </th>                          
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <c:forEach var="enroled" items="${enroledcourses}"><%--need to get arraylist from controller for students and status from enroled course table--%>
-                    <tr>
-                    <td> <c:out value="${enroled.student.studentId}"/> </td> 
-                    <td> <c:out value="${enroled.student.user.firstName}"/> </td> 
-                    <td><input type="text" value="${enroled.gradePoint}"/></td>       
-                    </tr>
-                    </c:forEach>
-                    <tr><input type="submit" text="SUBMIT"></tr>
-                    </tbody>
-                </table>
-                </c:otherwise>
-                </c:choose>
-                </td>
-            </tr>
+    <body>       
 
-            </table>
-        
+
+        <form action="${pageContext.request.contextPath}/lecturer/filter.course" method="post" id="searchStudentsByCourseName" role="form" >
+            <select name="courseId">
+                <c:forEach var="course" items="${courses}">
+                    <option name="${course.courseId}" value="${course.courseId}">${course.name} </option>
+                </c:forEach>
+            </select>                               
+            <input type="submit" value="SUBMIT" class="btn-success">
         </form>
+
+
+        <table>
+            <tr>
+                <td>
+
+                    <c:choose>
+                        <c:when test="${empty enroledcourses }">
+                            Table is empty.
+                        </c:when>
+                        <c:otherwise>
+                            <form method="post" action="${pageContext.request.contextPath}/lecturer/submit.grade"><%--need the url of controller--%>
+
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>STUDENT ID</th>
+                                            <th>STUDENT NAME</th>
+                                            <th> GRADE POINT </th>                          
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <c:forEach var="enroled" items="${enroledcourses}"><%--need to get arraylist from controller for students and status from enroled course table--%>
+                                            <tr>
+                                                <td> <c:out value="${enroled.student.studentId}"/> </td> 
+                                                <td> <c:out value="${enroled.student.user.firstName}"/> </td> 
+                                                <td><input name="${enroled.student.studentId}" id="${enroled.student.studentId}" type="text" value="${enroled.gradePoint}"/></td>       
+                                            </tr>
+                                        </c:forEach>   
+                                    </tbody>
+                                </table>
+                                <input type="submit" value="submit" class="btn-success"></form>
+                            </form>  
+                        </c:otherwise>
+                    </c:choose>
+                </td>
+            </tr>    
+        </table>                
+
     </body>
 </html>
