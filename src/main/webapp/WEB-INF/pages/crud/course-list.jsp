@@ -46,7 +46,8 @@
                     </thead>
                     <c:forEach var="course" items="${courseList}">
                         <tr >
-                            <td><a href="${pageContext.request.contextPath}/admin/course/edit?courseId=${course.courseId}">${course.courseId}</a></td>
+                            <%--<td><a href="${pageContext.request.contextPath}/admin/course/edit?courseId=${course.courseId}">${course.courseId}</a></td>--%>
+                            <td>${course.courseId}</td>
                             <td>${course.name}</td>
                             <td>${course.credits}</td>
                             <td>${course.duration}</td>
@@ -56,6 +57,13 @@
                                    onclick="document.location.href='${pageContext.request.contextPath}/admin/course/del?courseId=${course.courseId}'">
                                 <span class="glyphicon glyphicon-trash"/>
                             </a></td>
+                            <td><a href="edit?courseId=${course.courseId}" id="edit"
+                                   onclick="document.getElementById('action').value = 'edit';document.getElementById('courseId').value = '${course.courseId}';
+                                           document.getElementById('courseForm').submit();">
+                                <span class="glyphicon glyphicon-edit"/>
+                            </a>
+                            </td>
+
                             <%request.setAttribute("courseId","${course.courseId}");%>
                             <%--<td><a href="${pageContext.request.contextPath}/admin/cform?courseId==${course.courseId}">edit</a></td>--%>
                         </tr>

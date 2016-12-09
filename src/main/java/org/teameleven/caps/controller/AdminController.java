@@ -178,7 +178,7 @@ public class AdminController {
         String firstName = req.getParameter("lecturer.user.firstName");
         String lastName = req.getParameter("lecturer.user.lastName");
         String gender = req.getParameter("lecturer.user.gender");
-        DateFormat df = new SimpleDateFormat("yyyy/mm/dd");
+        DateFormat df = new SimpleDateFormat("yyyy-mm-dd");
         Date dob = null;
         try {
             dob = df.parse(req.getParameter("lecturer.user.dob"));
