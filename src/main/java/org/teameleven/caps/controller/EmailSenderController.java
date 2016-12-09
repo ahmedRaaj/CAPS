@@ -52,8 +52,13 @@ public class EmailSenderController {
         Student student = studentDao.findOne(Integer.parseInt(studentId));
         sendToEmailAddress = student.getUser().getEmail();
 
-        emailSubject="Test Email";
-        emailContent="Test Email";
+        emailSubject="@No-Reply >>> Dear " + student.getUser().getFirstName()+ " " + student.getUser().getLastName() + " <<<";
+        emailContent="Dear "+student.getUser().getFirstName()+ " " + student.getUser().getLastName() +",\n\n"+
+                "Thanks for using CAPS! \n"+
+                "All courses you enrolled have been saved in to server successfully.\n "+
+                "\n"+
+                "Best regard.\n"+
+                "SA43 Team11";
         
         Session session = Session.getInstance(props, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
