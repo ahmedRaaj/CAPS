@@ -15,11 +15,12 @@
     </head>
     <body>
         <form method="post" action=""><%--need the url of controller--%>
+            <h3><center>STUDENT'S PERFORMANCE</center></h3>
             <table>
             <tr>
                 <td>
                 <form action="#" method="get" id="performance" role="form" >
-                                <select name="course">
+                                <select class="divider" name="course">
                                     <c:forEach var="course" items="${courses}">
                                         <option name="${course.courseId}">${course.name} </option>
                                     </c:forEach>
@@ -29,11 +30,7 @@
                 
                 
             </tr>
-            <tr>
-            <td>
-            <input type="submit" value="SUBMIT">
-            </td>
-            </tr>
+            <tr><td><br></td></tr>            
             <tr>
                 <td>
                 <c:choose>

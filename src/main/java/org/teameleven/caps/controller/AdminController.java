@@ -90,10 +90,10 @@ public class AdminController {
 
         String studentCitizenship =req.getParameter("student.citizenship"); 
         String studentNric =req.getParameter("student.nric");   
-//        studentDao.save(student);
-//        ModelAndView v = new ModelAndView("crud/student-list");
-//        v.addObject("studentList", studentDao.findAll());
-//        return v;
+        studentDao.save(student);
+        ModelAndView v = new ModelAndView("crud/student-list");
+       v.addObject("studentList", studentDao.findAll());
+       return v;
     }
 
     @RequestMapping("/student/edit")

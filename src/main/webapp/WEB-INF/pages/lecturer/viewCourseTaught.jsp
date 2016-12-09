@@ -15,6 +15,8 @@
     <body>
         <div style="padding-top: 50px;">
    <%--<jsp:include page="../menu.jspx"/>--%>
+   <h3><center>LIST OF  COURSES</center></h3>
+   
    <c:choose>
      <c:when test="${empty courses }">
        Table is empty.
