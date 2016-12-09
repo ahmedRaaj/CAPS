@@ -29,6 +29,9 @@ import java.util.List;
 import java.util.logging.Level;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -76,7 +79,9 @@ public class AdminController {
     @RequestMapping("/student/list")
     public ModelAndView listAllStudent() {
         ModelAndView v = new ModelAndView("crud/student-list");
-        v.addObject("studentList", studentDao.findAll());
+        PageRequest pr = new PageRequest(1, 5);
+        Page<Student> pg = studentDao.findAll(pr);
+        v.addObject("studentList", pg.getContent());
         return v;
     }
 
@@ -124,8 +129,8 @@ public class AdminController {
         s.setNric(studentNric);
         s.setUser(u);
         studentDao.save(s);
-        ModelAndView v = new ModelAndView("crud/student-list");
-        v.addObject("studentList", studentDao.findAll());
+        ModelAndView v = new ModelAndView("redirect:list");
+       // v.addObject("studentList", studentDao.findAll());
         return v;
     }
 
@@ -150,8 +155,7 @@ public class AdminController {
     @RequestMapping("/student/del")
     public ModelAndView deleteStudent(@RequestParam("studentId") String studentId) {
         studentDao.delete(Integer.parseInt(studentId));
-        ModelAndView v = new ModelAndView("crud/student-list");
-        v.addObject("studentList", studentDao.findAll());
+        ModelAndView v = new ModelAndView("redirec:list");
         return v;
     }
 
