@@ -67,12 +67,12 @@ public class AdminController {
         return v;
     }
 
-    @RequestMapping(value ="/student/add", method = RequestMethod.POST)
-    public ModelAndView addOrUpdateStudent(@ModelAttribute("student") Student student,HttpServletRequest req) {
+    @RequestMapping(value = "/student/add", method = RequestMethod.POST)
+    public ModelAndView addOrUpdateStudent(@ModelAttribute("student") Student student, HttpServletRequest req) {
         String userId = req.getParameter("student.user.userId");
-        String studentNric =req.getParameter("student.nric");
-        return getDebug(userId + " " +studentNric);
-        
+        String studentNric = req.getParameter("student.nric");
+        return getDebug(userId + " " + studentNric);
+
 //        studentDao.save(student);
 //        ModelAndView v = new ModelAndView("crud/student-list");
 //        v.addObject("studentList", studentDao.findAll());
@@ -105,6 +105,7 @@ public class AdminController {
         return v;
     }
 
+    /*Lecturer Part*/
     @RequestMapping("/lecturer/list")
     public ModelAndView listAllLecturers() {
         ModelAndView v = new ModelAndView("crud/lecturer-list");
@@ -112,12 +113,32 @@ public class AdminController {
         return v;
     }
 
-    @RequestMapping("/lecturer/add")
-    public ModelAndView addOrUpdateLecturer(@ModelAttribute("lecture") Lecturer lecturer) {
-        lecDao.save(lecturer);
-        ModelAndView v = new ModelAndView("crud/lecturer-list");
-        v.addObject("lecturerList", lecDao.findAll());
-        return v;
+    @RequestMapping(value = "/lecturer/add", method = RequestMethod.POST)
+    public ModelAndView addOrUpdateLecturer(@ModelAttribute("lecturer") Lecturer lecturer, HttpServletRequest req) {
+        String userId = req.getParameter("lectuerer.user.userId");//Attribute type Integer
+        String address = req.getParameter("lectuerer.user.address");
+        String email = req.getParameter("lectuerer.user.email");
+        String userName = req.getParameter("lectuerer.user.userName");
+        String password = req.getParameter("lectuerer.user.password");
+        String phone = req.getParameter("lectuerer.user.phone");
+        String role = req.getParameter("lectuerer.user.role");
+        String status = req.getParameter("lectuerer.user.status");
+        String firstName = req.getParameter("lectuerer.user.firstName");
+        String lastName = req.getParameter("lectuerer.user.lastName");
+        String dob = req.getParameter("lectuerer.user.dob"); //Attribute type Date
+        String gender = req.getParameter("lectuerer.user.gender");
+
+        String lecturerId = req.getParameter("lectuerer.lecturerId");//Attribute type Integer
+        String endDate = req.getParameter("lectuerer.endDate");//Attribute type Date
+        String position = req.getParameter("lectuerer.position");
+        String startDate = req.getParameter("lectuerer.startDate");//Attribute type Date
+
+        return getDebug(userId + "/n" + address + "/n" + email + "/n" + userName + "/n" + password + "/n" + phone + "/n" + role + "/n" + status + "/n" + firstName + "/n" + lastName + "/n" + dob
+                + "/n" + gender + "/n" + lecturerId + "/n" + endDate + "/n" + position + "/n" + startDate);
+//        lecDao.save(lecturer);
+//        ModelAndView v = new ModelAndView("crud/lecturer-list");
+//        v.addObject("lecturerList", lecDao.findAll());
+//       return v;
     }
 
     @RequestMapping("/lecturer/edit")
@@ -155,12 +176,21 @@ public class AdminController {
         return v;
     }
 
-    @RequestMapping("/admin/add")
-    public ModelAndView addOrUpdateAdmin(@ModelAttribute("admin") Admin admin) {
-        adminDao.save(admin);
-        ModelAndView v = new ModelAndView("crud/admin-list");
-        v.addObject("adminList", adminDao.findAll());
-        return v;
+    @RequestMapping(value = "/admin/add", method = RequestMethod.POST)
+    public ModelAndView addOrUpdateAdmin(@ModelAttribute("admin") Admin admin, HttpServletRequest req) {
+        String userId = req.getParameter("admin.user.userId"); //Attribute type Integer
+        String uerName = req.getParameter("admin.user.userName");
+        String userPassword = req.getParameter("admin.user.password");
+        String adminFirstName = req.getParameter("admin.user.firstName");
+        String adminlastName = req.getParameter("admin.user.lastName");
+        String adminDob = req.getParameter("admin.user.dob");
+        String adminGender = req.getParameter("admin.user.gender");
+        String adminEmail = req.getParameter("admin.user.email");
+        String adminPhone = req.getParameter("admin.user.phone");
+        String adminAddress = req.getParameter("admin.user.address");
+        String adminId = req.getParameter("admin.adminId"); //Attribute type Integer
+        String adminPosition = req.getParameter("admin.position");
+        return getDebug(userId + " " + adminId);
     }
 
     @RequestMapping("/admin/edit")
