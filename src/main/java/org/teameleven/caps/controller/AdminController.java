@@ -81,31 +81,52 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/student/add", method = RequestMethod.POST)
-    public ModelAndView addOrUpdateStudent(@ModelAttribute("student") Student student, HttpServletRequest req) 
-    {
-        String userFirstName = req.getParameter("student.user.firstName");
-        String userLastname = req.getParameter("student.user.lastName"); 
-        String userUserId =req.getParameter("student.user.userId");
-        String userUserName =req.getParameter("student.user.userName");
-        String userPassword =req.getParameter("student.user.password");
-        String userPhone=req.getParameter("student.user.phone");
-        String userAddress=req.getParameter("student.user.address");
-        String userEmail=req.getParameter("student.user.email");
-        String userRole=req.getParameter("student.user.role");
-        String userStatus=req.getParameter("student.user.status");
-        String userGender =req.getParameter("student.user.gender");   
-        //Date userDob=SimpleDateFormat.parse(req.getParameter("student.user.dob"));
+    public ModelAndView addOrUpdateStudent(@ModelAttribute("student") Student stu, HttpServletRequest req) {
+        String firstName = req.getParameter("student.user.firstName");
+        String lastname = req.getParameter("student.user.lastName");
+        String userId = req.getParameter("student.user.userId");
+        String userName = req.getParameter("student.user.userName");
+        String password = req.getParameter("student.user.password");
+        String phone = req.getParameter("student.user.phone");
+        String address = req.getParameter("student.user.address");
+        String email = req.getParameter("student.user.email");
+        String role = req.getParameter("student.user.role");
+        String status = req.getParameter("student.user.status");
+        String gender = req.getParameter("student.user.gender");
+        String studentId = req.getParameter("student.studentId");
+        String studentCitizenship = req.getParameter("student.citizenship");
+        String studentNric = req.getParameter("student.nric");
+        User u;
+        Student s;
+        DateFormat df = new SimpleDateFormat("yyyy/mm/dd");
+        Date dob = null;
+        try {
+            if (!req.getParameter("student.user.dob").equals("")) {
+                dob = df.parse(req.getParameter("student.user.dob"));
+            }
+        } catch (ParseException ex) {
+            java.util.logging.Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if (userId == null || userId.equals("")) {
+            u = new User();
+        } else {
+            u = userDao.findOne(Integer.parseInt(userId));
 
-        String studentCitizenship =req.getParameter("student.citizenship"); 
-        String studentNric =req.getParameter("student.nric");   
-        
-      return getDebug("");
-        
-        
-//        studentDao.save(student);
-//        ModelAndView v = new ModelAndView("crud/student-list");
-//        v.addObject("studentList", studentDao.findAll());
-//        return v;
+        }
+        setUser(u, address, email, password, phone, role, status, userName, firstName, lastname, dob, gender);
+
+        if (studentId == null || studentId.equals("")) {
+            s = new Student();
+        } else {
+            s = studentDao.findOne(Integer.parseInt(studentId));
+        }
+        s.setCitizenship(studentCitizenship);
+        s.setNric(studentNric);
+        s.setUser(u);
+        studentDao.save(s);
+        ModelAndView v = new ModelAndView("crud/student-list");
+        v.addObject("studentList", studentDao.findAll());
+        return v;
     }
 
     @RequestMapping("/student/edit")
@@ -158,37 +179,37 @@ public class AdminController {
         String lastName = req.getParameter("lecturer.user.lastName");
         String gender = req.getParameter("lecturer.user.gender");
         DateFormat df = new SimpleDateFormat("yyyy/mm/dd");
-        Date dob =null;
+        Date dob = null;
         try {
             dob = df.parse(req.getParameter("lecturer.user.dob"));
         } catch (ParseException ex) {
             java.util.logging.Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        if (userId == null || userId== "") {
+        if (userId == null || userId == "") {
             user = new User();
         } else {
-           user = userDao.findOne(Integer.parseInt(userId));
+            user = userDao.findOne(Integer.parseInt(userId));
         }
         setUser(user, address, email, password, phone, role, status, userName, firstName, lastName, dob, gender);
-        
+
         String lecturerId = req.getParameter("lecturer.lecturerId");//Attribute type Integer
         String endDate = req.getParameter("lecturer.endDate");//Attribute type Date
         String position = req.getParameter("lecturer.position");
         String startDate = req.getParameter("lecturer.startDate");//Attribute type DateDate Dend
-        Date Dend=null;
-        Date dStart=null;
+        Date Dend = null;
+        Date dStart = null;
         try {
             Dend = df.parse(endDate);
             dStart = df.parse(startDate);
-                    } catch (ParseException ex) {
+        } catch (ParseException ex) {
             java.util.logging.Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        if(lecturerId == null || lecturerId.equals("")){
+        if (lecturerId == null || lecturerId.equals("")) {
             l = new Lecturer();
-        }else{
+        } else {
             l = lecDao.findOne(Integer.parseInt(lecturerId));
-            
+
         }
         l.setEndDate(Dend);
         l.setPosition(position);
