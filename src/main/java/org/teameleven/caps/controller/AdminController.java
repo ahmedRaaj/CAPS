@@ -293,27 +293,63 @@ public class AdminController {
     }
 
     /*End Admin Part*/
-    @RequestMapping("/clist")
+    @RequestMapping("/course/list")
     public ModelAndView listAllCourses() {
-        List<Course> courseList = courseDao.findAll();
+        List<Course> courseList=courseDao.findAll();
         ModelAndView v = new ModelAndView("crud/course-list");
-        v.addObject("courseList", courseList);
+        v.addObject("courseList",courseList);
         return v;
     }
 
-    @RequestMapping(value = "/cform")
-    public ModelAndView creatOrEditCourse(int courseId) {
-        HttpServletRequest request = null;
+    @RequestMapping(value = "/course/edit")
+    public ModelAndView createOrEditCourse(int courseId){
         ModelAndView v = new ModelAndView("crud/course-form");
-        v.addObject("courseDetail", courseDao.findOne(courseId));
+        v.addObject("Course",courseDao.findOne(courseId));
+        return v;
+    }
+    @RequestMapping(value = "/course/add")
+    public ModelAndView createOrEditCourse(){
+        ModelAndView v = new ModelAndView("crud/course-form");
+        Course course=new Course();
+        v.addObject("Course",course);
         return v;
     }
 
-    @RequestMapping(value = "/cupdate")
-    public String UpdateCourse(Course course) {
-        HttpServletResponse response = null;
-        return null;
+    @RequestMapping(value = "/course/del")
+    public ModelAndView deleteCourse(int courseId){
+        courseDao.delete(courseId);
+        List<Course> courseList=courseDao.findAll();
+        ModelAndView v = new ModelAndView("crud/course-list");
+        v.addObject("courseList",courseList);
+        return v;
+    }
 
+
+    @RequestMapping(value="/course/update",method = RequestMethod.GET)
+    public ModelAndView UpdateCourse(HttpServletRequest req){
+        Course course;
+        if(req.getParameter("Course.courseId")== ""){
+            course=new Course();
+//            return getDebug("its null");
+        }
+        else{
+            course=courseDao.findOne(Integer.parseInt(req.getParameter("Course.courseId")));
+        }
+
+        String courseName=req.getParameter("Course.name");
+        String courseDuration=req.getParameter("Course.duration");
+        String courseCredits=req.getParameter("Course.credits");
+        String courseSize=req.getParameter("Course.courseSize");
+        String courseLecturer=req.getParameter("Course.lecturerId");
+//        return getDebug(req.getParameter("Course.courseId") + " " + courseName + " " + courseCredits + " " + courseSize + courseLecturer + courseDuration);
+
+        course.setName(courseName);
+        course.setCourseSize(Integer.parseInt(courseSize));
+        course.setCredits(Integer.parseInt(courseCredits));
+        course.setDuration(courseDuration);
+        course.setLecturer(lecDao.findOne(Integer.parseInt(courseLecturer)));
+        courseDao.save(course);
+        return listAllCourses();
     }
 
     private ModelAndView getDebug(String Message) {
