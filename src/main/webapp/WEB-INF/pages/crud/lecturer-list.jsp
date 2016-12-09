@@ -19,7 +19,7 @@
             </h2>
 
             <!-- Search Form -->
-            <form action="#" method="get" id="searchLecturerForm" role="form">
+            <form action="${pageContext.request.contextPath}/lecturer/search" method="get" id="searchLecturerForm" role="form">
                 <div class="form-group col-xs-5">
                     <input type="text" name="lecturerName" id="lecturerName" class="form-control" required="true"
                            placeholder="Type the Name or Last Name of the Lecture"/>
@@ -33,7 +33,7 @@
                 <br></br>
             </form>
 
-            <form action="#" method="post" id="lecturerForm" role="form">
+            <form action="${pageContext.request.contextPath}/admin/course/list" method="post" id="lecturerForm" role="form">
                 <input type="hidden" id="lecturerId" name="lecturerId">
                 <input type="hidden" id="action" name="action">
 
@@ -58,7 +58,7 @@
                                     <c:set var="classSucess" value="info"/>
                                 </c:if>
                                 <tr class="${classSucess}">
-                                    <td><a href="${pageContext.request.contextPath}/crud/lecturer-form?lecturerId=${lecturer.lecturerId}">
+                                    <td><a href="${pageContext.request.contextPath}/admin/lecturer/edit?lecturerId=${lecturer.lecturerId}">
                                             ${lecturer.lecturerId}
                                         </a>
                                     </td>
@@ -69,14 +69,11 @@
                                     <td>${lecturer.position}</td>
                                     <td>${lecturer.startDate}</td>
                                     <td>${lecturer.endDate}</td>
-                                    <td><a href="#" id="remove" 
-                                           onclick="document.getElementById('action').value = 'remove';document.getElementById('lecturerId').value = '${lecturer.lecturerId}';
-
-                                                   document.getElementById('lecturerForm').submit();"> 
-                                            <span class="glyphicon glyphicon-trash"/>
-                                        </a>
-
-                                    </td>
+                                    <td><a href="del?lecturerId=${lecturer.lecturerId}" id="remove"/>
+                                   
+                                <span class="glyphicon glyphicon-trash"/>
+                            </a></td>
+                           
                                 </tr>
                             </c:forEach>
                         </table>
@@ -90,11 +87,7 @@
                 </c:choose>
             </form>
 
-            <form action="#">
-                <br></br>
-                <button type="submit" class="btn btn-primary  btn-md">New Lecturer</button> 
-            </form>
         </div>
-
+ <button type="submit" class="btn btn-primary btn-md" onclick="document.location.href='${pageContext.request.contextPath}/admin/lecturer/new'">New Lecturer</button>
     </body>
 </html>
