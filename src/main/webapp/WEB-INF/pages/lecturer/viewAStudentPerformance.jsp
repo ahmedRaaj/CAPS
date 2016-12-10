@@ -15,23 +15,26 @@
     </head>
     <body>
         <form method="post" action=""><%--need the url of controller--%>
-            <h3><center>STUDENT'S PERFORMANCE</center></h3>
+            
+            
+        </form>
+                  
+                        <form action="${pageContext.request.contextPath}/lecturer/filter.stucourse" method="post" id="searchStudentsByCourseName" role="form" >
+                            <h3>STUDENT'S PERFORMANCE</h3>
+                           
+                            <br/>
+                            <select name="courseId">
+                                <c:forEach var="course" items="${courses}">
+                                    <option name="${course.courseId}" value="${course.courseId}">${course.name} </option>
+                                </c:forEach>
+                            </select>                               
+                            <input type="submit" value="FILTER" class="btn-success">
+                        </form>
+            
+
+
             <table>
-            <tr>
-                <td>
-                <form action="#" method="get" id="performance" role="form" >
-                                <select class="divider" name="course">
-                                    <c:forEach var="course" items="${courses}">
-                                        <option name="${course.courseId}">${course.name} </option>
-                                    </c:forEach>
-                                </select>
-                            </form>
-                </td>
-                
-                
-            </tr>
-            <tr><td><br></td></tr>            
-            <tr>
+                <tr>
                 <td>
                 <c:choose>
                 <c:when test="${empty enroledcourses }">
@@ -39,18 +42,21 @@
                 </c:when>
                 <c:otherwise>
                 <table class="table">
+                    
                 <thead>
                 <tr>
-                <th> STUDENT ID </th>
+                
                 <th> STUDENT NAME </th>
+                <th> COURSE NAME </th> 
                 <th> GRADE POINT </th>         
                 </tr>
                 </thead>
                 <tbody>
                     <c:forEach var="enroled" items="${enroledcourses}"><%--need to get arraylist from controller for students and gradepoint from enroled course table--%>
                     <tr>
-                    <td> <c:out value="${enroled.student.studentId}"/> </td>
-                    <td> <c:out value="${enroled.student.user.firstName}"/> </td>
+                    
+                     <td> <c:out value="${enroled.student.user.firstName} ${enroled.student.user.lastName}"/> </td>
+                    <td> <c:out value="${enroled.course.name}"/> </td>
                     <td> <c:out value="${enroled.gradePoint}"/> </td>         
                     </tr>
                     </c:forEach>
@@ -61,7 +67,7 @@
                 </td>
             </tr>
             </table>
-        
+          
         </form>
     </body>
 </html>
