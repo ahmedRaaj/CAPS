@@ -149,4 +149,11 @@ public class LecturerController {
        }
        return getDebug("fssdf");
     }
+    
+     @RequestMapping(value = ".profile")
+    public ModelAndView showProfile(){
+        return new ModelAndView("lecturer-profile");
+                
+                
+    }
 }
