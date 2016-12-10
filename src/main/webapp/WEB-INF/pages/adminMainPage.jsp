@@ -24,7 +24,7 @@
                 <span class="icon mif-user mif-3x"></span>
             </button>
             <button class="image-button fg-white bg-lightBlue bg-hover-darkBrown no-border">
-                <span class="icon mif-lock"><a href="../login/logout">Logout</a></span>
+                <span class="icon mif-lock"><a href="../login/logout"></a></span>
             </button>
 
         </div>
