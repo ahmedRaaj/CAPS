@@ -80,4 +80,8 @@ public class LogInController {
         if(session != null)session.invalidate();
         return "redirect:/";
     }
+     @RequestMapping("/ua")
+    public ModelAndView unauthorizeAccess(){
+        return new ModelAndView("unauthorize");
+    }
 }
