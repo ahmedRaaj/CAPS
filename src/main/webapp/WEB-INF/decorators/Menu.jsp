@@ -1,10 +1,11 @@
+<%@page import="org.teameleven.caps.model.User"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <nav class="navbar navbar-inverse bg-black sidebar" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle"     data-toggle="collapse"data-target="#bs-sidebar-navbar-collapse-1">
+            <button type="button" class="navbar-toggle"     data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -18,7 +19,7 @@
                 <li class="active"><a href="#">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
                 <li ><a href="#">Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
                 <%
-                    String type= request.getParameter("role");
+                    String type= ((User)request.getSession().getAttribute("user")).getRole();
 
 //                    session.getAttribute(role);
                     if(type != null && type.equals("student"))
