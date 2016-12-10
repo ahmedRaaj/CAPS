@@ -11,14 +11,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-        <title>JSP Page</title>
+        <title>Student List</title>
     </head>
-    <body>
+    <body>			
         <div class="container">
 
             <h2>Students</h2>
             <!--Search Form -->
-            <form action="${pageContext.request.contextPath}/admin/student/search" method="post" id="seachStudentForm" role="form" >
+            <form action="${pageContext.request.contextPath}/admin/student.search" method="post" id="seachStudentForm" role="form" >
                 <div class="form-group col-xs-5">
                     <input type="text" name="search" id="search" class="form-control" required="true" 
                            placeholder="Search By Anything"/>                    
@@ -31,7 +31,7 @@
 
             <br/>
             <br/>
-            <form action="${pageContext.request.contextPath}/admin/student/list" method="post" id="studentForm" role="form" >  
+            <form action="${pageContext.request.contextPath}/admin/student.list" method="post" id="studentForm" role="form" >
                 <input type="hidden" id="studentId" name="studentId">
                 <input type="hidden" id="action" name="action">
                 <c:choose>
@@ -55,8 +55,8 @@
                                     <c:set var="classSucess" value="info"/>
                                 </c:if>
                                 <tr class="${classSucess}">
-                                    <td><a href="edit?studentId=${student.studentId}">${student.studentId}</a></td>
-
+                                    <%--<td><a href="edit?studentId=${student.studentId}">${student.studentId}</a></td>--%>
+                                    <td>${student.studentId}</td>
                                     <td>${student.user.firstName}</td>
                                     <td>${student.user.lastName}</td>
                                     <td>${student.user.gender}</td> 
@@ -64,12 +64,17 @@
                                     <td>${student.citizenship}</td>
                                     <td>${student.nric}</td>
 
-                                    <td><a href="del?studentId=${student.studentId}" id="remove" 
-                                           />
+                                    <td><a href="del?studentId=${student.studentId}" id="remove" />
                                         <span class="glyphicon glyphicon-trash"/>
-                                        </a>
-
+                                        </td>
+                                    <td><a href="edit?studentId=${student.studentId}" id="edit"
+                                           onclick="document.getElementById('action').value = 'edit';document.getElementById('studentId').value = '${student.studentId}';
+                                                   document.getElementById('studentForm').submit();">
+                                        <span class="glyphicon glyphicon-edit"/>
+                                    </a>
                                     </td>
+
+
                                 </tr>
                             </c:forEach>               
                         </table>  
@@ -89,10 +94,10 @@
                             <c:forEach var="i" begin="0" end="${count-1}" >
                                 <c:choose>
                                     <c:when test="${pageId == i}">
-                                        <li class="active">  <a  href="${pageContext.request.contextPath}/admin/student/list?pageId=${i}">${i+1}</a></li>
+                                        <li class="active">  <a  href="${pageContext.request.contextPath}/admin/student.list?pageId=${i}">${i+1}</a></li>
                                         </c:when>
                                         <c:otherwise>
-                                        <li>  <a class="" href="${pageContext.request.contextPath}/admin/student/list?pageId=${i}">${i+1}</a> </li>
+                                        <li>  <a class="" href="${pageContext.request.contextPath}/admin/student.list?pageId=${i}">${i+1}</a> </li>
                                         </c:otherwise>
                                     </c:choose>
                                 </c:forEach>
@@ -100,7 +105,7 @@
                     </div>
                 </c:when>
                 <c:otherwise>
-                    <form action ="${pageContext.request.contextPath}/admin/student/list">            
+                    <form action ="${pageContext.request.contextPath}/admin/student.list">
                         <br/>
                         <button type="submit" class="btn btn-primary  btn-md">Back</button> 
                     </form>

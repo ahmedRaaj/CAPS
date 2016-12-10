@@ -14,12 +14,35 @@
     <title>View Courses By Student</title>
 </head>
 
-<h1>View Courses By Student</h1>
+<h1>Course Enrollment Status</h1>
 
-<p style="float: left"><strong>Date: </strong></p>
-<p style="float: left"><%= new java.util.Date() %></p>
-<br />
-
+        <%
+            Calendar cal = Calendar.getInstance();
+            int yr = cal.get(Calendar.YEAR);
+            int mo = cal.get(Calendar.MONTH);
+            String semester = null;
+            if (mo >= 8) {
+                semester = "Feb-" + yr;
+            } else {
+                semester = "Aug-" + yr;
+            }
+        %>
+        <table class="table-bordered" cellpadding="5" cellspacing="5" border="1.5">
+            <tr>
+                <td width="20%"><strong>Student ID</strong></td>
+                <td width="15%">${student.studentId}</td>
+                <td width="20%"><strong>Student Name</strong></td>
+                <td width="45%">${student.user.firstName}, ${student.user.lastName}</td>                
+            </tr>
+            <tr>
+                <td width="20%"><strong>For Semester</strong></td>
+                <td width="15%"><%= semester%></td>
+                <td width="20%"><strong>Date</strong></td>
+                <td width="45%" class="align-left"><%= new java.util.Date()%></td>
+            </tr>
+        </table>
+        <br />
+        <br />
 <c:choose>
     <c:when test="${empty viewcourses}">
         View Course Table is empty.
@@ -30,7 +53,7 @@
                 <tr>
                     <th> Id </th>
                     <th> Course Name </th>
-                    <th> Duration </th>
+                    <th> Status </th>
                     <th> Credit </th>
                     <th> Lecturer </th>
                 </tr>
@@ -38,11 +61,11 @@
             <tbody>
                 <c:forEach var="viewcourse" items="${viewcourses}">
                     <tr>
-                        <td align="middle"> ${viewcourse.courseId} </td>
-                        <td> ${viewcourse.name} </td>
-                        <td align="middle"> ${viewcourse.duration} </td>
-                        <td align="middle"> ${viewcourse.credits} </td>
-                        <td> ${viewcourse.lecturer.user.firstName}</td>
+                        <td align="middle"> ${viewcourse.course.courseId} </td>
+                        <td> ${viewcourse.course.name} </td>
+                        <td align="middle"> ${viewcourse.status} </td>
+                        <td align="middle"> ${viewcourse.course.credits} </td>
+                        <td> ${viewcourse.course.lecturer.user.firstName}</td>
                     </tr>
                 </c:forEach>
             </tbody>

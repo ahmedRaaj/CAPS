@@ -18,7 +18,7 @@
 
 <div class="container">
 
-    <form  name="Course" action="${pageContext.request.contextPath}/admin/course/update" role="form" method="post" data-toggle="validator"   >
+    <form  name="Course" action="${pageContext.request.contextPath}/admin/course.update" role="form" method="post" data-toggle="validator"   >
         <div class="form-group col-xs-8">
                 <h2>Course</h2>
             <br/>

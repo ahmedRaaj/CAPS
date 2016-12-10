@@ -13,7 +13,7 @@
     </head>
     <body>
         <div class="container">
-            <form action="${pageContext.request.contextPath}/admin/lecturer/add" method="post" role="form" data-toggle="validator" >
+            <form action="${pageContext.request.contextPath}/admin/lecturer.add" method="post" role="form" data-toggle="validator" >
 
                 <div class="form-group col-xs-6">
                     <h2>Lecturer Information</h2>
