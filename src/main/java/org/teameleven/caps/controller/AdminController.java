@@ -98,7 +98,7 @@ public class AdminController {
         String studentNric = req.getParameter("student.nric");
         User u;
         Student s;
-        DateFormat df = new SimpleDateFormat("yyyy/mm/dd");
+        DateFormat df = new SimpleDateFormat("yyyy-mm-dd");
         Date dob = null;
         try {
             if (!req.getParameter("student.user.dob").equals("")) {
@@ -271,7 +271,7 @@ public class AdminController {
         return v;
     }
 
-    @RequestMapping(value = "/admin/update", method = RequestMethod.GET)
+    @RequestMapping(value = "/admin/update", method = RequestMethod.POST)
     public ModelAndView addOrUpdateAdmin( HttpServletRequest req) throws ParseException {
         Admin admin;
         User user;
@@ -375,7 +375,7 @@ public class AdminController {
     }
 
 
-    @RequestMapping(value="/course/update",method = RequestMethod.GET)
+    @RequestMapping(value="/course/update",method = RequestMethod.POST)
     public ModelAndView UpdateCourse(HttpServletRequest req){
         Course course;
         if(req.getParameter("Course.courseId")== ""){
