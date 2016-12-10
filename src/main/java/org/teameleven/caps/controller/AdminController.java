@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import org.teameleven.caps.model.Course;
-import org.teameleven.caps.model.Student;
+import org.teameleven.caps.business.EnrollStatus;
+import org.teameleven.caps.model.*;
 import org.teameleven.caps.repository.AdminRepository;
 import org.teameleven.caps.repository.CourseRepository;
 import org.teameleven.caps.repository.LecturerRepository;
@@ -36,10 +36,6 @@ import org.springframework.data.domain.Sort;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.teameleven.caps.model.Admin;
-import org.teameleven.caps.model.EnroledCourse;
-import org.teameleven.caps.model.Lecturer;
-import org.teameleven.caps.model.User;
 import org.teameleven.caps.repository.EnroledCourseRepository;
 import org.teameleven.caps.repository.UserRepository;
 
@@ -174,7 +170,7 @@ public class AdminController {
     @RequestMapping("/student/del")
     public ModelAndView deleteStudent(@RequestParam("studentId") String studentId) {
         studentDao.delete(Integer.parseInt(studentId));
-        ModelAndView v = new ModelAndView("redirec:list");
+        ModelAndView v = new ModelAndView("redirect:list");
         return v;
     }
 
@@ -482,6 +478,51 @@ public class AdminController {
         return listAllCourses(req);
     }
 
+    @RequestMapping(value="/enroll/show")
+    private ModelAndView ManageEnrollment(HttpServletRequest req){
+        ModelAndView v=new ModelAndView("manageEnrollment");
+        String pageId=req.getParameter("pageId");
+        int pId=0;
+        if(pageId!=null&&!pageId.equals("")){
+            pId=Integer.parseInt(pageId);
+            v.addObject("pageId",pId);
+        }
+        PageRequest pr=new PageRequest(pId,10);
+        int size=enroledDao.findAll().size();
+        int count=size/10+(size%10==0?0:1);
+        Page<EnroledCourse> pg=enroledDao.findAll(pr);
+        v.addObject("enroledCourseList",pg.getContent());
+        v.addObject("count",count);
+        v.addObject("courses",courseDao.findAll());
+        v.addObject("students",studentDao.findAll());
+        return v;
+    }
+
+    @RequestMapping(value = "/enroll/manage")
+    private ModelAndView updateEnrollmentStatus(HttpServletRequest req){
+        if(req.getParameter("studentId")==null||req.getParameter("status").equals(EnrollStatus.COMPLETED.name())){
+            ModelAndView v=new ModelAndView("redirect:show");
+            return v;
+        }else {
+            int studentId = Integer.parseInt(req.getParameter("studentId"));
+            int courseId = Integer.parseInt(req.getParameter("courseId"));
+            String status = req.getParameter("action");
+            EnroledCoursePK enroledCoursePK = new EnroledCoursePK(studentId, courseId);
+
+            EnroledCourse enroledCourse = enroledDao.findOne(enroledCoursePK);
+            enroledCourse.setStatus(status);
+            enroledDao.saveAndFlush(enroledCourse);
+            if(status == EnrollStatus.APPROVE.name()){
+
+            }
+
+            ModelAndView v = new ModelAndView("manageEnrollment");
+            v.addObject("enroledCourseList", enroledDao.findAll());
+            v.addObject("courses", courseDao.findAll());
+            v.addObject("students", studentDao.findAll());
+            return v;
+        }
+    }
     private ModelAndView getDebug(String Message) {
         ModelAndView m = new ModelAndView("debug");
         m.addObject("message", Message);

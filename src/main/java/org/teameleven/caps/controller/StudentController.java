@@ -27,6 +27,9 @@ import org.teameleven.caps.model.Student;
 import org.teameleven.caps.model.User;
 import org.teameleven.caps.repository.CourseRepository;
 import org.teameleven.caps.repository.EnroledCourseRepository;
+import org.teameleven.caps.repository.UserRepository;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.teameleven.caps.repository.StudentRepository;
 
 @Controller
 @RequestMapping("/student")
@@ -36,6 +39,10 @@ public class StudentController {
     CourseRepository courseDao;
     @Autowired
     EnroledCourseRepository enrolDao;
+    @Autowired
+    StudentRepository studDao;
+    @Autowired
+    UserRepository userDao;
 
     private ModelAndView getDebug(String Message) {
         ModelAndView m = new ModelAndView("debug");
@@ -56,6 +63,23 @@ public class StudentController {
         }
 
         return v;
+    }
+    
+//    @RequestMapping("/profile")
+//    public ModelAndView studentProfile(@RequestParam int userId ) {
+//        
+//        ModelAndView mav = new ModelAndView("/student/student-profile");
+//        mav.addObject("user", userDao.findOne(userId));
+//        return mav;
+//    }
+    
+    @RequestMapping("/profile")
+    public ModelAndView studentProfile(HttpServletRequest req) {
+        
+        ModelAndView mav = new ModelAndView("/student/student-profile");
+        //mav.addObject("student", studDao.findOne(5));
+        mav.addObject("user", userDao.findOne(5)); //need to go according to User Session.
+        return mav;
     }
 
     @RequestMapping("/view")

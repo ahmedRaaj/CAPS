@@ -7,7 +7,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>Caps Maven Webapp</name>
     <url>http://maven.apache.org</url>
-  
+
     <properties>
         <jdk.version>1.8</jdk.version>
         <spring.version>4.2.6.RELEASE</spring.version>
@@ -129,11 +129,11 @@
             <artifactId>logback-classic</artifactId>
             <version>${logback.version}</version>
         </dependency>
-                
+
         <dependency>
             <groupId>javax.servlet.jsp</groupId>
-            <artifactId>jsp-api</artifactId>
-            <version>2.0</version>
+            <artifactId>javax.servlet.jsp-api</artifactId>
+            <version>2.3.2-b01</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -144,8 +144,8 @@
 
         <dependency>
             <groupId>javax.servlet.jsp</groupId>
-            <artifactId>jsp-api</artifactId>
-            <version>2.1</version>
+            <artifactId>javax.servlet.jsp-api</artifactId>
+            <version>2.3.2-b01</version>
             <scope>provided</scope>
         </dependency>
 
@@ -161,11 +161,11 @@
             <artifactId>mail</artifactId>
             <version>1.4</version>
         </dependency>
-        
+
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
-            <version>7.0</version>
+            <version>RELEASE</version>
         </dependency>
         <dependency>
             <groupId>javax.mail</groupId>
@@ -210,6 +210,6 @@
 
     </build>
 
-  
-  
+
+
 </project>

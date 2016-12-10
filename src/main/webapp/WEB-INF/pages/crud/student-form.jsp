@@ -39,6 +39,10 @@
                     <input type="text" name="student.nric" id="student.nric" class="form-control" value="${student.nric}"  required="true"/>
 
                     <br/>
+                                    <div>
+                   
+                    <button type="submit" class="btn btn-primary  btn-md">Accept</button> 
+                </div>
                     </div>
 
                 <div class="form-group col-xs-6">
@@ -66,10 +70,6 @@
 
                     <label for="student.user.status"  class="control-label col-xs-6">Status:</label>
                     <input type="text" name="student.user.status" id="student.user.status" class="form-control" value="${student.user.status}" required="true"/>
-                </div>
-                <div>
-                    <br/>
-                    <button type="submit" class="btn btn-primary  btn-md">Accept</button> 
                 </div>
 
             </form>
