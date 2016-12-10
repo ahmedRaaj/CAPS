@@ -248,12 +248,12 @@ public class AdminController {
         l.setUser(user);
         lecDao.saveAndFlush(l);
 
-        ModelAndView v = new ModelAndView("crud/lecturer-list");
-        v.addObject("lecturerList", lecDao.findAll());
+        ModelAndView v = new ModelAndView("redirect:list");
         return v;
     }
 
-    private void setUser(User user, String address, String email, String password, String phone, String role, String status, String userName, String firstName, String lastName, Date dob, String gender) {
+    private void setUser(User user, String address, String email, String password, String phone, String role,
+                         String status, String userName, String firstName, String lastName, Date dob, String gender) {
         user.setAddress(address);
         user.setEmail(email);
         user.setPassword(password);
@@ -265,6 +265,7 @@ public class AdminController {
         user.setLastName(lastName);
         user.setDob(dob);
         user.setGender(gender);
+
     }
 
     @RequestMapping("/lecturer/edit")
@@ -331,7 +332,7 @@ public class AdminController {
         return v;
     }
 
-    @RequestMapping(value = "/admin/update", method = RequestMethod.GET)
+    @RequestMapping(value = "/admin/update", method = RequestMethod.POST)
     public ModelAndView addOrUpdateAdmin(HttpServletRequest req) throws ParseException {
         Admin admin;
         User user;
@@ -361,8 +362,8 @@ public class AdminController {
         String adminAddress = req.getParameter("admin.user.address");
         String adminStatus = req.getParameter("admin.user.status");
 //        String adminId = req.getParameter("admin.adminId"); //Attribute type Integer
-        String adminPosition = req.getParameter("admin.position");
-//        return getDebug(adminDob.toString());
+        String adminPosition = req.getParameter("admin.user.position");
+//        return getDebug(adminPosition);
         setUser(user, adminAddress, adminEmail, userPassword, adminPhone, adminPosition,
                 adminStatus, userName, adminFirstName, adminlastName, adminDob, adminGender);
         admin.setUser(user);
@@ -452,7 +453,7 @@ public class AdminController {
         return v;
     }
 
-    @RequestMapping(value = "/course/update", method = RequestMethod.GET)
+    @RequestMapping(value = "/course/update", method = RequestMethod.POST)
     public ModelAndView UpdateCourse(HttpServletRequest req) {
         Course course;
         if (req.getParameter("Course.courseId") == "") {
@@ -498,7 +499,7 @@ public class AdminController {
         return v;
     }
 
-    @RequestMapping(value = "/enroll/manage")
+    @RequestMapping(value = "/enroll/manage" )
     private ModelAndView updateEnrollmentStatus(HttpServletRequest req){
         if(req.getParameter("studentId")==null||req.getParameter("status").equals(EnrollStatus.COMPLETED.name())){
             ModelAndView v=new ModelAndView("redirect:show");
@@ -513,11 +514,20 @@ public class AdminController {
             enroledCourse.setStatus(status);
             enroledDao.saveAndFlush(enroledCourse);
             if(status == EnrollStatus.APPROVE.name()){
-
             }
 
+            String pageId=req.getParameter("pageId");
+            int pId=0;
+            if(pageId!=null&&!pageId.equals("")){
+                pId=Integer.parseInt(pageId);
+            }
+            PageRequest pr=new PageRequest(pId,10);
+            int size=enroledDao.findAll().size();
+            int count=size/10+(size%10==0?0:1);
+            Page<EnroledCourse> pg=enroledDao.findAll(pr);
+
             ModelAndView v = new ModelAndView("manageEnrollment");
-            v.addObject("enroledCourseList", enroledDao.findAll());
+            v.addObject("enroledCourseList", pg.getContent());
             v.addObject("courses", courseDao.findAll());
             v.addObject("students", studentDao.findAll());
             return v;
