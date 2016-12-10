@@ -13,9 +13,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.util.StringUtils;
+import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import org.springframework.web.servlet.support.RequestContextUtils;
+import org.teameleven.caps.controller.LogInController;
 import org.teameleven.caps.model.User;
 
 /**
@@ -29,11 +31,17 @@ public class StudentRoleInterceptor extends HandlerInterceptorAdapter {
             throws ServletException {
 
         HttpSession session = request.getSession();
-        if(session == null || session.getAttribute("user") == null || !((User)session.getAttribute("user")).getRole().equals(UserRole.student)){
-            try {
-                response.sendRedirect("../");
-                return false;
-            } catch (IOException ex) {
+
+        if (handler instanceof HandlerMethod
+                && ((HandlerMethod) handler).getBean() instanceof LogInController) {
+            return true;
+        }
+        if (session == null || session.getAttribute("user") == null) {
+             try {
+            response.sendRedirect("../");
+             return false;
+             } 
+            catch (IOException ex) {
                 Logger.getLogger(StudentRoleInterceptor.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
