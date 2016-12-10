@@ -25,7 +25,7 @@
 			 </div>
 
 
-		 <div class="col-sm-7 col-sm-offset-2 col-md-7 col-md-offset-2">
+		 <div class="col-sm-7 col-sm-offset-1 col-md-7 col-md-offset-1">
 			 <%
 			 }%>
 			 <h3>
