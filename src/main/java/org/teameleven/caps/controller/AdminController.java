@@ -76,12 +76,13 @@ public class AdminController {
 
         return v;
     }
+
     @RequestMapping(value = "/student/search", method = RequestMethod.POST)
-    public ModelAndView searchStudent(@RequestParam("search") String search){
-         List<Student> collect = studentDao.findAll().stream().filter(s->s.getSearchHash().contains(search.toLowerCase())).collect(Collectors.toList());
-         ModelAndView v = new ModelAndView("crud/student-list");
-         v.addObject("studentList", collect);
-         return v;
+    public ModelAndView searchStudent(@RequestParam("search") String search) {
+        List<Student> collect = studentDao.findAll().stream().filter(s -> s.getSearchHash().contains(search.toLowerCase())).collect(Collectors.toList());
+        ModelAndView v = new ModelAndView("crud/student-list");
+        v.addObject("studentList", collect);
+        return v;
     }
 
     @RequestMapping("/student/list")
@@ -89,18 +90,17 @@ public class AdminController {
         ModelAndView v = new ModelAndView("crud/student-list");
         String pageId = req.getParameter("pageId");
         int pId = 0;
-        if(pageId != null && !pageId.equals("")){
-            pId= Integer.parseInt(pageId);
-            v.addObject("pageId",pId);
+        if (pageId != null && !pageId.equals("")) {
+            pId = Integer.parseInt(pageId);
+            v.addObject("pageId", pId);
         }
         PageRequest pr = new PageRequest(pId, 5);
         int size = studentDao.findAll().size();
-        int count = size/5 + (size%5 == 0 ? 0 : 1);
+        int count = size / 5 + (size % 5 == 0 ? 0 : 1);
         Page<Student> pg = studentDao.findAll(pr);
         v.addObject("studentList", pg.getContent());
-        v.addObject("count" ,count);
-        
-        
+        v.addObject("count", count);
+
         return v;
     }
 
@@ -149,7 +149,7 @@ public class AdminController {
         s.setUser(u);
         studentDao.save(s);
         ModelAndView v = new ModelAndView("redirect:list");
-       // v.addObject("studentList", studentDao.findAll());
+        // v.addObject("studentList", studentDao.findAll());
         return v;
     }
 
@@ -180,9 +180,21 @@ public class AdminController {
 
     /*Lecturer Part*/
     @RequestMapping("/lecturer/list")
-    public ModelAndView listAllLecturers() {
+    public ModelAndView listAllLecturers(HttpServletRequest req) {
         ModelAndView v = new ModelAndView("crud/lecturer-list");
-        v.addObject("lecturerList", lecDao.findAll());
+        String pageId = req.getParameter("pageId");
+        int pId = 0;
+        if (pageId != null && !pageId.equals("")) {
+            pId = Integer.parseInt(pageId);
+            v.addObject("pageId", pId);
+        }
+        PageRequest pr = new PageRequest(pId, 5);
+        int size = lecDao.findAll().size();
+        int count = size / 5 + (size % 5 == 0 ? 0 : 1);
+        Page<Lecturer> pg = lecDao.findAll(pr);
+        v.addObject("lecturerList", pg.getContent());
+        v.addObject("count", count);
+
         return v;
     }
 
@@ -267,6 +279,14 @@ public class AdminController {
         return v;
     }
 
+    @RequestMapping(value = "/lecturer/search", method = RequestMethod.POST)
+    public ModelAndView searchLecturer(@RequestParam("search") String search) {
+        List<Lecturer> collect = lecDao.findAll().stream().filter(s -> s.getSearchHash().contains(search.toLowerCase())).collect(Collectors.toList());
+        ModelAndView v = new ModelAndView("crud/lecturer-list");
+        v.addObject("lecturerList", collect);
+        return v;
+    }
+
     @RequestMapping("/lecturer/new")
     public ModelAndView showLecturerFormNew() {
         Lecturer l = new Lecturer();
@@ -288,28 +308,47 @@ public class AdminController {
 
  /*Admin Control Part*/
     @RequestMapping("admin/list")
-    public ModelAndView listAllAdmins() {
+ public ModelAndView listAllAdmins(HttpServletRequest req) {
         ModelAndView v = new ModelAndView("crud/admin-list");
-        v.addObject("adminList", adminDao.findAll());
+        String pageId = req.getParameter("pageId");
+        int pId = 0;
+        if (pageId != null && !pageId.equals("")) {
+            pId = Integer.parseInt(pageId);
+            v.addObject("pageId", pId);
+        }
+        PageRequest pr = new PageRequest(pId, 5);
+        int size = adminDao.findAll().size();
+        int count = size / 5 + (size % 5 == 0 ? 0 : 1);
+        Page<Admin> pg = adminDao.findAll(pr);
+        v.addObject("adminList", pg.getContent());
+        v.addObject("count", count);
+
         return v;
     }
 
-    @RequestMapping(value = "/admin/update", method = RequestMethod.POST)
-    public ModelAndView addOrUpdateAdmin( HttpServletRequest req) throws ParseException {
+    
+      @RequestMapping(value = "/admin/search", method = RequestMethod.POST)
+    public ModelAndView searchAdmin(@RequestParam("search") String search) {
+        List<Admin> collect = adminDao.findAll().stream().filter(s -> s.getSearchHash().contains(search.toLowerCase())).collect(Collectors.toList());
+        ModelAndView v = new ModelAndView("crud/admin-list");
+        v.addObject("adminList", collect);
+        return v;
+    }
+
+    @RequestMapping(value = "/admin/update", method = RequestMethod.GET)
+    public ModelAndView addOrUpdateAdmin(HttpServletRequest req) throws ParseException {
         Admin admin;
         User user;
-        if(req.getParameter("admin.adminId")== ""){
-            admin=new Admin();
+        if (req.getParameter("admin.adminId") == "") {
+            admin = new Admin();
+        } else {
+            admin = adminDao.findOne(Integer.parseInt(req.getParameter("admin.adminId")));
         }
-        else{
-            admin=adminDao.findOne(Integer.parseInt(req.getParameter("admin.adminId")));
-        }
-        if(req.getParameter("admin.user.userId")== ""){
-            user=new User();
+        if (req.getParameter("admin.user.userId") == "") {
+            user = new User();
 //            return getDebug("new user");
-        }
-        else{
-            user=userDao.findOne(Integer.parseInt(req.getParameter("admin.user.userId")));
+        } else {
+            user = userDao.findOne(Integer.parseInt(req.getParameter("admin.user.userId")));
 //            return getDebug(user.toString());
         }
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-mm-dd");
@@ -324,7 +363,7 @@ public class AdminController {
         String adminEmail = req.getParameter("admin.user.email");
         String adminPhone = req.getParameter("admin.user.phone");
         String adminAddress = req.getParameter("admin.user.address");
-        String adminStatus=req.getParameter("admin.user.status");
+        String adminStatus = req.getParameter("admin.user.status");
 //        String adminId = req.getParameter("admin.adminId"); //Attribute type Integer
         String adminPosition = req.getParameter("admin.position");
 //        return getDebug(adminDob.toString());
@@ -367,53 +406,71 @@ public class AdminController {
 
     /*End Admin Part*/
     @RequestMapping("/course/list")
-    public ModelAndView listAllCourses() {
-        List<Course> courseList=courseDao.findAll();
+ public ModelAndView listAllCourses(HttpServletRequest req) {
         ModelAndView v = new ModelAndView("crud/course-list");
-        v.addObject("courseList",courseList);
+        String pageId = req.getParameter("pageId");
+        int pId = 0;
+        if (pageId != null && !pageId.equals("")) {
+            pId = Integer.parseInt(pageId);
+            v.addObject("pageId", pId);
+        }
+        PageRequest pr = new PageRequest(pId, 5);
+        int size = courseDao.findAll().size();
+        int count = size / 5 + (size % 5 == 0 ? 0 : 1);
+        Page<Course> pg = courseDao.findAll(pr);
+        v.addObject("courseList", pg.getContent());
+        v.addObject("count", count);
+
+        return v;
+    }
+    
+          @RequestMapping(value = "/course/search", method = RequestMethod.POST)
+    public ModelAndView searchCourse(@RequestParam("search") String search) {
+        List<Course> collect = courseDao.findAll().stream().filter(s -> s.getSearchHash().contains(search.toLowerCase())).collect(Collectors.toList());
+        ModelAndView v = new ModelAndView("crud/course-list");
+        v.addObject("courseList", collect);
         return v;
     }
 
     @RequestMapping(value = "/course/edit")
-    public ModelAndView createOrEditCourse(int courseId){
+    public ModelAndView createOrEditCourse(int courseId) {
         ModelAndView v = new ModelAndView("crud/course-form");
-        v.addObject("Course",courseDao.findOne(courseId));
+        v.addObject("Course", courseDao.findOne(courseId));
         return v;
     }
+
     @RequestMapping(value = "/course/add")
-    public ModelAndView createOrEditCourse(){
+    public ModelAndView createOrEditCourse() {
         ModelAndView v = new ModelAndView("crud/course-form");
-        Course course=new Course();
-        v.addObject("Course",course);
+        Course course = new Course();
+        v.addObject("Course", course);
         return v;
     }
 
     @RequestMapping(value = "/course/del")
-    public ModelAndView deleteCourse(int courseId){
+    public ModelAndView deleteCourse(int courseId) {
         courseDao.delete(courseId);
-        List<Course> courseList=courseDao.findAll();
+        List<Course> courseList = courseDao.findAll();
         ModelAndView v = new ModelAndView("crud/course-list");
-        v.addObject("courseList",courseList);
+        v.addObject("courseList", courseList);
         return v;
     }
 
-
-    @RequestMapping(value="/course/update",method = RequestMethod.POST)
-    public ModelAndView UpdateCourse(HttpServletRequest req){
+    @RequestMapping(value = "/course/update", method = RequestMethod.GET)
+    public ModelAndView UpdateCourse(HttpServletRequest req) {
         Course course;
-        if(req.getParameter("Course.courseId")== ""){
-            course=new Course();
+        if (req.getParameter("Course.courseId") == "") {
+            course = new Course();
 //            return getDebug("its null");
-        }
-        else{
-            course=courseDao.findOne(Integer.parseInt(req.getParameter("Course.courseId")));
+        } else {
+            course = courseDao.findOne(Integer.parseInt(req.getParameter("Course.courseId")));
         }
 
-        String courseName=req.getParameter("Course.name");
-        String courseDuration=req.getParameter("Course.duration");
-        String courseCredits=req.getParameter("Course.credits");
-        String courseSize=req.getParameter("Course.courseSize");
-        String courseLecturer=req.getParameter("Course.lecturerId");
+        String courseName = req.getParameter("Course.name");
+        String courseDuration = req.getParameter("Course.duration");
+        String courseCredits = req.getParameter("Course.credits");
+        String courseSize = req.getParameter("Course.courseSize");
+        String courseLecturer = req.getParameter("Course.lecturerId");
 //        return getDebug(req.getParameter("Course.courseId") + " " + courseName + " " + courseCredits + " " + courseSize + courseLecturer + courseDuration);
 
         course.setName(courseName);
@@ -422,7 +479,7 @@ public class AdminController {
         course.setDuration(courseDuration);
         course.setLecturer(lecDao.findOne(Integer.parseInt(courseLecturer)));
         courseDao.save(course);
-        return listAllCourses();
+        return listAllCourses(req);
     }
 
     private ModelAndView getDebug(String Message) {
