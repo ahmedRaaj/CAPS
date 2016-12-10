@@ -18,7 +18,7 @@
 
             <h2>Students</h2>
             <!--Search Form -->
-            <form action="${pageContext.request.contextPath}/admin/student/search" method="post" id="seachStudentForm" role="form" >
+            <form action="${pageContext.request.contextPath}/admin/student.search" method="post" id="seachStudentForm" role="form" >
                 <div class="form-group col-xs-5">
                     <input type="text" name="search" id="search" class="form-control" required="true" 
                            placeholder="Search By Anything"/>                    
@@ -31,7 +31,7 @@
 
             <br/>
             <br/>
-            <form action="${pageContext.request.contextPath}/admin/student/list" method="post" id="studentForm" role="form" >  
+            <form action="${pageContext.request.contextPath}/admin/student.list" method="post" id="studentForm" role="form" >
                 <input type="hidden" id="studentId" name="studentId">
                 <input type="hidden" id="action" name="action">
                 <c:choose>
@@ -94,10 +94,10 @@
                             <c:forEach var="i" begin="0" end="${count-1}" >
                                 <c:choose>
                                     <c:when test="${pageId == i}">
-                                        <li class="active">  <a  href="${pageContext.request.contextPath}/admin/student/list?pageId=${i}">${i+1}</a></li>
+                                        <li class="active">  <a  href="${pageContext.request.contextPath}/admin/student.list?pageId=${i}">${i+1}</a></li>
                                         </c:when>
                                         <c:otherwise>
-                                        <li>  <a class="" href="${pageContext.request.contextPath}/admin/student/list?pageId=${i}">${i+1}</a> </li>
+                                        <li>  <a class="" href="${pageContext.request.contextPath}/admin/student.list?pageId=${i}">${i+1}</a> </li>
                                         </c:otherwise>
                                     </c:choose>
                                 </c:forEach>
@@ -105,7 +105,7 @@
                     </div>
                 </c:when>
                 <c:otherwise>
-                    <form action ="${pageContext.request.contextPath}/admin/student/list">            
+                    <form action ="${pageContext.request.contextPath}/admin/student.list">
                         <br/>
                         <button type="submit" class="btn btn-primary  btn-md">Back</button> 
                     </form>

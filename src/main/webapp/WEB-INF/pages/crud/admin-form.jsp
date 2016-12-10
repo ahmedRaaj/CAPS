@@ -13,7 +13,7 @@
     </head>
     <body>
         <div class="container">
-            <form action="${pageContext.request.contextPath}/admin/admin/update" method="post"  role="form" data-toggle="validator" >
+            <form action="${pageContext.request.contextPath}/admin/admin.update" method="post"  role="form" data-toggle="validator" >
                 <c:if test ="${empty action}">                        	
                     <c:set var="action" value="add"/>
                 </c:if>
