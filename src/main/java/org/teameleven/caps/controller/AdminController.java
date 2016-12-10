@@ -513,7 +513,7 @@ public class AdminController {
             EnroledCourse enroledCourse = enroledDao.findOne(enroledCoursePK);
             enroledCourse.setStatus(status);
             enroledDao.saveAndFlush(enroledCourse);
-            if(status == EnrollStatus.APPROVE.name()){
+            if(status == EnrollStatus.APPROVED.name()){
             }
 
             String pageId=req.getParameter("pageId");
