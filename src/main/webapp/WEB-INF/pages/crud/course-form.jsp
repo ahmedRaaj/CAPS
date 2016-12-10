@@ -17,7 +17,7 @@
 <h2>Course</h2>
 
 <div class="container">
-    <form  name="Course" action="${pageContext.request.contextPath}/admin/course/update" role="form" method="post" data-toggle="validator"   >
+    <form  name="Course" action="${pageContext.request.contextPath}/admin/course/update" role="form" method="get" data-toggle="validator"   >
         <div class="form-group col-xs-8">
             <br/>
             <input  type="hidden" name="Course.courseId" id="Course.courseId" class="form-control" value="${Course.courseId}" />
