@@ -18,7 +18,7 @@
     <h2>Courses</h2>
     <!--Search Form -->
 
-    <form action="${pageContext.request.contextPath}/admin/course/search" method="post" id="seachCourseForm" role="form" >
+    <form action="${pageContext.request.contextPath}/admin/course.search" method="post" id="seachCourseForm" role="form" >
         <div class="form-group col-xs-5">
             <input type="text" name="search" id="search" class="form-control" required="true"
                    placeholder="Search by anything of the Course"/>
@@ -30,7 +30,7 @@
         <br/>
     </form>
 
-    <form action="${pageContext.request.contextPath}/admin/course/list" method="post" id="courseForm" role="form">
+    <form action="${pageContext.request.contextPath}/admin/course.list" method="post" id="courseForm" role="form">
         <c:choose>
             <c:when test="${not empty courseList}">
                 <table class="table table-responsive">

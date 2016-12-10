@@ -19,7 +19,7 @@
             </h2>
 
             <!-- Search Form -->
-            <form action="${pageContext.request.contextPath}/admin/lecturer/search" method="post" id="searchLecturerForm" role="form">
+            <form action="${pageContext.request.contextPath}/admin/lecturer.search" method="post" id="searchLecturerForm" role="form">
                 <div class="form-group col-xs-5">
                     <input type="text" name="search" id="search" class="form-control" required="true"
                            placeholder="Search by anything of the Lecture"/>
@@ -33,7 +33,7 @@
                 <br/>
             </form>
 
-            <form action="${pageContext.request.contextPath}/admin/lecturer/list" method="post" id="lecturerForm" role="form">
+            <form action="${pageContext.request.contextPath}/admin/lecturer.list" method="post" id="lecturerForm" role="form">
                 <input type="hidden" id="lecturerId" name="lecturerId">
                 <input type="hidden" id="action" name="action">
 

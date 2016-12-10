@@ -73,7 +73,7 @@ public class AdminController {
         return v;
     }
 
-    @RequestMapping(value = "/student/search", method = RequestMethod.POST)
+    @RequestMapping(value = "/student.search", method = RequestMethod.POST)
     public ModelAndView searchStudent(@RequestParam("search") String search) {
         List<Student> collect = studentDao.findAll().stream().filter(s -> s.getSearchHash().contains(search.toLowerCase())).collect(Collectors.toList());
         ModelAndView v = new ModelAndView("crud/student-list");
@@ -81,7 +81,7 @@ public class AdminController {
         return v;
     }
 
-    @RequestMapping("/student/list")
+    @RequestMapping("/student.list")
     public ModelAndView listAllStudent(HttpServletRequest req) {
         ModelAndView v = new ModelAndView("crud/student-list");
         String pageId = req.getParameter("pageId");
@@ -100,7 +100,7 @@ public class AdminController {
         return v;
     }
 
-    @RequestMapping(value = "/student/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/student.add", method = RequestMethod.POST)
     public ModelAndView addOrUpdateStudent(@ModelAttribute("student") Student stu, HttpServletRequest req) {
         String firstName = req.getParameter("student.user.firstName");
         String lastname = req.getParameter("student.user.lastName");
@@ -149,7 +149,7 @@ public class AdminController {
         return v;
     }
 
-    @RequestMapping("/student/edit")
+    @RequestMapping("/student.edit")
     public ModelAndView showStudentFormEdit(@RequestParam("studentId") String studentId) {
         Student s = studentDao.findOne(Integer.parseInt(studentId));
         ModelAndView v = new ModelAndView("crud/student-form");
@@ -157,7 +157,7 @@ public class AdminController {
         return v;
     }
 
-    @RequestMapping("/student/new")
+    @RequestMapping("/student.new")
     public ModelAndView showStudentFormNew() {
         Student s = new Student();
         User u = new User();
@@ -167,7 +167,7 @@ public class AdminController {
         return v;
     }
 
-    @RequestMapping("/student/del")
+    @RequestMapping("/student.del")
     public ModelAndView deleteStudent(@RequestParam("studentId") String studentId) {
         studentDao.delete(Integer.parseInt(studentId));
         ModelAndView v = new ModelAndView("redirect:list");
@@ -175,7 +175,7 @@ public class AdminController {
     }
 
     /*Lecturer Part*/
-    @RequestMapping("/lecturer/list")
+    @RequestMapping("/lecturer.list")
     public ModelAndView listAllLecturers(HttpServletRequest req) {
         ModelAndView v = new ModelAndView("crud/lecturer-list");
         String pageId = req.getParameter("pageId");
@@ -194,7 +194,7 @@ public class AdminController {
         return v;
     }
 
-    @RequestMapping(value = "/lecturer/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/lecturer.add", method = RequestMethod.POST)
     public ModelAndView addOrUpdateLecturer(@ModelAttribute("lecturer") Lecturer lecturer, HttpServletRequest req) {
         User user;
         Lecturer l;
@@ -268,7 +268,7 @@ public class AdminController {
 
     }
 
-    @RequestMapping("/lecturer/edit")
+    @RequestMapping("/lecturer.edit")
     public ModelAndView showLecturerFormEdit(@RequestParam("lecturerId") String lecturerId) {
         Lecturer l = lecDao.findOne(Integer.parseInt(lecturerId));
         ModelAndView v = new ModelAndView("crud/lecturer-form");
@@ -276,7 +276,7 @@ public class AdminController {
         return v;
     }
 
-    @RequestMapping(value = "/lecturer/search", method = RequestMethod.POST)
+    @RequestMapping(value = "/lecturer.search", method = RequestMethod.POST)
     public ModelAndView searchLecturer(@RequestParam("search") String search) {
         List<Lecturer> collect = lecDao.findAll().stream().filter(s -> s.getSearchHash().contains(search.toLowerCase())).collect(Collectors.toList());
         ModelAndView v = new ModelAndView("crud/lecturer-list");
@@ -284,7 +284,7 @@ public class AdminController {
         return v;
     }
 
-    @RequestMapping("/lecturer/new")
+    @RequestMapping("/lecturer.new")
     public ModelAndView showLecturerFormNew() {
         Lecturer l = new Lecturer();
         ModelAndView v = new ModelAndView("crud/lecturer-form");
@@ -292,7 +292,7 @@ public class AdminController {
         return v;
     }
 
-    @RequestMapping("/lecturer/del")
+    @RequestMapping("/lecturer.del")
     public ModelAndView deleteLecturer(@RequestParam("lecturerId") String lecturerId) {
         lecDao.delete(Integer.parseInt(lecturerId));
         //  lecDao.flush();
@@ -304,7 +304,7 @@ public class AdminController {
     /*Lecturer Part End*/
 
  /*Admin Control Part*/
-    @RequestMapping("admin/list")
+    @RequestMapping("admin.list")
  public ModelAndView listAllAdmins(HttpServletRequest req) {
         ModelAndView v = new ModelAndView("crud/admin-list");
         String pageId = req.getParameter("pageId");
@@ -324,7 +324,7 @@ public class AdminController {
     }
 
     
-      @RequestMapping(value = "/admin/search", method = RequestMethod.POST)
+      @RequestMapping(value = "/admin.search", method = RequestMethod.POST)
     public ModelAndView searchAdmin(@RequestParam("search") String search) {
         List<Admin> collect = adminDao.findAll().stream().filter(s -> s.getSearchHash().contains(search.toLowerCase())).collect(Collectors.toList());
         ModelAndView v = new ModelAndView("crud/admin-list");
@@ -332,7 +332,7 @@ public class AdminController {
         return v;
     }
 
-    @RequestMapping(value = "/admin/update", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin.update", method = RequestMethod.POST)
     public ModelAndView addOrUpdateAdmin(HttpServletRequest req) throws ParseException {
         Admin admin;
         User user;
@@ -376,7 +376,7 @@ public class AdminController {
 
     }
 
-    @RequestMapping("/admin/edit")
+    @RequestMapping("/admin.edit")
     public ModelAndView showAdminFormEdit(int adminId) {
         Admin a = adminDao.findOne(adminId);
         ModelAndView v = new ModelAndView("crud/admin-form");
@@ -384,7 +384,7 @@ public class AdminController {
         return v;
     }
 
-    @RequestMapping("/admin/new")
+    @RequestMapping("/admin.new")
     public ModelAndView showAdminFormNew() {
         Admin a = new Admin();
         ModelAndView v = new ModelAndView("crud/admin-form");
@@ -392,7 +392,7 @@ public class AdminController {
         return v;
     }
 
-    @RequestMapping("/admin/del")
+    @RequestMapping("/admin.del")
     public ModelAndView deleteAdmin(@RequestParam("adminId") String adminId) {
         adminDao.delete(Integer.parseInt(adminId));
         adminDao.flush();
@@ -402,7 +402,7 @@ public class AdminController {
     }
 
     /*End Admin Part*/
-    @RequestMapping("/course/list")
+    @RequestMapping("/course.list")
  public ModelAndView listAllCourses(HttpServletRequest req) {
         ModelAndView v = new ModelAndView("crud/course-list");
         String pageId = req.getParameter("pageId");
@@ -421,7 +421,7 @@ public class AdminController {
         return v;
     }
     
-          @RequestMapping(value = "/course/search", method = RequestMethod.POST)
+          @RequestMapping(value = "/course.search", method = RequestMethod.POST)
     public ModelAndView searchCourse(@RequestParam("search") String search) {
         List<Course> collect = courseDao.findAll().stream().filter(s -> s.getSearchHash().contains(search.toLowerCase())).collect(Collectors.toList());
         ModelAndView v = new ModelAndView("crud/course-list");
@@ -429,14 +429,14 @@ public class AdminController {
         return v;
     }
 
-    @RequestMapping(value = "/course/edit")
+    @RequestMapping(value = "/course.edit")
     public ModelAndView createOrEditCourse(int courseId) {
         ModelAndView v = new ModelAndView("crud/course-form");
         v.addObject("Course", courseDao.findOne(courseId));
         return v;
     }
 
-    @RequestMapping(value = "/course/add")
+    @RequestMapping(value = "/course.add")
     public ModelAndView createOrEditCourse() {
         ModelAndView v = new ModelAndView("crud/course-form");
         Course course = new Course();
@@ -444,7 +444,7 @@ public class AdminController {
         return v;
     }
 
-    @RequestMapping(value = "/course/del")
+    @RequestMapping(value = "/course.del")
     public ModelAndView deleteCourse(int courseId) {
         courseDao.delete(courseId);
         List<Course> courseList = courseDao.findAll();
@@ -453,7 +453,7 @@ public class AdminController {
         return v;
     }
 
-    @RequestMapping(value = "/course/update", method = RequestMethod.POST)
+    @RequestMapping(value = "/course.update", method = RequestMethod.POST)
     public ModelAndView UpdateCourse(HttpServletRequest req) {
         Course course;
         if (req.getParameter("Course.courseId") == "") {
@@ -499,7 +499,7 @@ public class AdminController {
         return v;
     }
 
-    @RequestMapping(value = "/enroll/manage" )
+    @RequestMapping(value = "/enroll.manage" )
     private ModelAndView updateEnrollmentStatus(HttpServletRequest req){
         if(req.getParameter("studentId")==null||req.getParameter("status").equals(EnrollStatus.COMPLETED.name())){
             ModelAndView v=new ModelAndView("redirect:show");
