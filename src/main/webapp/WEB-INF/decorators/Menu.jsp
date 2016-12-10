@@ -48,7 +48,7 @@
                         <li><a href="../lecturer/gradecourse">Grade Course</a></li>
                     </ul>
                 </li>
-                <li ><a href="../lecturer/viewenrolment">Course Enrolment<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list-alt"></span></a></li>
+                <li ><a href="../lecturer/viewenrolment">Course Enrollment<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list-alt"></span></a></li>
                 <li ><a href="../lecturer/viewperformance">Student Performance<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-book"></span></a></li>
 
                 <%}
