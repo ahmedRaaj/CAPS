@@ -11,9 +11,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-        <title>JSP Page</title>
+        <title>Student List</title>
     </head>
-    <body>
+    <body>			
         <div class="container">
 
             <h2>Students</h2>
@@ -55,8 +55,8 @@
                                     <c:set var="classSucess" value="info"/>
                                 </c:if>
                                 <tr class="${classSucess}">
-                                    <td><a href="edit?studentId=${student.studentId}">${student.studentId}</a></td>
-
+                                    <%--<td><a href="edit?studentId=${student.studentId}">${student.studentId}</a></td>--%>
+                                    <td>${student.studentId}</td>
                                     <td>${student.user.firstName}</td>
                                     <td>${student.user.lastName}</td>
                                     <td>${student.user.gender}</td> 
@@ -64,12 +64,17 @@
                                     <td>${student.citizenship}</td>
                                     <td>${student.nric}</td>
 
-                                    <td><a href="del?studentId=${student.studentId}" id="remove" 
-                                           />
+                                    <td><a href="del?studentId=${student.studentId}" id="remove" />
                                         <span class="glyphicon glyphicon-trash"/>
-                                        </a>
-
+                                        </td>
+                                    <td><a href="edit?studentId=${student.studentId}" id="edit"
+                                           onclick="document.getElementById('action').value = 'edit';document.getElementById('studentId').value = '${student.studentId}';
+                                                   document.getElementById('studentForm').submit();">
+                                        <span class="glyphicon glyphicon-edit"/>
+                                    </a>
                                     </td>
+
+
                                 </tr>
                             </c:forEach>               
                         </table>  

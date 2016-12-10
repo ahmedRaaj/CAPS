@@ -15,14 +15,14 @@
     <body>
         <div class="container">
             <h2>
-                Admin
+                Admins
             </h2>
             
             <!--Search Form -->
-            <form action ="#" method="get" id="searchAdminForm" role="form">
+            <form action ="${pageContext.request.contextPath}/admin/admin/search" method="post" id="searchAdminForm" role="form">
                 <div class="form-group col-xs-5">
-                    <input type="text" name="adminName" id="adminName" class="form-control" required="true"
-                           placeholder="Type the Name or Last Name of the Admin"/>
+                    <input type="text" name="search" id="search" class="form-control" required="true"
+                           placeholder="Search by anything of the Admin"/>
                 </div>    
                 
                 <button type="submit" class="btn btn-info">
@@ -33,7 +33,7 @@
                 <br/>
             </form>
             
-            <form action="#" method="post" id="adminForm" role="form">
+            <form action="${pageContext.request.contextPath}/admin/admin/list" method="post" id="adminForm" role="form">
                 <input type="hidden" id="adminId" name="adminId">
                 <input type="hidden" id="action" name="action">
             
@@ -93,6 +93,31 @@
             </c:choose>
             </form>
 
+                 <c:choose>
+                <c:when test ="${not empty count}">
+                    <div>
+                        <ul class="pagination">
+                            <c:forEach var="i" begin="0" end="${count-1}" >
+                                <c:choose>
+                                    <c:when test="${pageId == i}">
+                                        <li class="active">  <a  href="${pageContext.request.contextPath}/admin/admin/list?pageId=${i}">${i+1}</a></li>
+                                        </c:when>
+                                        <c:otherwise>
+                                        <li>  <a class="" href="${pageContext.request.contextPath}/admin/admin/list?pageId=${i}">${i+1}</a> </li>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </c:forEach>
+                        </ul>
+                    </div>
+                </c:when>
+                <c:otherwise>
+                    <form action ="${pageContext.request.contextPath}/admin/admin/list">            
+                        <br/>
+                        <button type="submit" class="btn btn-primary  btn-md">Back</button> 
+                    </form>
+                </c:otherwise>
+            </c:choose>
+                
             <form action="${pageContext.request.contextPath}/admin/admin/new">
                 <br/>
                 <button type="submit" class="btn btn-primary  btn-md">New Admin</button> 

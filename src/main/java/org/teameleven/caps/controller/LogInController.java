@@ -41,10 +41,8 @@ public class LogInController {
 
        // return getDebug(name + password); //for debuging
         String m = "redirect:/";
-        List<User> users = userDao.findAll();
-        Optional<User> userOp = users.stream().filter(u->u.getUserName().equals(name) && u.getPassword().equals(password)).findFirst();
-        if(userOp.isPresent()){
-            User user = userOp.get();
+        User user  = userDao.getAuthenticateUser(name, password);
+        if(user != null){
             req.getSession(true).setAttribute("user", user);
             if(user.getRole().equalsIgnoreCase("student")){
                 m += "student/Mainpage";
@@ -56,9 +54,11 @@ public class LogInController {
                 m += "admin/Mainpage";
             }
             else{
-                m = "redirect:/Caps/";
+                m = "redirect:/";
             }
 
+        }else{
+            m = "redirect:/";
         }
         return m;
 

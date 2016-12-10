@@ -9,7 +9,6 @@ package org.teameleven.caps.business;
  *
  * @author ahmedraaj
  */
-public enum EnrollStatus {
-    PENDING,APPROVE,COMPLETED,REJECTED
-    
+public enum UserRole {
+    admin,student,lecturer
 }
