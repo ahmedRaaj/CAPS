@@ -16,6 +16,7 @@
         <div style="padding-top: 50px;">
    <%--<jsp:include page="../menu.jspx"/>--%>
    <h3><center>LIST OF  COURSES</center></h3>
+   <br/>
    
    <c:choose>
      <c:when test="${empty courses }">
@@ -25,7 +26,7 @@
       <table class="table">
        <thead>
          <tr>
-          <th> COURSE ID </th>
+          
           <th> COURSE NAME </th>
           <th> COURSE SIZE </th>
           <th> CREDITS </th>
@@ -35,7 +36,7 @@
         <tbody>
         <c:forEach var="course" items="${courses}"><%--need to get arraylist from controller for items--%>
         <tr>
-          <td> <c:out value="${course.courseId}"/> </td>
+          
           <td> <c:out value="${course.name}"/> </td>
           <td> <c:out value="${course.courseSize}"/> </td>
           <td> <c:out value="${course.credits}"/> </td>

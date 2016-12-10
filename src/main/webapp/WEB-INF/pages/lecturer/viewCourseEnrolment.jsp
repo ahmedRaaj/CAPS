@@ -14,20 +14,22 @@
         <title>Course Enrollment Page</title>
     </head>
     <body>
-        <h3><center>ENROLLED STUDENTS</center></h3>
+ 
         
             
                 <td>
-        <form action="#" method="post" id="searchStudentsByCourseName" role="form" >
-            <select name="course">
+        <form action="${pageContext.request.contextPath}/lecturer/filter.enrolcourse" method="post" id="searchStudentsByCourseName" role="form" >
+                   <h3>ENROLLED STUDENTS</h3>
+                   <br/>
+            <select name="courseId">
                 <c:forEach var="course" items="${courses}">
-                    <option name="${course.courseId}">${course.name} </option>
+                    <option name="${course.courseId}" value="${course.courseId}">${course.name} </option>
                 </c:forEach>
-            </select>
-            <input type="submit" value="SUBMIT" class="btn-success">
+            </select>         
+            <input type="submit" value="FILTER" class="btn-success">
         </form>
                     
-        <form method="post" action=""><%--need the url of controller--%>
+        <form method="post" action="#"><%--need the url of controller--%>
             <table>
             <tr>
                 <td>
@@ -39,16 +41,18 @@
                     <table class="table">
                     <thead>
                     <tr>
-                    <th>STUDENT ID</th>
+                   
                     <th> STUDENT NAME </th>
+                    <th> COURSE NAME </th> 
                     <th> STATUS </th>         
                     </tr>
                     </thead>
                     <tbody>
                     <c:forEach var="enroled" items="${enroledcourses}"><%--need to get arraylist from controller for students and status from enroled course table--%>
                     <tr>
-                    <td> <c:out value="${enroled.student.studentId}"/> </td> 
-                    <td> <c:out value="${enroled.student.user.firstName}"/> </td>
+                   
+                    <td> <c:out value="${enroled.student.user.firstName} ${enroled.student.user.lastName}"/> </td>
+                    <td> <c:out value="${enroled.course.name}"/> </td>
                     <td> <c:out value="${enroled.status}"/> </td>         
                     </tr>
                     </c:forEach>
@@ -58,7 +62,8 @@
                 </c:choose>  
                 </td>
             </tr>             
-        </table>       
+        </table>  
+              
         </form>
     </body>
 </html>

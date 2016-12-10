@@ -19,18 +19,19 @@
                 <li class="active"><a href="#">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
                 <li ><a href="#">Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
                 <%
-                    String type= ((User)request.getSession().getAttribute("user")).getRole();
+                    User u = ((User)request.getSession().getAttribute("user"));
+                    String type = u != null ? u.getRole() : null;
 
 //                    session.getAttribute(role);
                     if(type != null && type.equals("student"))
                     {
                 %>
-                <li ><a href="#">Grades and GPA<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list-alt"></span></a></li>
-                <li ><a href="#">Courses<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-book"></span></a></li>
+                <li ><a href="../student/grade">Grades and GPA<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list-alt"></span></a></li>
+                <li ><a href="../student/view">Courses<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-book"></span></a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Enrollment Details <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tasks"></span></a>
                     <ul class="dropdown-menu forAnimate" role="menu">
-                        <li><a href="#">Enrolled Courses</a></li>
+                        <li><a href="../student/enroll">Enrolled Courses</a></li>
                         <li><a href="#">Active Courses</a></li>
                     </ul>
                 </li>

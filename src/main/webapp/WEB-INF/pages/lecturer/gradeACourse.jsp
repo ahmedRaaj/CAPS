@@ -13,16 +13,18 @@
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
         <title>Grade a course Page</title>
     </head>
-    <body>       
-
-
+    <body>      
+        
+        <div class="container">
         <form action="${pageContext.request.contextPath}/lecturer/filter.course" method="post" id="searchStudentsByCourseName" role="form" >
+            <h3>Student Performance</h3>
+            <br/>
             <select name="courseId">
                 <c:forEach var="course" items="${courses}">
                     <option name="${course.courseId}" value="${course.courseId}">${course.name} </option>
                 </c:forEach>
             </select>                               
-            <input type="submit" value="SUBMIT" class="btn-success">
+            <input type="submit" value="FILTER" class="btn-success">
         </form>
 
 
@@ -40,28 +42,31 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>STUDENT ID</th>
+                                          
                                             <th>STUDENT NAME</th>
+                                            <th> COURSE NAME </th>
                                             <th> GRADE POINT </th>                          
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <c:forEach var="enroled" items="${enroledcourses}"><%--need to get arraylist from controller for students and status from enroled course table--%>
                                             <tr>
-                                                <td> <c:out value="${enroled.student.studentId}"/> </td> 
-                                                <td> <c:out value="${enroled.student.user.firstName}"/> </td> 
+                                                
+                                                 <td> <c:out value="${enroled.student.user.firstName} ${enroled.student.user.lastName}"/> </td> 
+                                                <td> <c:out value="${enroled.course.name}"/> </td>
                                                 <td><input name="${enroled.student.studentId}" id="${enroled.student.studentId}" type="text" value="${enroled.gradePoint}"/></td>       
                                             </tr>
                                         </c:forEach>   
                                     </tbody>
                                 </table>
-                                <input type="submit" value="submit" class="btn-success"></form>
-                            </form>  
+                                <input type="submit" value="submit" class="btn-success">
+                            </form>
+                              
                         </c:otherwise>
                     </c:choose>
                 </td>
             </tr>    
         </table>                
-
+</div>
     </body>
 </html>
