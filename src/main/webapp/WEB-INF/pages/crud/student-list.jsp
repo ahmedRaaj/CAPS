@@ -64,11 +64,9 @@
                                     <td>${student.citizenship}</td>
                                     <td>${student.nric}</td>
 
-                                    <td><a href="del?studentId=${student.studentId}" id="remove" 
-                                           />
+                                    <td><a href="del?studentId=${student.studentId}" id="remove" />
                                         <span class="glyphicon glyphicon-trash"/>
                                         </a>
-
                                     </td>
                                 </tr>
                             </c:forEach>               
@@ -82,6 +80,7 @@
                     </c:otherwise>
                 </c:choose>                        
             </form>
+                
             <c:choose>
                 <c:when test ="${not empty count}">
                     <div>
