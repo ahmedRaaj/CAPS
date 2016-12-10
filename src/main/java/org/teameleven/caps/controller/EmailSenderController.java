@@ -5,21 +5,18 @@
  */
 package org.teameleven.caps.controller;
 
-import java.util.Properties;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.servlet.ModelAndView;
-import org.teameleven.caps.repository.StudentRepository;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 import org.teameleven.caps.model.Student;
+import org.teameleven.caps.repository.StudentRepository;
+
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import java.util.Properties;
 
 
 /**
@@ -33,8 +30,8 @@ public class EmailSenderController {
     @Autowired
     StudentRepository studentDao;
 
-    private final String username = "capsbysa43team11@gmail.com";
-    private final String password = "PassworD";
+    private final String username = "zwehtatnaing.liveid@gmail.com";
+    private final String password = "Yuri123#";
     private final String fromEmailAddress = "capsbysa43team11@gmail.com";
     private String sendToEmailAddress = new String();
     private String emailSubject = new String();
@@ -49,12 +46,12 @@ public class EmailSenderController {
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.port", "587");
-        
+
         Student student = studentDao.findOne(Integer.parseInt(studentId));
         sendToEmailAddress = student.getUser().getEmail();
 
-        emailSubject="@No-Reply >>> Dear " + student.getUser().getFirstName()+ " " + student.getUser().getLastName() + " <<<";       
-        
+        emailSubject="@No-Reply >>> Dear " + student.getUser().getFirstName()+ " " + student.getUser().getLastName() + " <<<";
+
         Session session = Session.getInstance(props, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(username, password);
@@ -80,9 +77,9 @@ public class EmailSenderController {
         mav.addObject("student", student);
         return mav;
     }
-    
-    
-    
+
+
+
    private String MailContent(int studentId){
         String s=new String();
         Student student=studentDao.findOne(studentId);
