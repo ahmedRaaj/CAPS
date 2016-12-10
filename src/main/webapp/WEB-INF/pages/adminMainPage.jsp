@@ -24,7 +24,7 @@
                 <span class="icon mif-user mif-3x"></span>
             </button>
             <button class="image-button fg-white bg-lightBlue bg-hover-darkBrown no-border">
-                <span class="icon mif-lock"><a href="../login/logout"></a></span>
+               <a href="../login/logout"> <span class="icon mif-lock"></span></a>
             </button>
 
         </div>
@@ -74,13 +74,13 @@
             <div class="tile-group double" style="margin-top: 40px;">
                 <span class="tile-group-title">Courses Management</span>
                 <div class="tile-container">
-                    <a href="/courses/add" class="tile bg-darkCyan fg-white" data-role="tile">
+                    <a href="../admin/course/add" class="tile bg-darkCyan fg-white" data-role="tile">
                         <div class="tile-content iconic">
                             <span class="icon mif-books"></span>
                         </div>
                         <span class="tile-label">Add Courses</span>
                     </a>
-                    <div class="tile bg-darkBlue fg-white" data-role="tile" onclick="document.location.href='/course/list'">
+                    <div class="tile bg-darkBlue fg-white" data-role="tile" onclick="document.location.href='../admin/course/list'">
                         <div class="tile-content iconic">
                             <span class="icon mif-list2"></span>
                         </div>

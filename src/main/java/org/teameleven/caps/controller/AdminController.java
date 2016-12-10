@@ -122,7 +122,7 @@ public class AdminController {
         String studentNric = req.getParameter("student.nric");
         User u;
         Student s;
-        DateFormat df = new SimpleDateFormat("yyyy/mm/dd");
+        DateFormat df = new SimpleDateFormat("yyyy-mm-dd");
         Date dob = null;
         try {
             if (!req.getParameter("student.user.dob").equals("")) {
