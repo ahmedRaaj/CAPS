@@ -110,7 +110,7 @@ public class LecturerController {
         return v;
     }
     @RequestMapping(value = "/submit.grade" , method = RequestMethod.POST)
-    public ModelAndView filterEnroledCourse(HttpServletRequest req){
+    public ModelAndView submitCourse(HttpServletRequest req){
         ArrayList<String> params = new ArrayList<String>(req.getParameterMap().keySet());
        for(String p : params){
             int studentId = Integer.parseInt(p);

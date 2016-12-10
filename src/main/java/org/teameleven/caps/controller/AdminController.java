@@ -375,7 +375,7 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/course/edit")
-    public ModelAndView createOrEditCourse(int courseId){
+    public ModelAndView createOrEditCourse(@RequestParam("courseId")int courseId){
         ModelAndView v = new ModelAndView("crud/course-form");
         v.addObject("Course",courseDao.findOne(courseId));
         return v;
