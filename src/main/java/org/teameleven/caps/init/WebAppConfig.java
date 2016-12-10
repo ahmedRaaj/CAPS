@@ -27,6 +27,9 @@ import org.springframework.web.servlet.view.JstlView;
 import javax.annotation.Resource;
 import javax.sql.DataSource;
 import java.util.Properties;
+
+import org.teameleven.caps.business.AdminRoleInterceptor;
+import org.teameleven.caps.business.LectureRoleInterceptor;
 import org.teameleven.caps.business.StudentRoleInterceptor;
 @Configuration
 @EnableWebMvc
@@ -143,7 +146,11 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
 		localeChangeInterceptor.setParamName("lang");
 		registry.addInterceptor(localeChangeInterceptor);
                 StudentRoleInterceptor sI = new StudentRoleInterceptor();
+		AdminRoleInterceptor aI=new AdminRoleInterceptor();
+		LectureRoleInterceptor lI=new LectureRoleInterceptor();
                 registry.addInterceptor(sI);
+		registry.addInterceptor(lI);
+		registry.addInterceptor(aI);
 	}
 
 	@Bean
