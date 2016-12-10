@@ -479,7 +479,7 @@ public class AdminController {
         return listAllCourses(req);
     }
 
-    @RequestMapping(value="/enroll/show")
+    @RequestMapping(value="/enroll.show")
     private ModelAndView ManageEnrollment(HttpServletRequest req){
         ModelAndView v=new ModelAndView("manageEnrollment");
         String pageId=req.getParameter("pageId");
