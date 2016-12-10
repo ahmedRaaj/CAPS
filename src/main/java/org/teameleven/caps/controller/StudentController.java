@@ -66,22 +66,7 @@ public class StudentController {
         return v;
     }
     
-//    @RequestMapping("/profile")
-//    public ModelAndView studentProfile(@RequestParam int userId ) {
-//        
-//        ModelAndView mav = new ModelAndView("/student/student-profile");
-//        mav.addObject("user", userDao.findOne(userId));
-//        return mav;
-//    }
-    
-    @RequestMapping("/profile")
-    public ModelAndView studentProfile(HttpServletRequest req) {
-        
-        ModelAndView mav = new ModelAndView("/student/student-profile");
-        //mav.addObject("student", studDao.findOne(5));
-        mav.addObject("user", userDao.findOne(5)); //need to go according to User Session.
-        return mav;
-    }
+
 
     @RequestMapping("/view")
     public ModelAndView viewCourses(HttpServletRequest req) {
@@ -170,4 +155,8 @@ public class StudentController {
         return getDebug("Completed, please check ");
     }
 
+         @RequestMapping(value = "/profile")
+    public ModelAndView showProfile(){
+        return new ModelAndView("student/student-profile");
+    }
 }
