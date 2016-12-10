@@ -94,7 +94,7 @@
             <div class="tile-group" style="margin-top: 40px;">
                 <span class="tile-group-title">Enrolment</span>
                 <div class="tile-container">
-                    <a href="/enrollment/list" class="tile bg-darkOrange fg-white" data-role="tile">
+                    <a href="../admin/enroll.show" class="tile bg-darkOrange fg-white" data-role="tile">
                         <div class="tile-content iconic">
                             <span class="icon mif-books"></span>
                         </div>

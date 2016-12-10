@@ -36,7 +36,7 @@
                 <td width="45%">${student.user.firstName}, ${student.user.lastName}</td>                
             </tr>
             <tr>
-                <td width="20%"><strong>Semester</strong></td>
+                <td width="20%"><strong>For Semester</strong></td>
                 <td width="15%"><%= semester%></td>
                 <td width="20%"><strong>Date</strong></td>
                 <td width="45%" class="align-left"><%= new java.util.Date()%></td>
