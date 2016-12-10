@@ -33,7 +33,7 @@
                 <br/>
             </form>
 
-            <form action="${pageContext.request.contextPath}/admin/course/list" method="post" id="lecturerForm" role="form">
+            <form action="${pageContext.request.contextPath}/admin/lecturer/list" method="post" id="lecturerForm" role="form">
                 <input type="hidden" id="lecturerId" name="lecturerId">
                 <input type="hidden" id="action" name="action">
 

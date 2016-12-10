@@ -37,10 +37,10 @@
                     <input type="text" name="admin.user.gender" id="admin.user.gender" class="form-control" value="${admin.user.gender}" placeholder="male&female" required="true"/>
 
                     <label  class="control-label col-xs-6">Position:</label>
-                    <input type="text" name="admin.user.position" id="admin.user.position" class="form-control" value="admin" disabled/>
+                    <input type="text" name="admin.user.position" id="admin.user.position" class="form-control" value="admin" />
+                </div>
 
-                    <br/>
-                    <br/>
+                    <div class="form-group col-xs-6">
                     <h2>Login Information</h2>
                                         <br/>
 
@@ -66,11 +66,12 @@
                     <input type="hidden" id="admin.user.userId" name="admin.user.userId" value="${admin.user.userId}">
                     <input type="hidden" name="admin.user.role" id="admin.user.role" class="form-control" value="admin" required="true"/>
                     <input type="hidden" name="admin.adminId" id="admin.adminId" class="form-control" value="${admin.adminId}">
+                </div>
                     <br/>
                     <button type="reset" class="btn btn-primary  btn-md" >Cancel</button>
 
                     <button type="submit" class="btn btn-primary  btn-md" >Save</button>
-                </div>
+
 
         </div> 
     </body>

@@ -10,7 +10,7 @@
 	width: 100%;
 	max-width: 640px;
 	max-height:390px;
-	margin:150px auto 10px;
+	margin:0px auto 0px;
 	z-index:90;
 	text-align:left; /* reset align=center */
 	font-size: 10px;
@@ -353,6 +353,7 @@
 }#wowslider-container1 .ws_bulframe div div{
 	height: auto;
 }
+
 
 @media all and (max-width:760px) {
 	#wowslider-container1 .ws_fullscreen {

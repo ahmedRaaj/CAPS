@@ -323,3 +323,4 @@ $(window).load(function() { //start after HTML, images have loaded
 
     InfiniteRotator6.init();
 });
+
