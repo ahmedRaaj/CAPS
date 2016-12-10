@@ -122,4 +122,8 @@ public class Student implements Serializable {
         return "org.caps.model.Student[ studentId=" + studentId + " ]";
     }
     
+    public String getSearchHash(){
+        return (this.user.getSearchHash()+this.citizenship+this.nric).toLowerCase();
+    }
+    
 }

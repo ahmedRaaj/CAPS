@@ -98,5 +98,7 @@ public class Admin implements Serializable {
     public String toString() {
         return "org.caps.model.Admin[ adminId=" + adminId + " ]";
     }
-    
+     public String getSearchHash(){
+        return (this.user.getSearchHash()+this.position).toLowerCase();
+    }
 }

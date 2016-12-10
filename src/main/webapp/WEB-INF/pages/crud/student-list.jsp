@@ -18,19 +18,19 @@
 
             <h2>Students</h2>
             <!--Search Form -->
-            <form action="${pageContext.request.contextPath}/student/search" method="get" id="seachStudentForm" role="form" >
+            <form action="${pageContext.request.contextPath}/admin/student/search" method="post" id="seachStudentForm" role="form" >
                 <div class="form-group col-xs-5">
-                    <input type="text" name="studentName" id="studentName" class="form-control" required="true" 
-                           placeholder="Type the Name or Last Name of the Student"/>                    
+                    <input type="text" name="search" id="search" class="form-control" required="true" 
+                           placeholder="Search By Anything"/>                    
                 </div>
                 <button type="submit" class="btn btn-info">
                     <span class="glyphicon glyphicon-search"></span> Search
                 </button>
-                <br/>
-                <br/>
+
             </form>
 
-
+            <br/>
+            <br/>
             <form action="${pageContext.request.contextPath}/admin/student/list" method="post" id="studentForm" role="form" >  
                 <input type="hidden" id="studentId" name="studentId">
                 <input type="hidden" id="action" name="action">
@@ -87,6 +87,30 @@
                     </c:otherwise>
                 </c:choose>                        
             </form>
+            <c:choose>
+                <c:when test ="${not empty count}">
+                    <div>
+                        <ul class="pagination">
+                            <c:forEach var="i" begin="0" end="${count-1}" >
+                                <c:choose>
+                                    <c:when test="${pageId == i}">
+                                        <li class="active">  <a  href="${pageContext.request.contextPath}/admin/student/list?pageId=${i}">${i+1}</a></li>
+                                        </c:when>
+                                        <c:otherwise>
+                                        <li>  <a class="" href="${pageContext.request.contextPath}/admin/student/list?pageId=${i}">${i+1}</a> </li>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </c:forEach>
+                        </ul>
+                    </div>
+                </c:when>
+                <c:otherwise>
+                    <form action ="${pageContext.request.contextPath}/admin/student/list">            
+                        <br/>
+                        <button type="submit" class="btn btn-primary  btn-md">Back</button> 
+                    </form>
+                </c:otherwise>
+            </c:choose>
 
 
             <form action ="${pageContext.request.contextPath}/admin/student/new">            

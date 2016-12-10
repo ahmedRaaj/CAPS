@@ -27,8 +27,12 @@ import org.teameleven.caps.services.StudentService;
 
 import java.util.List;
 import java.util.logging.Level;
+import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -72,11 +76,31 @@ public class AdminController {
 
         return v;
     }
+    @RequestMapping(value = "/student/search", method = RequestMethod.POST)
+    public ModelAndView searchStudent(@RequestParam("search") String search){
+         List<Student> collect = studentDao.findAll().stream().filter(s->s.getSearchHash().contains(search.toLowerCase())).collect(Collectors.toList());
+         ModelAndView v = new ModelAndView("crud/student-list");
+         v.addObject("studentList", collect);
+         return v;
+    }
 
     @RequestMapping("/student/list")
-    public ModelAndView listAllStudent() {
+    public ModelAndView listAllStudent(HttpServletRequest req) {
         ModelAndView v = new ModelAndView("crud/student-list");
-        v.addObject("studentList", studentDao.findAll());
+        String pageId = req.getParameter("pageId");
+        int pId = 0;
+        if(pageId != null && !pageId.equals("")){
+            pId= Integer.parseInt(pageId);
+            v.addObject("pageId",pId);
+        }
+        PageRequest pr = new PageRequest(pId, 5);
+        int size = studentDao.findAll().size();
+        int count = size/5 + (size%5 == 0 ? 0 : 1);
+        Page<Student> pg = studentDao.findAll(pr);
+        v.addObject("studentList", pg.getContent());
+        v.addObject("count" ,count);
+        
+        
         return v;
     }
 
@@ -124,8 +148,8 @@ public class AdminController {
         s.setNric(studentNric);
         s.setUser(u);
         studentDao.save(s);
-        ModelAndView v = new ModelAndView("crud/student-list");
-        v.addObject("studentList", studentDao.findAll());
+        ModelAndView v = new ModelAndView("redirect:list");
+       // v.addObject("studentList", studentDao.findAll());
         return v;
     }
 
@@ -150,8 +174,7 @@ public class AdminController {
     @RequestMapping("/student/del")
     public ModelAndView deleteStudent(@RequestParam("studentId") String studentId) {
         studentDao.delete(Integer.parseInt(studentId));
-        ModelAndView v = new ModelAndView("crud/student-list");
-        v.addObject("studentList", studentDao.findAll());
+        ModelAndView v = new ModelAndView("redirec:list");
         return v;
     }
 

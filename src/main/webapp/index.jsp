@@ -1,109 +1,100 @@
 <%--
   Created by IntelliJ IDEA.
   User: Zwe Htat Naing
-  Date: 06/12/2016
-  Time: 01:59 PM
+  Date: 09/12/2016
+  Time: 11:42 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib prefix="login" uri="http://login.com" %>
-<html >
+<html>
 <head>
-<link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/BlurBackground.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
+
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.css">
+
+    <title>T-11 Caps</title>
+    <style>
+        body{
+            background: url("${pageContext.request.contextPath}/image/LoginBackground.jpg") no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+
+    </style>
+
+
 </head>
-<body class="bkg">
-<div class="row">
-  <div class="col-md-12">
-    <div class="row">
-      <div class="text-success text-center">
-        <h1>Welcome From NUS</h1>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-8">
-        <div class="row">
-          <div class="imgdiv col-md-1 col-md-push-2 visible-lg" style="border: groove;background-color: rgba(255,43,144,0.85); height: 90px;margin-top: 110px;">
-            <img class="rotating-item" src="image/Slideimg/13.png">
-            <img class="rotating-item" src="image/Slideimg/14.jpg">
-            <img class="rotating-item" src="image/Slideimg/15.png">
-            <img class="rotating-item" src="image/Slideimg/16.jpg">
-            <img class="rotating-item" src="image/Slideimg/17.jpg">
-            <img class="rotating-item" src="image/Slideimg/18.jpg">
-          </div>
-          <div class="imgdiv col-md-1 col-md-push-2 visible-lg" style="border: groove;background-color:rgba(46,28,255,0.67); height: 90px;margin-top: 160px;">
-            <img class="rotating-item1" src="image/Slideimg/7.jpg">
-            <img class="rotating-item1" src="image/Slideimg/8.png">
-            <img class="rotating-item1" src="image/Slideimg/9.jpg">
-            <img class="rotating-item1" src="image/Slideimg/10.jpg">
-            <img class="rotating-item1" src="image/Slideimg/11.jpg">
-            <img class="rotating-item1" src="image/Slideimg/12.png">
-          </div>
-          <div class="imgdiv col-md-1 col-md-push-2 visible-lg" style="border: groove;background-color:rgba(47,255,166,0.67); height: 90px;margin-top: 120px;">
-            <img class="rotating-item2" src="image/Slideimg//1.jpg">
-            <img class="rotating-item2" src="image/Slideimg//2.jpg">
-            <img class="rotating-item2" src="image/Slideimg//3.jpg">
-            <img class="rotating-item2" src="image/Slideimg//4.png">
-            <img class="rotating-item2" src="image/Slideimg//5.png">
-            <img class="rotating-item2" src="image/Slideimg//6.jpg">
-          </div>
-
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class=" navbar-brand" href="#">
+                <img src="${pageContext.request.contextPath}/image/Game%20Maker-22.png">
+                Team 11 Caps
+            </a>
         </div>
-        <div class="row">
-          <div class="imgdiv col-md-1 col-md-push-2  visible-lg" style="border: groove;background-color: rgba(252,255,39,0.78); height: 90px;margin-left: 30px;">
-            <img class="rotating-item3" src="image/Slideimg/19.jpg">
-            <img class="rotating-item3" src="image/Slideimg/20.jpg">
-            <img class="rotating-item3" src="image/Slideimg/21.jpg">
-            <img class="rotating-item3" src="image/Slideimg/22.png">
-            <img class="rotating-item3" src="image/Slideimg/23.jpg">
-            <img class="rotating-item3" src="image/Slideimg/24.png">
-          </div>
-          <div class="imgdiv col-md-1 col-md-push-2  visible-lg" style="border: groove;background-color: rgba(244,34,255,0.6); height: 90px;margin-top: 60px;">
-            <img class="rotating-item4" src="image/Slideimg/25.jpg">
-            <img class="rotating-item4" src="image/Slideimg/26.png">
-            <img class="rotating-item4" src="image/Slideimg/27.jpg">
-            <img class="rotating-item4" src="image/Slideimg/28.svg">
-            <img class="rotating-item4" src="image/Slideimg/29.png">
-            <img class="rotating-item4" src="image/Slideimg/30.png">
-          </div>
-          <div class="imgdiv col-md-1 col-md-push-2  visible-lg" style="border: groove;background-color: rgba(182,255,243,0.6); height: 90px;margin-top: 10px;">
-            <img class="rotating-item5" src="image/Slideimg/22.png">
-            <img class="rotating-item5" src="image/Slideimg/23.jpg">
-            <img class="rotating-item5" src="image/Slideimg/24.png">
-            <img class="rotating-item5" src="image/Slideimg/4.png">
-            <img class="rotating-item5" src="image/Slideimg/5.png">
-            <img class="rotating-item5" src="image/Slideimg/6.jpg">
-
-          </div>
-          <div class="imgdiv col-md-1 col-md-push-2  visible-lg" style="border: groove;background-color: rgba(221,255,218,0.82); height: 90px;margin-top: -69px;">
-            <img class="rotating-item6" src="image/Slideimg/14.jpg">
-            <img class="rotating-item6" src="image/Slideimg/15.png">
-            <img class="rotating-item6" src="image/Slideimg/16.jpg">
-            <img class="rotating-item6" src="image/Slideimg/3.jpg">
-            <img class="rotating-item6" src="image/Slideimg/4.png">
-
-          </div>
+        <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li ><a href="${pageContext.request.contextPath}/login/Mainpage">Login</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">About Us</a></li>
+            </ul>
         </div>
-      </div>
-      <div class="col-md-3">
-        <%--${pageContext.request.contextPath}--%>
-        <form action="${pageContext.request.contextPath}/login/auth" method="post" id="LoginForm" role="form" >
-          <login:login/>
-        </form>
 
-      </div>
-      </div>
     </div>
+</nav>
 
-  </div>
-  <script src="js/jquery-1.10.2.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/ImgEffect.js"></script>
+
+
+
+<div class="row col-md-12" >
+    <div class="col-md-6 col-md-5">
+<div id="wowslider-container1">
+    <div class="ws_images"><ul>
+        <li><img src="${pageContext.request.contextPath}/image/sliderimg/images/1.jpg" alt="" title="" id="wows0_0"/></li>
+        <li><img src="${pageContext.request.contextPath}/image/sliderimg/images/cmimg_74093.jpg" alt="cmimg_74093" title="cmimg_74093" id="wows0_1"/></li>
+        <li><img src="${pageContext.request.contextPath}/image/sliderimg/images/diplomacoursesinsingapore400x300.png" alt="diploma-courses-in-singapore-400x300" title="diploma-courses-in-singapore-400x300" id="wows0_2"/></li>
+        <li><img src="${pageContext.request.contextPath}/image/sliderimg/images/hdinspirationalquotesforstudentswithhdwindowswallpaperfullhdwithinspirationalquotesforstudentsdownloadhdwallpaper.jpg" alt="HD-inspirational-quotes-for-students-With-HD-Windows-Wallpaper-Full-HD-with-inspirational-quotes-for-students-Download-HD-Wallpaper" title="HD-inspirational-quotes-for-students-With-HD-Windows-Wallpaper-Full-HD-with-inspirational-quotes-for-students-Download-HD-Wallpaper" id="wows0_3"/></li>
+        <li><img src="${pageContext.request.contextPath}/image/sliderimg/images/laurea.jpg" alt="Laurea" title="Laurea" id="wows0_4"/></li>
+        <li><img src="${pageContext.request.contextPath}/image/sliderimg/images/nussing661x340400x300.jpg" alt="nus-sing-661x340-400x300" title="nus-sing-661x340-400x300" id="wows0_5"/></li>
+        <li><img src="${pageContext.request.contextPath}/image/sliderimg/images/servicemainland.png" alt="service-mainland" title="service-mainland" id="wows0_6"/></li>
+        <li><a href="http://wowslider.com/vi"><img src="${pageContext.request.contextPath}/image/sliderimg/images/servicesenior.png" alt="cssslider" title="service-senior" id="wows0_7"/></a></li>
+        <li><img src="${pageContext.request.contextPath}/image/sliderimg/images/thac.jpg" alt="thac" title="thac" id="wows0_8"/></li>
+    </ul></div>
+    <div class="ws_bullets"><div>
+        <a href="#" title=""><span><img src="${pageContext.request.contextPath}/image/sliderimg/images/1.jpg" alt=""/>1</span></a>
+        <a href="#" title="cmimg_74093"><span><img src="${pageContext.request.contextPath}/image/sliderimg/images/cmimg_74093.jpg" alt="cmimg_74093"/>2</span></a>
+        <a href="#" title="diploma-courses-in-singapore-400x300"><span><img src="${pageContext.request.contextPath}/image/sliderimg/images/diplomacoursesinsingapore400x300.png" alt="diploma-courses-in-singapore-400x300"/>3</span></a>
+        <a href="#" title="HD-inspirational-quotes-for-students-With-HD-Windows-Wallpaper-Full-HD-with-inspirational-quotes-for-students-Download-HD-Wallpaper"><span><img src="${pageContext.request.contextPath}/image/sliderimg/images/hdinspirationalquotesforstudentswithhdwindowswallpaperfullhdwithinspirationalquotesforstudentsdownloadhdwallpaper.jpg" alt="HD-inspirational-quotes-for-students-With-HD-Windows-Wallpaper-Full-HD-with-inspirational-quotes-for-students-Download-HD-Wallpaper"/>4</span></a>
+        <a href="#" title="Laurea"><span><img src="${pageContext.request.contextPath}/image/sliderimg/images/laurea.jpg" alt="Laurea"/>5</span></a>
+        <a href="#" title="nus-sing-661x340-400x300"><span><img src="${pageContext.request.contextPath}/image/sliderimg/images/nussing661x340400x300.jpg" alt="nus-sing-661x340-400x300"/>6</span></a>
+        <a href="#" title="service-mainland"><span><img src="${pageContext.request.contextPath}/image/sliderimg/images/servicemainland.png" alt="service-mainland"/>7</span></a>
+        <a href="#" title="service-senior"><span><img src="${pageContext.request.contextPath}/image/sliderimg/images/servicesenior.png" alt="service-senior"/>8</span></a>
+        <a href="#" title="thac"><span><img src="${pageContext.request.contextPath}/image/sliderimg/images/thac.jpg" alt="thac"/>9</span></a>
+
+
+</div>
+    </div>
+</div>
+</div>
 </div>
 
+<script src="${pageContext.request.contextPath}/js/jquery.js"></script>
+<script src="${pageContext.request.contextPath}/js/wowslider.js"></script>
 
+<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/ImgEffect.js"></script>
 
-
+<script src="${pageContext.request.contextPath}/js/script.js"></script>
 
 </body>
 </html>

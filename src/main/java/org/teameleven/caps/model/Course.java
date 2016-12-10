@@ -147,4 +147,7 @@ public class Course implements Serializable {
         return "org.caps.model.Course[ courseId=" + courseId + " ]";
     }
     
+     public String getSearchHash(){
+        return (this.name+this.lecturer.getUser().getFirstName()+this.credits).toLowerCase();
+    }
 }

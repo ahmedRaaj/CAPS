@@ -8,16 +8,18 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
    height: 400px;
 }
-
 .bkg {
-    background-image: url("/image/nuspartnership.jpg");
-    background-position: center bottom;
-    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background: url("/image/LoginBackground.jpg") no-repeat fixed center bottom;
     background-size: cover;
     height: 100%;
     font-size: 100%;
 
 }
+
 .rotating-item {
     display: none;
     position: absolute;
