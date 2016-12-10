@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.teameleven.caps.business.EnrollStatus;
+import org.teameleven.caps.business.UserRole;
 import org.teameleven.caps.business.Util;
 import org.teameleven.caps.model.EnroledCourse;
 import org.teameleven.caps.model.Student;
@@ -88,15 +89,16 @@ public class StudentController {
             ModelAndView v = new ModelAndView("/student/view-course");
             User user = (User) req.getSession().getAttribute("user");
             List<EnroledCourse> ec = null;
-            if (user != null) {
+            if (user != null&&user.getRole() .equals( UserRole.student.name())) {
                 v.addObject("student", user.getStudent());
                 ec = enrolDao.findAll().stream().filter(e -> Objects.equals(e.getStudent().getStudentId(), user.getStudent().getStudentId())).collect(Collectors.toList());
+                v.addObject("viewcourses", ec);
+                return v;
             }
-            v.addObject("viewcourses", ec);
-            return v;
-        }else{
-            return new ModelAndView("unauthorize");
+
         }
+            return new ModelAndView("unauthorize");
+        
     }
 
     @RequestMapping("/grade")
