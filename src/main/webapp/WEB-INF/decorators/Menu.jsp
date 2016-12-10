@@ -38,7 +38,7 @@
                 <%}
                 %>
                 <%
-                    if(type != null && type.equals("lacturer"))
+                    if(type != null && type.equals("lecturer"))
                     {
                 %>
                 <li class="dropdown">
@@ -48,7 +48,7 @@
                         <li><a href="#">Grade Course</a></li>
                     </ul>
                 </li>
-                <li ><a href="#">Course Enrolment<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list-alt"></span></a></li>
+                <li ><a href="#">Course Enrollment<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list-alt"></span></a></li>
                 <li ><a href="#">Student Performance<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-book"></span></a></li>
 
                 <%}
@@ -78,7 +78,7 @@
                         <li><a href="#">Manage the Courses</a></li>
                     </ul>
                 </li>
-                <li ><a href="#">Manage Enrolment<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>
+                <li ><a href="#">Manage Enrollment<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>
                 <%}
                 %>
                 <li ><a href="#">Logout<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-minus-sign"></span></a></li>
