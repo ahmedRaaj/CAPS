@@ -21,10 +21,10 @@ public class LoginLib extends SimpleTagSupport {
                 "" +
                 "    <div class=\"form-group\">" +
                 "    <label class=\"h4\" style=\"color: rgba(108,124,255,0.85)\">User Name</label>" +
-                "    <input type=\"text\" class=\"form-control\" name=\"name\" id=\"name\">" +
+                "    <input type=\"text\" class=\"form-control\" name=\"name\" id=\"name\" required=\"true\">" +
                 "" +
                 "      <label class=\"h4\" style=\"color: rgba(108,124,255,0.85);padding-top: 18px;\">Password</label>" +
-                "      <input type=\"password\" class=\"form-control\" style=\"padding-top: 18px;\" name=\"password\" id=\"password\">" +
+                "      <input type=\"password\" class=\"form-control\" style=\"padding-top: 18px;\" name=\"password\" id=\"password\" required=\"true\">" +
                 "" +
                 "" +
                 "    </div>" +

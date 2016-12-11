@@ -31,17 +31,11 @@ public class StudentRoleInterceptor extends HandlerInterceptorAdapter {
             throws ServletException {
 
         HttpSession session = request.getSession();
-
-        if (handler instanceof HandlerMethod
-                && ((HandlerMethod) handler).getBean() instanceof LogInController) {
-            return true;
-        }
         if (session == null || session.getAttribute("user") == null) {
-             try {
-            response.sendRedirect("../");
-             return false;
-             } 
-            catch (IOException ex) {
+            try {
+                response.sendRedirect("../login/ua");
+                return false;
+            } catch (IOException ex) {
                 Logger.getLogger(StudentRoleInterceptor.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
