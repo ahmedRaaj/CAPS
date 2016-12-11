@@ -248,7 +248,7 @@ public class AdminController {
         l.setUser(user);
         lecDao.saveAndFlush(l);
 
-        ModelAndView v = new ModelAndView("redirect:list");
+        ModelAndView v = new ModelAndView("redirect:../admin/lecturer.list");
         return v;
     }
 

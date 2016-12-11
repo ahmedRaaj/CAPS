@@ -100,10 +100,10 @@
                             <c:forEach var="i" begin="0" end="${count-1}" >
                                 <c:choose>
                                     <c:when test="${pageId == i}">
-                                        <li class="active">  <a  href="${pageContext.request.contextPath}/admin/lecturer/list?pageId=${i}">${i+1}</a></li>
+                                        <li class="active">  <a  href="${pageContext.request.contextPath}/admin/lecturer.list?pageId=${i}">${i+1}</a></li>
                                         </c:when>
                                         <c:otherwise>
-                                        <li>  <a class="" href="${pageContext.request.contextPath}/admin/lecturer/list?pageId=${i}">${i+1}</a> </li>
+                                        <li>  <a class="" href="${pageContext.request.contextPath}/admin/lecturer.list?pageId=${i}">${i+1}</a> </li>
                                         </c:otherwise>
                                     </c:choose>
                                 </c:forEach>
