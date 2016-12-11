@@ -145,7 +145,7 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
 		registry.addInterceptor(localeChangeInterceptor);
                 StudentRoleInterceptor sI = new StudentRoleInterceptor();
 
-                registry.addInterceptor(sI);
+                registry.addInterceptor(sI).addPathPatterns("/admin/*","/student/*","/lecturer/*");
 
 	}
 

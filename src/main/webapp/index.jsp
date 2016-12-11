@@ -108,7 +108,7 @@
 
                     <div id="wowslider-container1">
                         <div class="ws_images"><ul>
-                            <li><img src="/image/sliderimg/images/1.jpg" alt="" title="" id="wows0_0"/></li>
+                            <li><img src="${pageContext.request.contextPath}/image/sliderimg/images/1.jpg" alt="" title="" id="wows0_0"/></li>
                             <li><img src="${pageContext.request.contextPath}/image/sliderimg/images/cmimg_74093.jpg" alt="cmimg_74093" title="cmimg_74093" id="wows0_1"/></li>
                             <li><img src="${pageContext.request.contextPath}/image/sliderimg/images/diplomacoursesinsingapore400x300.png" alt="diploma-courses-in-singapore-400x300" title="diploma-courses-in-singapore-400x300" id="wows0_2"/></li>
                             <li><img src="${pageContext.request.contextPath}/image/sliderimg/images/hdinspirationalquotesforstudentswithhdwindowswallpaperfullhdwithinspirationalquotesforstudentsdownloadhdwallpaper.jpg" alt="HD-inspirational-quotes-for-students-With-HD-Windows-Wallpaper-Full-HD-with-inspirational-quotes-for-students-Download-HD-Wallpaper" title="HD-inspirational-quotes-for-students-With-HD-Windows-Wallpaper-Full-HD-with-inspirational-quotes-for-students-Download-HD-Wallpaper" id="wows0_3"/></li>

@@ -54,11 +54,11 @@ public class LogInController {
                 m += "admin/Mainpage";
             }
             else{
-                m = "redirect:/";
+                m = "redirect:ua";
             }
 
         }else{
-            m = "redirect:/";
+            m = "redirect:ua";
         }
         return m;
 
