@@ -29,7 +29,7 @@
         </tr>
         <%--</thead>  show enrollment information--%>
         <c:forEach var = "enroledCourse" items="${enroledCourseList}">
-            <form id="manageenrollmentForm" action="${pageContext.request.contextPath}/admin/enroll/manage" method="post" role="form">
+            <form id="manageenrollmentForm" action="${pageContext.request.contextPath}/admin/enroll.manage" method="post" role="form">
             <tr>
                 <td><c:out value="${enroledCourse.student.studentId}"/></td>
                 <td><c:out value="${enroledCourse.student.user.firstName} ${enroledCourse.student.user.lastName}"/></td>
@@ -37,11 +37,11 @@
                 <td><c:out value="${enroledCourse.course.name}"/></td>
                 <td><c:out value="${enroledCourse.status}"/></td>
 
-                <td><a href="manage?courseId=${enroledCourse.course.courseId}&studentId=${enroledCourse.student.studentId}&action=APPROVE&status=${enroledCourse.status}"
+                <td><a href="enroll.manage?courseId=${enroledCourse.course.courseId}&studentId=${enroledCourse.student.studentId}&action=APPROVE&status=${enroledCourse.status}"
                        id="accept" onclick="document.getElementById('manageenrollmentForm').submit();">
                     <span>accept</span>
                 </a></td>
-                <td><a href="manage?courseId=${enroledCourse.course.courseId}&studentId=${enroledCourse.student.studentId}&action=REJECTED&status=${enroledCourse.status}"
+                <td><a href="enroll.manage?courseId=${enroledCourse.course.courseId}&studentId=${enroledCourse.student.studentId}&action=REJECTED&status=${enroledCourse.status}"
                        id="reject" onclick="document.getElementById('manageenrollmentForm').submit();">
                     <span>reject</span>
                 </a></td>
@@ -56,10 +56,10 @@
                     <c:forEach var="i" begin="0" end="${count-1}" >
                         <c:choose>
                             <c:when test="${pageId == i}">
-                                <li class="active">  <a  href="${pageContext.request.contextPath}/admin/enroll/show?pageId=${i}">${i+1}</a></li>
+                                <li class="active">  <a  href="${pageContext.request.contextPath}/admin/enroll.show?pageId=${i}">${i+1}</a></li>
                             </c:when>
                             <c:otherwise>
-                                <li>  <a class="" href="${pageContext.request.contextPath}/admin/enroll/show?pageId=${i}">${i+1}</a></li>
+                                <li>  <a class="" href="${pageContext.request.contextPath}/admin/enroll.show?pageId=${i}">${i+1}</a></li>
                             </c:otherwise>
                         </c:choose>
                     </c:forEach>
@@ -67,7 +67,7 @@
             </div>
         </c:when>
         <c:otherwise>
-            <form action ="${pageContext.request.contextPath}/admin/student/list">
+            <form action ="${pageContext.request.contextPath}/admin/student.list">
                 <br/>
                 <button type="submit" class="btn btn-primary  btn-md">Back</button>
             </form>

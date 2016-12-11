@@ -144,7 +144,7 @@ public class AdminController {
         s.setNric(studentNric);
         s.setUser(u);
         studentDao.save(s);
-        ModelAndView v = new ModelAndView("redirect:../admin/student.list");
+        ModelAndView v = new ModelAndView("redirect:student.list");
         // v.addObject("studentList", studentDao.findAll());
         return v;
     }
@@ -170,7 +170,7 @@ public class AdminController {
     @RequestMapping("/student.del")
     public ModelAndView deleteStudent(@RequestParam("studentId") String studentId) {
         studentDao.delete(Integer.parseInt(studentId));
-        ModelAndView v = new ModelAndView("redirect:list");
+        ModelAndView v = new ModelAndView("redirect:student.list");
         return v;
     }
 
@@ -248,7 +248,7 @@ public class AdminController {
         l.setUser(user);
         lecDao.saveAndFlush(l);
 
-        ModelAndView v = new ModelAndView("redirect:../admin/lecturer.list");
+        ModelAndView v = new ModelAndView("redirect:lecturer.list");
         return v;
     }
 
@@ -296,16 +296,16 @@ public class AdminController {
     public ModelAndView deleteLecturer(@RequestParam("lecturerId") String lecturerId) {
         lecDao.delete(Integer.parseInt(lecturerId));
         //  lecDao.flush();
-        ModelAndView v = new ModelAndView("crud/lecturer-list");
-        v.addObject("lecturerList", lecDao.findAll());
+        ModelAndView v = new ModelAndView("redirect:lecturer.list");
+//        v.addObject("lecturerList", lecDao.findAll());
         return v;
     }
 
     /*Lecturer Part End*/
 
- /*Admin Control Part*/
+    /*Admin Control Part*/
     @RequestMapping("admin.list")
- public ModelAndView listAllAdmins(HttpServletRequest req) {
+    public ModelAndView listAllAdmins(HttpServletRequest req) {
         ModelAndView v = new ModelAndView("crud/admin-list");
         String pageId = req.getParameter("pageId");
         int pId = 0;
@@ -323,8 +323,8 @@ public class AdminController {
         return v;
     }
 
-    
-      @RequestMapping(value = "/admin.search", method = RequestMethod.POST)
+
+    @RequestMapping(value = "/admin.search", method = RequestMethod.POST)
     public ModelAndView searchAdmin(@RequestParam("search") String search) {
         List<Admin> collect = adminDao.findAll().stream().filter(s -> s.getSearchHash().contains(search.toLowerCase())).collect(Collectors.toList());
         ModelAndView v = new ModelAndView("crud/admin-list");
@@ -370,8 +370,8 @@ public class AdminController {
         admin.setPosition("admin");
         adminDao.saveAndFlush(admin);
 
-        ModelAndView v = new ModelAndView("crud/admin-list");
-        v.addObject("adminList", adminDao.findAll());
+        ModelAndView v = new ModelAndView("redirect:admin.list");
+//        v.addObject("adminList", adminDao.findAll());
         return v;
 
     }
@@ -396,14 +396,14 @@ public class AdminController {
     public ModelAndView deleteAdmin(@RequestParam("adminId") String adminId) {
         adminDao.delete(Integer.parseInt(adminId));
         adminDao.flush();
-        ModelAndView v = new ModelAndView("crud/admin-list");
-        v.addObject("adminList", adminDao.findAll());
+        ModelAndView v = new ModelAndView("redirect:course.list");
+//        v.addObject("adminList", adminDao.findAll());
         return v;
     }
 
     /*End Admin Part*/
     @RequestMapping("/course.list")
- public ModelAndView listAllCourses(HttpServletRequest req) {
+    public ModelAndView listAllCourses(HttpServletRequest req) {
         ModelAndView v = new ModelAndView("crud/course-list");
         String pageId = req.getParameter("pageId");
         int pId = 0;
@@ -420,8 +420,8 @@ public class AdminController {
 
         return v;
     }
-    
-          @RequestMapping(value = "/course.search", method = RequestMethod.POST)
+
+    @RequestMapping(value = "/course.search", method = RequestMethod.POST)
     public ModelAndView searchCourse(@RequestParam("search") String search) {
         List<Course> collect = courseDao.findAll().stream().filter(s -> s.getSearchHash().contains(search.toLowerCase())).collect(Collectors.toList());
         ModelAndView v = new ModelAndView("crud/course-list");
@@ -448,8 +448,8 @@ public class AdminController {
     public ModelAndView deleteCourse(int courseId) {
         courseDao.delete(courseId);
         List<Course> courseList = courseDao.findAll();
-        ModelAndView v = new ModelAndView("crud/course-list");
-        v.addObject("courseList", courseList);
+        ModelAndView v = new ModelAndView("redirect:course.list");
+//        v.addObject("courseList", courseList);
         return v;
     }
 
@@ -502,7 +502,7 @@ public class AdminController {
     @RequestMapping(value = "/enroll.manage" )
     private ModelAndView updateEnrollmentStatus(HttpServletRequest req){
         if(req.getParameter("studentId")==null||req.getParameter("status").equals(EnrollStatus.COMPLETED.name())){
-            ModelAndView v=new ModelAndView("redirect:show");
+            ModelAndView v=new ModelAndView("redirect:enroll.show");
             return v;
         }else {
             int studentId = Integer.parseInt(req.getParameter("studentId"));

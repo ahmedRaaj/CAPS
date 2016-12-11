@@ -64,10 +64,10 @@
                                     <td>${student.citizenship}</td>
                                     <td>${student.nric}</td>
 
-                                    <td><a href="del?studentId=${student.studentId}" id="remove" />
+                                    <td><a href="student.del?studentId=${student.studentId}" id="remove" />
                                         <span class="glyphicon glyphicon-trash"/>
                                         </td>
-                                    <td><a href="edit?studentId=${student.studentId}" id="edit"
+                                    <td><a href="student.edit?studentId=${student.studentId}" id="edit"
                                            onclick="document.getElementById('action').value = 'edit';document.getElementById('studentId').value = '${student.studentId}';
                                                    document.getElementById('studentForm').submit();">
                                         <span class="glyphicon glyphicon-edit"/>
@@ -113,7 +113,7 @@
             </c:choose>
 
 
-            <form action ="${pageContext.request.contextPath}/admin/student/new">            
+            <form action ="${pageContext.request.contextPath}/admin/student.new">
                 <br/>
                 <button type="submit" class="btn btn-primary  btn-md">New Student</button> 
             </form>

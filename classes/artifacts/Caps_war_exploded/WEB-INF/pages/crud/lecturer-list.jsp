@@ -70,10 +70,13 @@
                                     <td>${lecturer.position}</td>
                                     <td>${lecturer.startDate}</td>
                                     <td>${lecturer.endDate}</td>
-                                    <td><a href="del?lecturerId=${lecturer.lecturerId}" id="remove">
-                                <span class="glyphicon glyphicon-trash"/>
+                                    <td><a href="lecturer.del?lecturerId=${lecturer.lecturerId}" id="remove"
+                                        onclick="document.getElementById('action').value = 'remove';document.getElementById('lecturerId').value = '${lecturer.lecturerId}';
+                                        document.getElementById('lecturerForm').submit();">
+                                        <span class="glyphicon glyphicon-trash"/>
                             </a></td>
-                                    <td><a href="edit?lecturerId=${lecturer.lecturerId}" id="edit"
+
+                                    <td><a href="lecturer.edit?lecturerId=${lecturer.lecturerId}" id="edit"
                                            onclick="document.getElementById('action').value = 'edit';document.getElementById('lecturerId').value = '${lecturer.lecturerId}';
                                                    document.getElementById('lecturerForm').submit();">
                                         <span class="glyphicon glyphicon-edit"/>
@@ -100,10 +103,10 @@
                             <c:forEach var="i" begin="0" end="${count-1}" >
                                 <c:choose>
                                     <c:when test="${pageId == i}">
-                                        <li class="active">  <a  href="${pageContext.request.contextPath}/admin/lecturer/list?pageId=${i}">${i+1}</a></li>
+                                        <li class="active">  <a  href="${pageContext.request.contextPath}/admin/lecturer.list?pageId=${i}">${i+1}</a></li>
                                         </c:when>
                                         <c:otherwise>
-                                        <li>  <a class="" href="${pageContext.request.contextPath}/admin/lecturer/list?pageId=${i}">${i+1}</a> </li>
+                                        <li>  <a class="" href="${pageContext.request.contextPath}/admin/lecturer.list?pageId=${i}">${i+1}</a> </li>
                                         </c:otherwise>
                                     </c:choose>
                                 </c:forEach>
@@ -111,7 +114,7 @@
                     </div>
                 </c:when>
                 <c:otherwise>
-                    <form action ="${pageContext.request.contextPath}/admin/lecturer/list">            
+                    <form action ="${pageContext.request.contextPath}/admin/lecturer.list">
                         <br/>
                         <button type="submit" class="btn btn-primary  btn-md">Back</button> 
                     </form>
@@ -119,6 +122,6 @@
             </c:choose>
                 
         </div>
- <button type="submit" class="btn btn-primary btn-md" onclick="document.location.href='${pageContext.request.contextPath}/admin/lecturer/new'">New Lecturer</button>
+ <button type="submit" class="btn btn-primary btn-md" onclick="document.location.href='${pageContext.request.contextPath}/admin/lecturer.new'">New Lecturer</button>
     </body>
 </html>

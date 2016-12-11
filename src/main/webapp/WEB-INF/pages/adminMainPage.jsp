@@ -76,7 +76,7 @@
             <div class="tile-group double" style="margin-top: 40px;">
                 <span class="tile-group-title">Courses Management</span>
                 <div class="tile-container">
-                    <a href="../admin/course.add" class="tile bg-darkCyan fg-white" data-role="tile">
+                    <a href="${pageContext.request.contextPath}/admin/course.add" class="tile bg-darkCyan fg-white" data-role="tile">
                         <div class="tile-content iconic">
                             <span class="icon mif-books"></span>
                         </div>

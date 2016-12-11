@@ -54,10 +54,10 @@
                             <td>${course.courseSize}</td>
                             <td>${course.lecturer.user.firstName} ${course.lecturer.user.lastName}</td>
                             <td><a href="#" id="remove"
-                                   onclick="document.location.href='${pageContext.request.contextPath}/admin/course/del?courseId=${course.courseId}'">
+                                   onclick="document.location.href='${pageContext.request.contextPath}/admin/course.del?courseId=${course.courseId}'">
                                 <span class="glyphicon glyphicon-trash"/>
                             </a></td>
-                            <td><a href="edit?courseId=${course.courseId}" id="edit"
+                            <td><a href="course.edit?courseId=${course.courseId}" id="edit"
                                    onclick="document.getElementById('action').value = 'edit';document.getElementById('courseId').value = '${course.courseId}';
                                            document.getElementById('courseForm').submit();">
                                 <span class="glyphicon glyphicon-edit"/>
@@ -87,10 +87,10 @@
                             <c:forEach var="i" begin="0" end="${count-1}" >
                                 <c:choose>
                                     <c:when test="${pageId == i}">
-                                        <li class="active">  <a  href="${pageContext.request.contextPath}/admin/course/list?pageId=${i}">${i+1}</a></li>
+                                        <li class="active">  <a  href="${pageContext.request.contextPath}/admin/course.list?pageId=${i}">${i+1}</a></li>
                                         </c:when>
                                         <c:otherwise>
-                                        <li>  <a class="" href="${pageContext.request.contextPath}/admin/course/list?pageId=${i}">${i+1}</a> </li>
+                                        <li>  <a class="" href="${pageContext.request.contextPath}/admin/course.list?pageId=${i}">${i+1}</a> </li>
                                         </c:otherwise>
                                     </c:choose>
                                 </c:forEach>
@@ -98,7 +98,7 @@
                     </div>
                 </c:when>
                 <c:otherwise>
-                    <form action ="${pageContext.request.contextPath}/admin/course/list">            
+                    <form action ="${pageContext.request.contextPath}/admin/course.list">
                         <br/>
                         <button type="submit" class="btn btn-primary  btn-md">Back</button> 
                     </form>
@@ -107,7 +107,7 @@
         
     </div>
 
-        <button type="submit" class="btn btn-primary btn-md" onclick="document.location.href='${pageContext.request.contextPath}/admin/course/add'">New Course</button>
+        <button type="submit" class="btn btn-primary btn-md" onclick="document.location.href='${pageContext.request.contextPath}/admin/course.add'">New Course</button>
 
     </body>
 </html>

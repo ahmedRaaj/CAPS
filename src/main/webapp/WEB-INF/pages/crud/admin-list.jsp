@@ -68,13 +68,13 @@
                                     <td>${admin.user.dob}</td>
                                     <td>${admin.position}</td>
                                     
-                                    <td><a href="del?adminId=${admin.adminId}" id="remove" 
+                                    <td><a href="admin.del?adminId=${admin.adminId}" id="remove"
                                            onclick="document.getElementById('action').value = 'remove';document.getElementById('adminId').value = '${admin.adminId}';
                                                    document.getElementById('adminForm').submit();">
                                     <span class="glyphicon glyphicon-trash"/>
                                         </a></td>
 
-                                    <td><a href="edit?adminId=${admin.adminId}" id="edit"
+                                    <td><a href="admin.edit?adminId=${admin.adminId}" id="edit"
                                            onclick="document.getElementById('action').value = 'edit';document.getElementById('adminId').value = '${admin.adminId}';
                                                    document.getElementById('adminForm').submit();">
                                         <span class="glyphicon glyphicon-edit"/>
@@ -100,10 +100,10 @@
                             <c:forEach var="i" begin="0" end="${count-1}" >
                                 <c:choose>
                                     <c:when test="${pageId == i}">
-                                        <li class="active">  <a  href="${pageContext.request.contextPath}/admin/admin/list?pageId=${i}">${i+1}</a></li>
+                                        <li class="active">  <a  href="${pageContext.request.contextPath}/admin/admin.list?pageId=${i}">${i+1}</a></li>
                                         </c:when>
                                         <c:otherwise>
-                                        <li>  <a class="" href="${pageContext.request.contextPath}/admin/admin/list?pageId=${i}">${i+1}</a> </li>
+                                        <li>  <a class="" href="${pageContext.request.contextPath}/admin/admin.list?pageId=${i}">${i+1}</a> </li>
                                         </c:otherwise>
                                     </c:choose>
                                 </c:forEach>
@@ -111,14 +111,14 @@
                     </div>
                 </c:when>
                 <c:otherwise>
-                    <form action ="${pageContext.request.contextPath}/admin/admin/list">            
+                    <form action ="${pageContext.request.contextPath}/admin/admin.list">
                         <br/>
                         <button type="submit" class="btn btn-primary  btn-md">Back</button> 
                     </form>
                 </c:otherwise>
             </c:choose>
                 
-            <form action="${pageContext.request.contextPath}/admin/admin/new">
+            <form action="${pageContext.request.contextPath}/admin/admin.new">
                 <br/>
                 <button type="submit" class="btn btn-primary  btn-md">New Admin</button> 
             </form>

@@ -54,10 +54,10 @@
                             <td>${course.courseSize}</td>
                             <td>${course.lecturer.user.firstName} ${course.lecturer.user.lastName}</td>
                             <td><a href="#" id="remove"
-                                   onclick="document.location.href='${pageContext.request.contextPath}/admin/course/del?courseId=${course.courseId}'">
+                                   onclick="document.location.href='${pageContext.request.contextPath}/admin/course.del?courseId=${course.courseId}'">
                                 <span class="glyphicon glyphicon-trash"/>
                             </a></td>
-                            <td><a href="edit?courseId=${course.courseId}" id="edit"
+                            <td><a href="course.edit?courseId=${course.courseId}" id="edit"
                                    onclick="document.getElementById('action').value = 'edit';document.getElementById('courseId').value = '${course.courseId}';
                                            document.getElementById('courseForm').submit();">
                                 <span class="glyphicon glyphicon-edit"/>
@@ -98,7 +98,7 @@
                     </div>
                 </c:when>
                 <c:otherwise>
-                    <form action ="${pageContext.request.contextPath}/admin/course/list">            
+                    <form action ="${pageContext.request.contextPath}/admin/course.list">
                         <br/>
                         <button type="submit" class="btn btn-primary  btn-md">Back</button> 
                     </form>
@@ -107,7 +107,7 @@
         
     </div>
 
-        <button type="submit" class="btn btn-primary btn-md" onclick="document.location.href='${pageContext.request.contextPath}/admin/course/add'">New Course</button>
+        <button type="submit" class="btn btn-primary btn-md" onclick="document.location.href='${pageContext.request.contextPath}/admin/course.add'">New Course</button>
 
     </body>
 </html>
