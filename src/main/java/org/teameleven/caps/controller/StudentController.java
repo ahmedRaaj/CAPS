@@ -14,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.NumberUtils;
@@ -30,6 +31,7 @@ import org.teameleven.caps.repository.CourseRepository;
 import org.teameleven.caps.repository.EnroledCourseRepository;
 import org.teameleven.caps.repository.UserRepository;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.teameleven.caps.model.Course;
 import org.teameleven.caps.repository.StudentRepository;
 
 @Controller
@@ -87,10 +89,15 @@ public class StudentController {
     }
 
     @RequestMapping("/grade")
-    public ModelAndView viewGrade() {
-
+    public ModelAndView viewGrade(HttpSession session) {
         ModelAndView v = new ModelAndView("/student/grade");
-        v.addObject("enroledcourses", enrolDao.findAll());
+        if(session.getAttribute("user") != null && ((User)session.getAttribute("user")).getRole().equals(UserRole.student.name())){
+            int sId = ((User)session.getAttribute("user")).getStudent().getStudentId();
+            v.addObject("enroledcourses", enrolDao.findAllByStudent(sId));
+        }else{
+            v = new ModelAndView("redirect:/login/ua");
+        }
+      
         return v;
     }
 

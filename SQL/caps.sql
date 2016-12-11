@@ -279,9 +279,4 @@ values
 -- Lau
 (8, 1, STR_TO_DATE('31-10-2016', '%d-%m-%Y'), STR_TO_DATE('4-11-2016', '%d-%m-%Y'), '3', 'PENDING'),
 (8, 2, STR_TO_DATE('24-11-2016', '%d-%m-%Y'), STR_TO_DATE('12-12-2016', '%d-%m-%Y'), '3', 'APPROVED'),
-(8, 3, STR_TO_DATE('14-12-2016', '%d-%m-%Y'), STR_TO_DATE('23-10-2016', '%d-%m-%Y'), '3', 'COMPLETED'),
-(8, 4, STR_TO_DATE('24-10-2016', '%d-%m-%Y'), STR_TO_DATE('28-10-2016', '%d-%m-%Y'), '3', 'PENDING'),
-(8, 5, STR_TO_DATE('8-8-2016', '%d-%m-%Y'), STR_TO_DATE('26-8-2016', '%d-%m-%Y'), '4', 'REJECTED'),
-(8, 6, STR_TO_DATE('5-9-2016', '%d-%m-%Y'), STR_TO_DATE('23-9-2016', '%d-%m-%Y'), '4', 'REJECTED'),
-(8, 7, STR_TO_DATE('29-8-2016', '%d-%m-%Y'), STR_TO_DATE('2-9-2016', '%d-%m-%Y'), '4', 'APPROVED'),
-(8, 8, STR_TO_DATE('26-9-2016', '%d-%m-%Y'), STR_TO_DATE('30-9-2016', '%d-%m-%Y'), '4', 'APPROVED');
+(8, 3, STR_TO_DATE('14-12-2016', '%d-%m-%Y'), STR_TO_DATE('23-10-2016', '%d-%m-%Y'), '3', 'COMPLETED');
