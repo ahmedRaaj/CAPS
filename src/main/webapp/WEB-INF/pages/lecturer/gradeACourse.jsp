@@ -24,7 +24,7 @@
                     <option name="${course.courseId}" value="${course.courseId}">${course.name} </option>
                 </c:forEach>
             </select>                               
-            <input type="submit" value="FILTER" class="btn-success">
+            <input type="submit" value="FILTER" class="btn-primary">
         </form>
 
 
@@ -59,14 +59,41 @@
                                         </c:forEach>   
                                     </tbody>
                                 </table>
-                                <input type="submit" value="submit" class="btn-success">
+                                            <c:choose>
+                <c:when test ="${not empty countEnrol}">
+                    <div>
+                        <ul class="pagination">
+                            <c:forEach var="i" begin="0" end="${countEnrol-1}" >
+                                <c:choose>
+                                    <c:when test="${pageId == i}">
+                                        <li class="active">  <a  href="${pageContext.request.contextPath}/lecturer/gradecourse?pageId=${i}">${i+1}</a></li>
+                                        </c:when>
+                                        <c:otherwise>
+                                        <li>  <a class="" href="${pageContext.request.contextPath}/lecturer/gradecourse?pageId=${i}">${i+1}</a> </li>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </c:forEach>
+                        </ul>
+                    </div>
+                </c:when>
+                <c:otherwise>
+                    <form action ="${pageContext.request.contextPath}/lecturer/gradecourse">            
+                        <br/>
+                        <button type="submit" class="btn btn-primary  btn-md">Back</button> 
+                    </form>
+                </c:otherwise>
+            </c:choose>
+                                
+                                <input type="submit" value="submit" class="btn-primary">
                             </form>
                               
                         </c:otherwise>
                     </c:choose>
                 </td>
             </tr>    
-        </table>                
+        </table>            
+            
+                    
 </div>
     </body>
 </html>

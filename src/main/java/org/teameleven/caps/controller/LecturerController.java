@@ -12,6 +12,8 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -60,14 +62,35 @@ public class LecturerController {
     }
     
     @RequestMapping("/gradecourse")
-    public ModelAndView gradeCourse()//@RequestParam("lecturerId")String lecturerId)
+    public ModelAndView gradeCourse(HttpServletRequest req)//@RequestParam("lecturerId")String lecturerId)
     {   
-        ModelAndView v = new ModelAndView("/lecturer/gradeACourse");
-               Lecturer l=new Lecturer();
-     //  l=lecDao.findOne(Integer.parseInt(lecturerId));
-       v.addObject("enroledcourses", enrolDao.findAll());
-        v.addObject("courses",courseDao.findAll());
+//        ModelAndView v = new ModelAndView("/lecturer/gradeACourse");
+//               Lecturer l=new Lecturer();
+//     //  l=lecDao.findOne(Integer.parseInt(lecturerId));
+//       v.addObject("enroledcourses", enrolDao.findAll());
+//        v.addObject("courses",courseDao.findAll());
      //   v.addObject("lecturer",l);
+             ModelAndView v = new ModelAndView("/lecturer/gradeACourse");
+        String pageId = req.getParameter("pageId");
+        int pId = 0;
+        if (pageId != null && !pageId.equals("")) {
+            pId = Integer.parseInt(pageId);
+            v.addObject("pageId", pId);
+        }
+        PageRequest prEnrol = new PageRequest(pId,10);
+        int sizeEnrol = enrolDao.findAll().size();
+        int countEnrol = sizeEnrol / 10+ (sizeEnrol % 10 == 0 ? 0 : 1);
+        Page<EnroledCourse> pgEnrol = enrolDao.findAll(prEnrol);
+        
+        PageRequest pr = new PageRequest(pId, 5);
+        int size = courseDao.findAll().size();
+        int count = size / 5 + (size % 5 == 0 ? 0 : 1);
+        Page<Course> pg = courseDao.findAll(pr);
+        
+        v.addObject("enroledcourses", pgEnrol.getContent());
+        v.addObject("courses",courseDao.findAll());
+      //  v.addObject("count", count);
+        v.addObject("countEnrol", countEnrol);
         return v;
     }
     

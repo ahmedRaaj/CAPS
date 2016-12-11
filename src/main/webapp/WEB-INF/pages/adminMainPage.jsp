@@ -17,14 +17,16 @@
 
         <h1 class="tile-area-title" style="padding-top: 13px;"> Welcome, ${admin} </h1>
 
-        <div style="margin-left: 82%; padding: 0px 0px 0px;">
+        <div style="margin-left: 86%; padding: 0px 0px 0px;">
 
-            <button class="image-button icon-right bg-transparent fg-white bg-lightBlue bg-hover-dark no-border">
+           <!-- <button class="image-button icon-right bg-transparent fg-white bg-lightBlue bg-hover-dark no-border">
                 <span class="sub-header no-margin text-light">${admin}</span>
                 <span class="icon mif-user mif-3x"></span>
-            </button>
+            </button>-->
             <button class="image-button fg-white bg-lightBlue bg-hover-darkBrown no-border">
-               <a href="../login.logout"> <span class="icon mif-lock"></span></a>
+               <a href="../login/logout"> <span class="icon mif-lock"></span>
+                <span class="sub-header no-margin text-light">Log out</span>
+                </a>
             </button>
 
         </div>
