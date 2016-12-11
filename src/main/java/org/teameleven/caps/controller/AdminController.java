@@ -526,10 +526,10 @@ public class AdminController {
             int count=size/10+(size%10==0?0:1);
             Page<EnroledCourse> pg=enroledDao.findAll(pr);
 
-            ModelAndView v = new ModelAndView("manageEnrollment");
-            v.addObject("enroledCourseList", pg.getContent());
-            v.addObject("courses", courseDao.findAll());
-            v.addObject("students", studentDao.findAll());
+            ModelAndView v = new ModelAndView("redirect:enroll.show");
+//            v.addObject("enroledCourseList", pg.getContent());
+//            v.addObject("courses", courseDao.findAll());
+//            v.addObject("students", studentDao.findAll());
             return v;
         }
     }
