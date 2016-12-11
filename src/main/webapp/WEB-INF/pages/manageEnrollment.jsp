@@ -37,7 +37,7 @@
                 <td><c:out value="${enroledCourse.course.name}"/></td>
                 <td><c:out value="${enroledCourse.status}"/></td>
 
-                <td><a href="enroll.manage?courseId=${enroledCourse.course.courseId}&studentId=${enroledCourse.student.studentId}&action=APPROVE&status=${enroledCourse.status}"
+                <td><a href="enroll.manage?courseId=${enroledCourse.course.courseId}&studentId=${enroledCourse.student.studentId}&action=APPROVED&status=${enroledCourse.status}"
                        id="accept" onclick="document.getElementById('manageenrollmentForm').submit();">
                     <span>accept</span>
                 </a></td>

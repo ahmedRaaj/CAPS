@@ -19,17 +19,17 @@
             <form action="${pageContext.request.contextPath}/lecturer/filter.course" method="post" id="searchStudentsByCourseName" role="form" >
                 <h3>Student Performance</h3>
                 <br/>
-               
-                
+
+
                 <select name="courseId" >
                     <c:forEach var="course" items="${courses}">
                         <c:choose>
-                        <c:when test="${course.courseId == currentCourse}">
-                            <option name="${course.courseId}" value="${course.courseId}" selected="selected">${course.name} </option>
-                        </c:when>
-                        <c:otherwise>
-                            <option name="${course.courseId}" value="${course.courseId}">${course.name} </option>
-                        </c:otherwise>
+                            <c:when test="${course.courseId == currentCourse}">
+                                <option name="${course.courseId}" value="${course.courseId}" selected="selected">${course.name} </option>
+                            </c:when>
+                            <c:otherwise>
+                                <option name="${course.courseId}" value="${course.courseId}">${course.name} </option>
+                            </c:otherwise>
                         </c:choose>
                     </c:forEach>
                 </select>                               
@@ -59,17 +59,17 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <c:forEach var="enroled" items="${enroledcourses}"><%--need to get arraylist from controller for students and status from enroled course table--%>
+                                            <c:forEach var="enroled" items="${enroledcourses}">
                                                 <tr>
 
-                                            <form action ="${pageContext.request.contextPath}/lecturer/gradecourse.submit">
+                                            <form action ="${pageContext.request.contextPath}/lecturer/gradecourse.submit" method="post">
                                                 <td> <c:out value="${enroled.student.user.firstName} ${enroled.student.user.lastName}"/> </td> 
                                                 <td> <c:out value="${enroled.course.name}"/> </td>
                                                 <td><input name="grade" id="grade" type="text" value="${enroled.gradePoint}"/></td>       
                                                 <input type="hidden" name="courseId" id="courseId" value="${enroled.course.courseId}"/>
                                                 <input type="hidden" name="studentId" id="studentId" value="${enroled.student.studentId}"/>
                                                 <td>  <input type="submit"/></td>
-
+                                               
                                             </form>
                                             </tr>
                                         </c:forEach>   

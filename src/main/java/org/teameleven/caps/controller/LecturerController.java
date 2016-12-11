@@ -239,7 +239,7 @@ public class LecturerController {
         return new ModelAndView("lecturer/lecturer-profile");
 
     }
-    @RequestMapping(value = "/gradecourse.submit")
+    @RequestMapping(value = "/gradecourse.submit" ,method = RequestMethod.POST)
     public ModelAndView gradeSubmit(@RequestParam("courseId") String courseId, 
                                     @RequestParam("studentId") String studentId,
                                     @RequestParam("grade") String grade) {
@@ -250,7 +250,7 @@ public class LecturerController {
             enrol.setGradePoint(grade);
             enrolDao.save(enrol);
         }
-        return new ModelAndView("redirect:gradecourse");
-      // return getDebug(enrol.getGradePoint());
+       return new ModelAndView("redirect:gradecourse");
+    // return getDebug(enrol.getGradePoint());
     }
 }

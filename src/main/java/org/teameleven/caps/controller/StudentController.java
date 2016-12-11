@@ -13,6 +13,7 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -109,9 +110,11 @@ public class StudentController {
             s = user.getStudent();
         }
         ModelAndView v = new ModelAndView("/student/course-enrolment");
-        v.addObject("courses", courseDao.findAll());
+        Set<Integer> ids = enrolDao.findCourseEnrolled(s.getStudentId()).stream().map(e->e.getCourseId()).collect(Collectors.toSet());
+        List<Course> courses = courseDao.findAll().stream().filter(c->!(ids.contains(c.getCourseId()))).collect(Collectors.toList());
+        v.addObject("courses",courses );
         v.addObject("student", s);
-        return v;
+       return v;
     }
 
     @RequestMapping("/doenroll")
@@ -159,7 +162,7 @@ public class StudentController {
         }
         enrolDao.flush();
 
-        return getDebug("Completed, please check ");
+        return new ModelAndView("redirect:enroll");
     }
 
          @RequestMapping(value = "/profile")

@@ -73,6 +73,9 @@
                     <br />
                     <input class="btn btn-primary" type="submit" name="enrolButton" value="Submit Selected Courses"></input>
                 </c:when>
+                <c:otherwise>
+                    <p class="notify" >No course to enroll</p>
+                </c:otherwise>
             </c:choose>
         </form>
     </body>
