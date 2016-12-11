@@ -48,8 +48,33 @@
     </c:otherwise>
    </c:choose>
    <%--<jsp:include page="../footer.jspx"/>--%>
+                                  <c:choose>
+                                    <c:when test ="${not empty count}">
+                                        <div>
+                                            <ul class="pagination">
+                                                <c:forEach var="i" begin="0" end="${count-1}" >
+                                                    <c:choose>
+                                                        <c:when test="${pageId == i}">
+                                                            <li class="active">  <a  href="${pageContext.request.contextPath}/lecturer/viewcourses?pageId=${i}">${i+1}</a></li>
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                            <li>  <a class="" href="${pageContext.request.contextPath}/lecturer/viewcourses?pageId=${i}">${i+1}</a> </li>
+                                                            </c:otherwise>
+                                                        </c:choose>
+                                                    </c:forEach>
+                                            </ul>
+                                        </div>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <form action ="${pageContext.request.contextPath}/lecturer/viewcourses?pageId=0">            
+                                            <br/>
+                                            <button type="submit" class="btn btn-primary">Back</button> 
+                                        </form>
+                                        
+                                    </c:otherwise>
+                                </c:choose>  
   </div>
  </body>
 
-    </body>
+  
 </html>

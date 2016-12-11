@@ -70,7 +70,7 @@ public class LecturerController {
 //       v.addObject("enroledcourses", enrolDao.findAll());
 //        v.addObject("courses",courseDao.findAll());
      //   v.addObject("lecturer",l);
-             ModelAndView v = new ModelAndView("/lecturer/gradeACourse");
+         ModelAndView v = new ModelAndView("/lecturer/gradeACourse");
         String pageId = req.getParameter("pageId");
         int pId = 0;
         if (pageId != null && !pageId.equals("")) {
@@ -96,32 +96,100 @@ public class LecturerController {
     
     
      @RequestMapping("/viewperformance")
-    public ModelAndView viewPerformance()
+    public ModelAndView viewPerformance(HttpServletRequest req)
     {
  
-        ModelAndView v = new ModelAndView("/lecturer/viewAStudentPerformance");
-        v.addObject("enroledcourses", enrolDao.findAll());
-         v.addObject("courses",courseDao.findAll());
-        return v;
+//        ModelAndView v = new ModelAndView("/lecturer/viewAStudentPerformance");
+//        v.addObject("enroledcourses", enrolDao.findAll());
+//         v.addObject("courses",courseDao.findAll());
+//        return v;
+        
+      ModelAndView v = new ModelAndView("/lecturer/viewAStudentPerformance");
+        String pageId = req.getParameter("pageId");
+        int pId = 0;
+        if (pageId != null && !pageId.equals("")) {
+            pId = Integer.parseInt(pageId);
+            v.addObject("pageId", pId);
+        }
+        PageRequest prEnrol = new PageRequest(pId,10);
+        int sizeEnrol = enrolDao.findAll().size();
+        int countEnrol = sizeEnrol / 10+ (sizeEnrol % 10 == 0 ? 0 : 1);
+        Page<EnroledCourse> pgEnrol = enrolDao.findAll(prEnrol);
+        
+        PageRequest pr = new PageRequest(pId, 5);
+        int size = courseDao.findAll().size();
+        int count = size / 5 + (size % 5 == 0 ? 0 : 1);
+        Page<Course> pg = courseDao.findAll(pr);
+        
+        v.addObject("enroledcourses", pgEnrol.getContent());
+        v.addObject("courses",courseDao.findAll());
+      //  v.addObject("count", count);
+        v.addObject("countEnrol", countEnrol);
+        return v;   
     }
     
     @RequestMapping("/viewenrolment")
-    public ModelAndView viewEnrollment()
+    public ModelAndView viewEnrollment(HttpServletRequest req)
     { 
-        ModelAndView v = new ModelAndView("/lecturer/viewCourseEnrolment");
-        v.addObject("enroledcourses", enrolDao.findAll());
-         v.addObject("courses",courseDao.findAll());
-        return v;
+//        ModelAndView v = new ModelAndView("/lecturer/viewCourseEnrolment");
+//        v.addObject("enroledcourses", enrolDao.findAll());
+//         v.addObject("courses",courseDao.findAll());
+//        return v;
+        
+         ModelAndView v = new ModelAndView("/lecturer/viewCourseEnrolment");
+        String pageId = req.getParameter("pageId");
+        int pId = 0;
+        if (pageId != null && !pageId.equals("")) {
+            pId = Integer.parseInt(pageId);
+            v.addObject("pageId", pId);
+        }
+        PageRequest prEnrol = new PageRequest(pId,10);
+        int sizeEnrol = enrolDao.findAll().size();
+        int countEnrol = sizeEnrol / 10+ (sizeEnrol % 10 == 0 ? 0 : 1);
+        Page<EnroledCourse> pgEnrol = enrolDao.findAll(prEnrol);
+        
+        PageRequest pr = new PageRequest(pId, 5);
+        int size = courseDao.findAll().size();
+        int count = size / 5 + (size % 5 == 0 ? 0 : 1);
+        Page<Course> pg = courseDao.findAll(pr);
+        
+        v.addObject("enroledcourses", pgEnrol.getContent());
+        v.addObject("courses",courseDao.findAll());
+      //  v.addObject("count", count);
+        v.addObject("countEnrol", countEnrol);
+        return v;   
     }
     
     @RequestMapping("/viewcourses")
-    public ModelAndView viewCoursesTaught()
+    public ModelAndView viewCoursesTaught(HttpServletRequest req)
     {
  
-        ModelAndView v = new ModelAndView("/lecturer/viewCourseTaught");
-        v.addObject("courses", courseDao.findAll());
-         
-        return v;
+//        ModelAndView v = new ModelAndView("/lecturer/viewCourseTaught");
+//        v.addObject("courses", courseDao.findAll());
+//         
+//        return v;
+                 ModelAndView v = new ModelAndView("/lecturer/viewCourseTaught");
+        String pageId = req.getParameter("pageId");
+        int pId = 0;
+        if (pageId != null && !pageId.equals("")) {
+            pId = Integer.parseInt(pageId);
+            v.addObject("pageId", pId);
+        }
+        PageRequest prEnrol = new PageRequest(pId,10);
+        int sizeEnrol = enrolDao.findAll().size();
+        int countEnrol = sizeEnrol / 10+ (sizeEnrol % 10 == 0 ? 0 : 1);
+        Page<EnroledCourse> pgEnrol = enrolDao.findAll(prEnrol);
+        
+        PageRequest pr = new PageRequest(pId, 5);
+        int size = courseDao.findAll().size();
+        int count = size / 5 + (size % 5 == 0 ? 0 : 1);
+        Page<Course> pg = courseDao.findAll(pr);
+        
+        //v.addObject("enroledcourses", pgEnrol.getContent());
+        v.addObject("courses",pg.getContent());
+        v.addObject("count", count);
+        //v.addObject("countEnrol", countEnrol);
+        return v;   
     }
     
     private ModelAndView getDebug(String Message) {

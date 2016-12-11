@@ -26,7 +26,7 @@
                     <option name="${course.courseId}" value="${course.courseId}">${course.name} </option>
                 </c:forEach>
             </select>         
-            <input type="submit" value="FILTER" class="btn-success">
+            <input type="submit" value="FILTER" class="btn-primary">
         </form>
                     
         <form method="post" action="#"><%--need the url of controller--%>
@@ -63,7 +63,33 @@
                 </td>
             </tr>             
         </table>  
-              
-        </form>
+                    </form>
+                                 <c:choose>
+                                    <c:when test ="${not empty countEnrol}">
+                                        <div>
+                                            <ul class="pagination">
+                                                <c:forEach var="i" begin="0" end="${countEnrol-1}" >
+                                                    <c:choose>
+                                                        <c:when test="${pageId == i}">
+                                                            <li class="active">  <a  href="${pageContext.request.contextPath}/lecturer/viewenrolment?pageId=${i}">${i+1}</a></li>
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                            <li>  <a class="" href="${pageContext.request.contextPath}/lecturer/viewenrolment?pageId=${i}">${i+1}</a> </li>
+                                                            </c:otherwise>
+                                                        </c:choose>
+                                                    </c:forEach>
+                                            </ul>
+                                        </div>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <form action ="${pageContext.request.contextPath}/lecturer/viewenrolment?pageId=0">            
+                                            <br/>
+                                            <button type="submit" class="btn btn-primary">Back</button> 
+                                        </form>
+                                        
+                                    </c:otherwise>
+                                </c:choose>   
+            
+
     </body>
 </html>
