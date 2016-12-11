@@ -144,7 +144,7 @@ public class AdminController {
         s.setNric(studentNric);
         s.setUser(u);
         studentDao.save(s);
-        ModelAndView v = new ModelAndView("redirect:list");
+        ModelAndView v = new ModelAndView("redirect:../admin/student.list");
         // v.addObject("studentList", studentDao.findAll());
         return v;
     }
@@ -248,7 +248,7 @@ public class AdminController {
         l.setUser(user);
         lecDao.saveAndFlush(l);
 
-        ModelAndView v = new ModelAndView("redirect:list");
+        ModelAndView v = new ModelAndView("redirect:../admin/lecturer.list");
         return v;
     }
 
