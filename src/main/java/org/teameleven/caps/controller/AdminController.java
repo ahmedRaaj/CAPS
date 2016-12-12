@@ -36,6 +36,7 @@ import org.springframework.data.domain.Sort;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.teameleven.caps.business.Emailer;
 import org.teameleven.caps.repository.EnroledCourseRepository;
 import org.teameleven.caps.repository.UserRepository;
 
@@ -513,7 +514,9 @@ public class AdminController {
             EnroledCourse enroledCourse = enroledDao.findOne(enroledCoursePK);
             enroledCourse.setStatus(status);
             enroledDao.saveAndFlush(enroledCourse);
-            if(status == EnrollStatus.APPROVED.name()){
+            if(enroledCourse.getStatus().equals(EnrollStatus.APPROVED.name())){
+//               Emailer.sendEmail(studentDao.findOne(studentId));
+//              return getDebug(studentDao.findOne(studentId).getUser().getEmail());
             }
 
             String pageId=req.getParameter("pageId");
