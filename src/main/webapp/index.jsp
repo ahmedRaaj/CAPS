@@ -27,9 +27,9 @@
         }
          body {
 
-            background: url("${pageContext.request.contextPath}/image/LoginBackground.jpg") no-repeat center center fixed;
-             -webkit-background-size: cover;
-             -moz-background-size: cover;
+            background: #000000;
+   background: -webkit-linear-gradient(to left,#000000,#434343);
+   background: linear-gradient(to left,#000000,#434343);
          }
 
 

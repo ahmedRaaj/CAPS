@@ -13,20 +13,20 @@
         <%
             String name = request.getParameter("Name");
         %>
-        <div class="tile-area fg-white tile-area-scheme-lightTeal " style="height: 100%; max-height: 100% !important;padding: 50px 0px 0px;">
+        <div class="tile-area fg-white tile-area-scheme-darkBlue " style="height: 100%; max-height: 100% !important;padding: 50px 0px 0px;">
             <h1 class="tile-area-title" style="padding-top: 13px;">Welcome ${user.firstName} </h1>
 
-            <div style="margin-left: 75%; padding: 0px 0px 0px;">
+            <div style="margin-left: 70%; padding: 0px 0px 0px;">
 
-                <button class="image-button icon-right bg-transparent fg-white bg-lightTeal bg-hover-dark no-border">
+                <button class="image-button icon-right bg-transparent fg-white bg-darkBlue bg-hover-darkBrown no-border">
                     <a href="../lecturer/profile">
                     <span class="sub-header no-margin text-light">${user.firstName} ${user.lastName}</span>                  
                     <span class="icon mif-user mif-3x"></span></a>
                 </button>
-                <button class="image-button fg-white bg-lightTeal bg-hover-darkBrown no-border">
+                <button class="image-button fg-white bg-darkBlue bg-hover-darkBlue no-border">
                     <a href="../login/logout">
                         <span class="icon mif-lock"></span>
-                         <span class="sub-header no-margin text-light">Log out</span>
+                         <span class="sub-header no-margin text-light"></span>
                     </a>
                 </button>
 

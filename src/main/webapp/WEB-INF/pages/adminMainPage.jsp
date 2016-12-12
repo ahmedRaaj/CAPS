@@ -12,7 +12,7 @@
         <title>ISS</title>
     <body>
   
-    <div class="tile-area fg-white tile-area-scheme-lightBlue " style="height: 100%; max-height: 100% !important;padding: 50px 0px 0px;">
+    <div class="tile-area fg-white tile-area-scheme-darkBlue " style="height: 100%; max-height: 100% !important;padding: 50px 0px 0px;">
 
 
         <h1 class="tile-area-title" style="padding-top: 13px;"> Welcome, ${admin} </h1>
@@ -23,7 +23,7 @@
                 <span class="sub-header no-margin text-light">${admin}</span>
                 <span class="icon mif-user mif-3x"></span>
             </button>-->
-            <button class="image-button fg-white bg-lightBlue bg-hover-darkBrown no-border">
+            <button class="image-button fg-white bg-darkBlue bg-hover-darkBrown no-border">
                <a href="../login/logout"> <span class="icon mif-lock"></span>
                 <span class="sub-header no-margin text-light">Log out</span>
                 </a>
