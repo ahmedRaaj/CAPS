@@ -27,6 +27,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "users")
+<<<<<<< HEAD
 @NamedQueries({
     @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u")
     , @NamedQuery(name = "User.findByUserId", query = "SELECT u FROM User u WHERE u.userId = :userId")
@@ -41,6 +42,22 @@ import javax.persistence.TemporalType;
     , @NamedQuery(name = "User.findByLastName", query = "SELECT u FROM User u WHERE u.lastName = :lastName")
     , @NamedQuery(name = "User.findByDob", query = "SELECT u FROM User u WHERE u.dob = :dob")
     , @NamedQuery(name = "User.findByGender", query = "SELECT u FROM User u WHERE u.gender = :gender")})
+=======
+//@NamedQueries({
+//    @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u")
+//    , @NamedQuery(name = "User.findByUserId", query = "SELECT u FROM User u WHERE u.userId = :userId")
+//    , @NamedQuery(name = "User.findByAddress", query = "SELECT u FROM User u WHERE u.address = :address")
+//    , @NamedQuery(name = "User.findByEmail", query = "SELECT u FROM User u WHERE u.email = :email")
+//    , @NamedQuery(name = "User.findByPassword", query = "SELECT u FROM User u WHERE u.password = :password")
+//    , @NamedQuery(name = "User.findByPhone", query = "SELECT u FROM User u WHERE u.phone = :phone")
+//    , @NamedQuery(name = "User.findByRole", query = "SELECT u FROM User u WHERE u.role = :role")
+//    , @NamedQuery(name = "User.findByStatus", query = "SELECT u FROM User u WHERE u.status = :status")
+//    , @NamedQuery(name = "User.findByUserName", query = "SELECT u FROM User u WHERE u.userName = :userName")
+//    , @NamedQuery(name = "User.findByFirstName", query = "SELECT u FROM User u WHERE u.firstName = :firstName")
+//    , @NamedQuery(name = "User.findByLastName", query = "SELECT u FROM User u WHERE u.lastName = :lastName")
+//    , @NamedQuery(name = "User.findByDob", query = "SELECT u FROM User u WHERE u.dob = :dob")
+//    , @NamedQuery(name = "User.findByGender", query = "SELECT u FROM User u WHERE u.gender = :gender")})
+>>>>>>> backup
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -68,7 +85,11 @@ public class User implements Serializable {
     @Column(name = "last_name")
     private String lastName;
     @Column(name = "dob")
+<<<<<<< HEAD
     @Temporal(TemporalType.TIMESTAMP)
+=======
+    @Temporal(TemporalType.DATE)
+>>>>>>> backup
     private Date dob;
     @Column(name = "gender")
     private String gender;
@@ -164,6 +185,7 @@ public class User implements Serializable {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+<<<<<<< HEAD
     }
 
     public Date getDob() {
@@ -202,6 +224,46 @@ public class User implements Serializable {
         return admin;
     }
 
+=======
+    }
+
+    public Date getDob() {
+        return dob;
+    }
+
+    public void setDob(Date dob) {
+        this.dob = dob;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public Lecturer getLecturer() {
+        return lecturer;
+    }
+
+    public void setLecturer(Lecturer lecturer) {
+        this.lecturer = lecturer;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    public Admin getAdmin() {
+        return admin;
+    }
+
+>>>>>>> backup
     public void setAdmin(Admin admin) {
         this.admin = admin;
     }
@@ -229,6 +291,13 @@ public class User implements Serializable {
     @Override
     public String toString() {
         return "org.caps.model.User[ userId=" + userId + " ]";
+<<<<<<< HEAD
+=======
+    }
+
+  public  String getSearchHash() {
+         return (this.getFirstName()+this.getLastName()+this.getGender()+this.getAddress()+this.email+this.status).toLowerCase();
+>>>>>>> backup
     }
     
 }

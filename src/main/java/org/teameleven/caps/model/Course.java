@@ -30,6 +30,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "courses")
+<<<<<<< HEAD
 @NamedQueries({
     @NamedQuery(name = "Course.findAll", query = "SELECT c FROM Course c")
     , @NamedQuery(name = "Course.findByCourseId", query = "SELECT c FROM Course c WHERE c.courseId = :courseId")
@@ -37,6 +38,15 @@ import javax.persistence.TemporalType;
     , @NamedQuery(name = "Course.findByCredits", query = "SELECT c FROM Course c WHERE c.credits = :credits")
     , @NamedQuery(name = "Course.findByDuration", query = "SELECT c FROM Course c WHERE c.duration = :duration")
     , @NamedQuery(name = "Course.findByName", query = "SELECT c FROM Course c WHERE c.name = :name")})
+=======
+//@NamedQueries({
+//    @NamedQuery(name = "Course.findAll", query = "SELECT c FROM Course c")
+//    , @NamedQuery(name = "Course.findByCourseId", query = "SELECT c FROM Course c WHERE c.courseId = :courseId")
+//    , @NamedQuery(name = "Course.findByCourseSize", query = "SELECT c FROM Course c WHERE c.courseSize = :courseSize")
+//    , @NamedQuery(name = "Course.findByCredits", query = "SELECT c FROM Course c WHERE c.credits = :credits")
+//    , @NamedQuery(name = "Course.findByDuration", query = "SELECT c FROM Course c WHERE c.duration = :duration")
+//    , @NamedQuery(name = "Course.findByName", query = "SELECT c FROM Course c WHERE c.name = :name")})
+>>>>>>> backup
 public class Course implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -55,7 +65,11 @@ public class Course implements Serializable {
     private String name;
     @JoinColumn(name = "lecturers_lecturerId", referencedColumnName = "lecturerId")
     @ManyToOne
+<<<<<<< HEAD
     private Lecturer lecturerslecturerId;
+=======
+    private Lecturer lecturer;
+>>>>>>> backup
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "course")
     private List<EnroledCourse> enroledCourseList;
 
@@ -106,12 +120,12 @@ public class Course implements Serializable {
         this.name = name;
     }
 
-    public Lecturer getLecturerslecturerId() {
-        return lecturerslecturerId;
+    public Lecturer getLecturer() {
+        return lecturer;
     }
 
-    public void setLecturerslecturerId(Lecturer lecturerslecturerId) {
-        this.lecturerslecturerId = lecturerslecturerId;
+    public void setLecturer(Lecturer lecturer) {
+        this.lecturer = lecturer;
     }
 
     public List<EnroledCourse> getEnroledCourseList() {
@@ -147,4 +161,7 @@ public class Course implements Serializable {
         return "org.caps.model.Course[ courseId=" + courseId + " ]";
     }
     
+     public String getSearchHash(){
+        return (this.name+this.lecturer.getUser().getFirstName()+this.credits).toLowerCase();
+    }
 }

@@ -7,6 +7,7 @@ package org.teameleven.caps.model;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,10 +25,17 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "admins")
+<<<<<<< HEAD
 @NamedQueries({
     @NamedQuery(name = "Admin.findAll", query = "SELECT a FROM Admin a")
     , @NamedQuery(name = "Admin.findByAdminId", query = "SELECT a FROM Admin a WHERE a.adminId = :adminId")
     , @NamedQuery(name = "Admin.findByPosition", query = "SELECT a FROM Admin a WHERE a.position = :position")})
+=======
+//@NamedQueries({
+//    @NamedQuery(name = "Admin.findAll", query = "SELECT a FROM Admin a")
+//    , @NamedQuery(name = "Admin.findByAdminId", query = "SELECT a FROM Admin a WHERE a.adminId = :adminId")
+//    , @NamedQuery(name = "Admin.findByPosition", query = "SELECT a FROM Admin a WHERE a.position = :position")})
+>>>>>>> backup
 public class Admin implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -39,7 +47,11 @@ public class Admin implements Serializable {
     @Column(name = "position")
     private String position;
     @JoinColumn(name = "user_userId", referencedColumnName = "userId")
+<<<<<<< HEAD
     @OneToOne(optional = false)
+=======
+    @OneToOne(optional = false,cascade = CascadeType.ALL)
+>>>>>>> backup
     private User user;
 
     public Admin() {
@@ -96,6 +108,11 @@ public class Admin implements Serializable {
     @Override
     public String toString() {
         return "org.caps.model.Admin[ adminId=" + adminId + " ]";
+<<<<<<< HEAD
+=======
     }
-    
+     public String getSearchHash(){
+        return (this.user.getSearchHash()+this.position).toLowerCase();
+>>>>>>> backup
+    }
 }

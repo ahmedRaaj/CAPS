@@ -1,12 +1,14 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="Caps:war exploded">
-    <output-path>$PROJECT_DIR$/target/Caps-0.0.1-SNAPSHOT</output-path>
+    <output-path>$PROJECT_DIR$/classes/artifacts/Caps_war_exploded</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="Caps" />
         </element>
         <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/camel-web-standalone-2.0-M3.jar" />
+          <element id="library" level="project" name="javax.mail:mail:1.4" />
           <element id="library" level="project" name="Maven: org.springframework:spring-web:4.2.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.2.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.2.6.RELEASE" />
@@ -34,7 +36,6 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-test:4.2.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.dbunit:dbunit:2.5.0" />
           <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.1" />
-          <element id="library" level="project" name="Maven: javax.servlet:servlet-api:2.5" />
           <element id="library" level="project" name="Maven: org.hibernate:hibernate-entitymanager:5.1.0.Final" />
           <element id="library" level="project" name="Maven: org.hibernate:hibernate-core:5.1.0.Final" />
           <element id="library" level="project" name="Maven: antlr:antlr:2.7.7" />
@@ -52,10 +53,10 @@
           <element id="library" level="project" name="Maven: ch.qos.logback:logback-classic:1.1.3" />
           <element id="library" level="project" name="Maven: ch.qos.logback:logback-core:1.1.3" />
           <element id="library" level="project" name="Maven: opensymphony:sitemesh:2.4.2" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/mail-1.4.jar" />
+          <element id="library" level="project" name="cactus:cactus.core.framework.uberjar.javaEE.15:1.8.0" />
+          <element id="library" level="project" name="org.springframework:spring-beans:4.3.4.RELEASE" />
         </element>
-      </element>
-      <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/target/Caps-0.0.1-SNAPSHOT/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="Caps/web/Web" />
     </root>

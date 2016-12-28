@@ -19,13 +19,13 @@ DROP TABLE IF EXISTS `CAPS`.`users` ;
 
 CREATE TABLE IF NOT EXISTS `CAPS`.`users` (
   `userId` INT(11) NOT NULL AUTO_INCREMENT,
-  `address` VARCHAR(255) NULL DEFAULT NULL,
-  `email` VARCHAR(255) NULL DEFAULT NULL,
+  `userName` VARCHAR(255) NULL DEFAULT NULL,
   `password` VARCHAR(255) NULL DEFAULT NULL,
-  `phone` VARCHAR(255) NULL DEFAULT NULL,
   `role` VARCHAR(255) NULL DEFAULT NULL,
   `status` VARCHAR(255) NULL DEFAULT NULL,
-  `userName` VARCHAR(255) NULL DEFAULT NULL,
+  `email` VARCHAR(255) NULL DEFAULT NULL,
+  `phone` VARCHAR(255) NULL DEFAULT NULL,
+  `address` VARCHAR(255) NULL DEFAULT NULL,
   `first_name` VARCHAR(45) NULL,
   `last_name` VARCHAR(45) NULL,
   `dob` DATETIME NULL,
@@ -108,8 +108,8 @@ DROP TABLE IF EXISTS `CAPS`.`students` ;
 
 CREATE TABLE IF NOT EXISTS `CAPS`.`students` (
   `studentId` INT(11) NOT NULL AUTO_INCREMENT,
-  `citizenship` VARCHAR(255) NULL DEFAULT NULL,
   `nric` VARCHAR(255) NULL DEFAULT NULL,
+  `citizenship` VARCHAR(255) NULL DEFAULT NULL,
   `user_userId` INT(11) NOT NULL,
   PRIMARY KEY (`studentId`),
   INDEX `fk_students_users1_idx` (`user_userId` ASC),
@@ -130,18 +130,18 @@ DEFAULT CHARACTER SET = utf8;
 DROP TABLE IF EXISTS `CAPS`.`enroled_courses` ;
 
 CREATE TABLE IF NOT EXISTS `CAPS`.`enroled_courses` (
-  `endingDate` VARCHAR(255) NULL DEFAULT NULL,
-  `gradePoint` VARCHAR(255) NULL DEFAULT NULL,
-  `startingDate` VARCHAR(255) NULL DEFAULT NULL,
-  `status` VARCHAR(255) NULL DEFAULT NULL,
   `students_studentId` INT(11) NOT NULL,
   `courses_courseId` INT(11) NOT NULL,
+  `startingDate` VARCHAR(255) NULL DEFAULT NULL,
+  `endingDate` VARCHAR(255) NULL DEFAULT NULL,
+  `gradePoint` VARCHAR(255) NULL DEFAULT NULL,
+  `status` VARCHAR(255) NULL DEFAULT NULL,
   PRIMARY KEY (`students_studentId`, `courses_courseId`),
-  INDEX `FK_enroled_courses_courses_courseId` (`courses_courseId` ASC),
+  INDEX `FK_enrolled_courses_courses_courseId` (`courses_courseId` ASC),
   CONSTRAINT `FK_enroled_courses_courses_courseId`
     FOREIGN KEY (`courses_courseId`)
     REFERENCES `CAPS`.`courses` (`courseId`),
-  CONSTRAINT `FK_enroled_courses_students_studentId`
+  CONSTRAINT `FK_enrolled_courses_students_studentId`
     FOREIGN KEY (`students_studentId`)
     REFERENCES `CAPS`.`students` (`studentId`))
 ENGINE = InnoDB
@@ -152,3 +152,7 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
+insert into users 
+(username, password, role, status, email, phone, address, first_name, last_name, dob, gender)
+values
+('admin1', 'password', 'admin', 'active', 'admin1@u.nus.edu', '12345678', 'Block 5, 01-25, Some Nice Street, 234568', 'admin', 'Sah', str_to_date('4-11-1980', '%d-%m-%Y'), 'Female');

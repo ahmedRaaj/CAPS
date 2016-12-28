@@ -27,11 +27,19 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "students")
+<<<<<<< HEAD
 @NamedQueries({
     @NamedQuery(name = "Student.findAll", query = "SELECT s FROM Student s")
     , @NamedQuery(name = "Student.findByStudentId", query = "SELECT s FROM Student s WHERE s.studentId = :studentId")
     , @NamedQuery(name = "Student.findByCitizenship", query = "SELECT s FROM Student s WHERE s.citizenship = :citizenship")
     , @NamedQuery(name = "Student.findByNric", query = "SELECT s FROM Student s WHERE s.nric = :nric")})
+=======
+//@NamedQueries({
+//    @NamedQuery(name = "Student.findAll", query = "SELECT s FROM Student s")
+//    , @NamedQuery(name = "Student.findByStudentId", query = "SELECT s FROM Student s WHERE s.studentId = :studentId")
+//    , @NamedQuery(name = "Student.findByCitizenship", query = "SELECT s FROM Student s WHERE s.citizenship = :citizenship")
+//    , @NamedQuery(name = "Student.findByNric", query = "SELECT s FROM Student s WHERE s.nric = :nric")})
+>>>>>>> backup
 public class Student implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -47,7 +55,11 @@ public class Student implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "student")
     private List<EnroledCourse> enroledCourseList;
     @JoinColumn(name = "user_userId", referencedColumnName = "userId")
+<<<<<<< HEAD
     @OneToOne(optional = false)
+=======
+    @OneToOne(optional = false,cascade = CascadeType.ALL)
+>>>>>>> backup
     private User user;
 
     public Student() {
@@ -120,6 +132,13 @@ public class Student implements Serializable {
     @Override
     public String toString() {
         return "org.caps.model.Student[ studentId=" + studentId + " ]";
+<<<<<<< HEAD
+=======
+    }
+    
+    public String getSearchHash(){
+        return (this.user.getSearchHash()+this.citizenship+this.nric).toLowerCase();
+>>>>>>> backup
     }
     
 }

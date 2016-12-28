@@ -7,12 +7,12 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>Caps Maven Webapp</name>
     <url>http://maven.apache.org</url>
-  
+
     <properties>
         <jdk.version>1.8</jdk.version>
         <spring.version>4.2.6.RELEASE</spring.version>
         <spring-security.version>4.1.0.RELEASE</spring-security.version>
-        <spring-data-jpa.version>1.10.0.RELEASE</spring-data-jpa.version>
+        <spring-data-jpa.version>1.10.2.RELEASE</spring-data-jpa.version>
         <servlet.version>2.5</servlet.version>
         <hibernate.version>5.1.0.Final</hibernate.version>
         <hibernate-validator.version>5.2.4.Final</hibernate-validator.version>
@@ -129,11 +129,24 @@
             <artifactId>logback-classic</artifactId>
             <version>${logback.version}</version>
         </dependency>
-                
+
         <dependency>
             <groupId>javax.servlet.jsp</groupId>
-            <artifactId>jsp-api</artifactId>
-            <version>2.0</version>
+            <artifactId>javax.servlet.jsp-api</artifactId>
+            <version>2.3.2-b01</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>javax.servlet.jsp-api</artifactId>
+            <version>2.3.2-b01</version>
+            <scope>provided</scope>
         </dependency>
 
         <!-- Site Mesh -->
@@ -143,6 +156,22 @@
             <version>${sitemesh.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -181,6 +210,6 @@
 
     </build>
 
-  
-  
+
+
 </project>

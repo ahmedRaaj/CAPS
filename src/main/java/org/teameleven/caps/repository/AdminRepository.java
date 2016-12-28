@@ -5,13 +5,18 @@
  */
 package org.teameleven.caps.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.teameleven.caps.model.Admin;
+import java.util.List;
+import org.springframework.data.jpa.repository.*;
+import org.springframework.data.repository.query.Param;
+import org.teameleven.caps.model.*;
 
 /**
  *
  * @author ahmedraaj
  */
+
 public interface AdminRepository extends JpaRepository<Admin, Integer> {
+    
+
     
 }

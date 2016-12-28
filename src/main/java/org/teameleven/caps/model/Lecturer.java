@@ -29,12 +29,21 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "lecturers")
+<<<<<<< HEAD
 @NamedQueries({
     @NamedQuery(name = "Lecturer.findAll", query = "SELECT l FROM Lecturer l")
     , @NamedQuery(name = "Lecturer.findByLecturerId", query = "SELECT l FROM Lecturer l WHERE l.lecturerId = :lecturerId")
     , @NamedQuery(name = "Lecturer.findByEndDate", query = "SELECT l FROM Lecturer l WHERE l.endDate = :endDate")
     , @NamedQuery(name = "Lecturer.findByPosition", query = "SELECT l FROM Lecturer l WHERE l.position = :position")
     , @NamedQuery(name = "Lecturer.findByStartDate", query = "SELECT l FROM Lecturer l WHERE l.startDate = :startDate")})
+=======
+//@NamedQueries({
+//    @NamedQuery(name = "Lecturer.findAll", query = "SELECT l FROM Lecturer l")
+//    , @NamedQuery(name = "Lecturer.findByLecturerId", query = "SELECT l FROM Lecturer l WHERE l.lecturerId = :lecturerId")
+//    , @NamedQuery(name = "Lecturer.findByEndDate", query = "SELECT l FROM Lecturer l WHERE l.endDate = :endDate")
+//    , @NamedQuery(name = "Lecturer.findByPosition", query = "SELECT l FROM Lecturer l WHERE l.position = :position")
+//    , @NamedQuery(name = "Lecturer.findByStartDate", query = "SELECT l FROM Lecturer l WHERE l.startDate = :startDate")})
+>>>>>>> backup
 public class Lecturer implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -44,17 +53,26 @@ public class Lecturer implements Serializable {
     @Column(name = "lecturerId")
     private Integer lecturerId;
     @Column(name = "endDate")
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date endDate;
     @Column(name = "position")
     private String position;
     @Column(name = "startDate")
+<<<<<<< HEAD
     @Temporal(TemporalType.TIMESTAMP)
     private Date startDate;
     @OneToMany(mappedBy = "lecturerslecturerId")
     private List<Course> courseList;
     @JoinColumn(name = "user_userId", referencedColumnName = "userId")
     @OneToOne(optional = false)
+=======
+    @Temporal(TemporalType.DATE)
+    private Date startDate;
+    @OneToMany(mappedBy = "lecturer")
+    private List<Course> courseList;
+    @JoinColumn(name = "user_userId", referencedColumnName = "userId")
+    @OneToOne(optional = false,cascade = CascadeType.ALL)
+>>>>>>> backup
     private User user;
 
     public Lecturer() {
@@ -90,6 +108,7 @@ public class Lecturer implements Serializable {
 
     public Date getStartDate() {
         return startDate;
+<<<<<<< HEAD
     }
 
     public void setStartDate(Date startDate) {
@@ -108,6 +127,26 @@ public class Lecturer implements Serializable {
         return user;
     }
 
+=======
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public List<Course> getCourseList() {
+        return courseList;
+    }
+
+    public void setCourseList(List<Course> courseList) {
+        this.courseList = courseList;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+>>>>>>> backup
     public void setUser(User user) {
         this.user = user;
     }
@@ -135,6 +174,13 @@ public class Lecturer implements Serializable {
     @Override
     public String toString() {
         return "org.caps.model.Lecturer[ lecturerId=" + lecturerId + " ]";
+<<<<<<< HEAD
+=======
+    }
+    
+     public String getSearchHash(){
+        return (this.user.getSearchHash()+this.position).toLowerCase();
+>>>>>>> backup
     }
     
 }

@@ -27,6 +27,8 @@ import org.springframework.web.servlet.view.JstlView;
 import javax.annotation.Resource;
 import javax.sql.DataSource;
 import java.util.Properties;
+
+import org.teameleven.caps.business.StudentRoleInterceptor;
 @Configuration
 @EnableWebMvc
 @EnableTransactionManagement
@@ -44,6 +46,7 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
 	private static final String PROPERTY_NAME_HIBERNATE_DIALECT = "hibernate.dialect";
 	private static final String PROPERTY_NAME_HIBERNATE_SHOW_SQL = "hibernate.show_sql";
 	private static final String PROPERTY_NAME_ENTITYMANAGER_PACKAGES_TO_SCAN = "entitymanager.packages.to.scan";
+        private static final String   PROPERTY_NAME_HIBERNET_MERGE="hibernate.event.merge.entity_copy_observer";
 
 	@Resource
 	private Environment env;
@@ -84,6 +87,7 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
 				env.getRequiredProperty(PROPERTY_NAME_HIBERNATE_DIALECT));
 		properties.put(PROPERTY_NAME_HIBERNATE_SHOW_SQL,
 				env.getRequiredProperty(PROPERTY_NAME_HIBERNATE_SHOW_SQL));
+                properties.put(PROPERTY_NAME_HIBERNET_MERGE, env.getRequiredProperty(PROPERTY_NAME_HIBERNET_MERGE));
 		return properties;
 	}
 
@@ -139,6 +143,10 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
 		LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
 		localeChangeInterceptor.setParamName("lang");
 		registry.addInterceptor(localeChangeInterceptor);
+                StudentRoleInterceptor sI = new StudentRoleInterceptor();
+
+                registry.addInterceptor(sI).addPathPatterns("/admin/*","/student/*","/lecturer/*");
+
 	}
 
 	@Bean
