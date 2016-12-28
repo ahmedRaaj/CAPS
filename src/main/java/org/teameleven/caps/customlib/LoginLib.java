@@ -13,7 +13,6 @@ public class LoginLib extends SimpleTagSupport {
     public void doTag() throws JspException, IOException {
 
         JspWriter out = getJspContext().getOut();
-       
         out.println("<form action=\"/login/auth\" method=\"post\" id=\"LoginForm\" role=\"form\" >"+"<div class=\"glassbg \" style=\"margin-top:100px;\">" +
                 "  <div class=\"modal-title\" style=\"padding-left:10px;margin-left:5px;\">" +
                 "    <h2 style=\"color: rgba(108,124,255,0.85)\" > Login</h2>" +
